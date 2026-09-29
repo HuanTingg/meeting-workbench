@@ -23,7 +23,8 @@ export const columnNames = {username:'登录账号',member_id:'成员编号',rol
 const qi = v => '`' + v.replaceAll('`','``') + '`';
 export function connectionOptions(value) {
   const u=new URL(value);
-  if(u.protocol!=='mysql:' || !['127.0.0.1','localhost','[::1]'].includes(u.hostname))throw Error('数据库必须是本机 MySQL');
+  const allowed=['127.0.0.1','localhost','[::1]',process.env.MYSQL_ALLOWED_HOST].filter(Boolean);
+  if(u.protocol!=='mysql:' || !allowed.includes(u.hostname))throw Error('数据库地址未获允许；容器部署需设置 MYSQL_ALLOWED_HOST');
   return {host:u.hostname,port:Number(u.port||3306),user:decodeURIComponent(u.username),password:decodeURIComponent(u.password),charset:'utf8mb4',connectTimeout:10000};
 }
 export async function createSchema(connection) {

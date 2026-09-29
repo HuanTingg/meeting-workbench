@@ -1,0 +1,28 @@
+name: Verify deployment
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      COMPOSE_TEST_PROJECT: meeting-smoke-ci
+      MEETING_HTTP_PORT: '18765'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: node scripts/configure-docker.mjs
+      - run: docker compose --env-file .env.docker config --quiet
+      - run: docker compose --env-file .env.docker -p "$COMPOSE_TEST_PROJECT" up -d --build --wait --wait-timeout 180 db web
+      - run: node scripts/test-compose.mjs
+      - if: failure()
+        run: docker compose --env-file .env.docker -p "$COMPOSE_TEST_PROJECT" logs --tail 100 web db
+      - if: always()
+        run: docker compose --env-file .env.docker -p "$COMPOSE_TEST_PROJECT" down

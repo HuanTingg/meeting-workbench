@@ -18,3 +18,6 @@ public/
 # Original CRM archive is local reference, not this application
 /reference/
 
+
+/backups/
+

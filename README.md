@@ -1,60 +1,62 @@
-# 会议纪要 · 本地工作台
+# 会议纪要管理 · Meeting Workbench
 
-基于 04-CRM客户 的实际会议 Agent、审核界面、工作台布局及样式拆分，已接成独立本地网页。原 CRM 未改动，不连接其数据库。
+录音转写、AI 会议纪要与任务解析、成员待办、完成证明、钉钉与飞书通知。
 
-## 启动
+## 交给 AI 部署
 
-双击本目录的 **启动会议工作台.cmd**，打开 http://127.0.0.1:8765 。网页需使用成员账号登录；启动前需保证本机 MySQL 服务运行，数据库连接保存在 .env。本机已验证 Node.js 24，要求 Node.js 22 以上。首次运行安装构建依赖，后续无需下载。保留启动窗口，按 Ctrl+C 停止。
+把仓库链接和这段话发给能操作终端的 AI：
 
-命令行：在本目录依次执行 `npm.cmd ci`、`npm.cmd run build`、`npm.cmd start`。
+> 请部署这个仓库，先阅读 AGENTS.md 和 docs/部署指南.md。使用 Docker Compose 创建独立数据库和管理员，不覆盖现有配置或数据。验证健康状态和登录页后，提供访问地址与安全获取初始密码的方法。默认本机访问，需要录音时启用 speech。私有仓库先确认我的账号有访问权限。
 
-## 已接通
+## 快速启动
 
-- 工作台：真实会议/任务统计、成员工作量、负责人和逾期筛选、搜索、新增任务、完成/恢复任务、来源会议查看。
-- 会议 Agent：上传 Markdown/TXT 或录音、原文查看、录音播放和时间定位、AI解析、手动添加待办、保存草稿、分配负责人、审核发布、重复发布保护。
-- 账号管理：负责人分配账号、设置普通成员/负责人角色、重置密码、停用账号；成员可修改自己的密码。新建或重置密码后首次登录强制改密。
-- 普通成员仅可访问自己的待办；负责人查看所有待办。完成时可填写说明并选择上传一个不超过10MB的证明附件，也可直接完成。
-- 完成记录、完成时间和附件信息持久化保存，附件仅限任务本人或负责人下载；重新打开任务保留历史反馈。
-- 配置 AI 地址、模型、密钥并测试连接；配置转写服务地址和可选密钥。密钥不回显，换地址不复用旧密钥。
-- 正式配置及业务数据保存在本机 MySQL 的「会议纪要管理」数据库；录音/文字稿文件位于 data/uploads/。原 data/workspace.json 仅作为迁移源保留，不再参与正式运行。只监听 127.0.0.1。
-- 数据库连接与迁移说明见 docs/MySQL存储说明.md。
+安装并启动 Docker（Linux 容器）和 Git，然后执行：
 
-## 登录与账号
+```bash
+git clone https://github.com/HuanTingg/meeting-workbench.git
+cd meeting-workbench
+```
 
-首个负责人为周亮，账号 `zhouliang`，初始密码见 `data/负责人初始登录信息.txt`。首次登录修改密码后，进入成员管理为其他成员分配账号。详细说明见 [账号与完成证明](docs/账号与完成证明.md)。
+Windows PowerShell：
 
-## AI 与转写
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy.ps1
+```
 
-不配置 AI 也可上传文字稿，手动整理并发布任务。启用 AI 需填写兼容 Chat Completions 且支持 JSON 输出的服务。会议文字、日期、成员姓名/部门会发往该服务；匹配不明确时负责人留空，人工确认后发布。后端校验成员、日期和原文依据。
+Linux/macOS：
 
-录音转写已安装独立 FunASR 服务，地址 http://127.0.0.1:10097/v1 ，调用 /audio/transcriptions。运行环境在 .runtime/funasr-venv，四组模型在 .runtime/models；实际服务源码在 services/funasr。双击启动会议工作台.cmd 时会后台启动转写服务，也可单独运行启动录音转写.cmd。CRM 的 10096 服务保持独立。AI 或转写失败有明确提示，源文件和已转写内容保留；AI 重试复用文本。
+```bash
+sh scripts/deploy.sh
+```
 
-## 开发入口
+脚本自动生成独立密码、构建应用、启动 MySQL、建表并创建管理员。无需安装本机 Node/MySQL。打开 **http://localhost:8765**，在自己的终端读取初始账号：
 
-- app/server.mjs：独立服务、持久化与会议/任务/成员/配置接口。
-- app/meeting.ts：会议前端适配与解析状态。
-- app/ui.ts：工作台、成员、配置及公共交互。
-- app/index.html、app/local.css：页面外壳及适配样式。
-- shared/crm-styles.css：CRM 原始样式级联。
-- public：构建产物，由本地服务提供。
-- modules、reference/crm：原迁出基线，仅供追溯，不参与运行；原账号权限源码不在运行路径。
-- tests：临时独立目录中的回归测试。
+```bash
+docker compose --env-file .env.docker exec web cat /app/data/initial-admin.json
+```
 
-## 验证
+首次登录强制改密。重复部署不会重置账号和数据。文字稿与待办可直接使用；AI 和通知使用部署者自己的配置。
 
-npm.cmd run build 包含严格 TypeScript 检查；npm.cmd test 包含登录权限及原有业务回归测试，另有通过 MYSQL_TEST_ADMIN_URL 启用的真实 MySQL 集成测试，覆盖完整业务流程、持久化、重复发布、成员/日期/证据验证、密钥保护、AI失败重试、并发保护、音频范围请求及请求来源校验。模型响应使用测试替身，不代表真实服务质量验收。
+## 可选录音转写
 
-浏览器在独立临时库走通添加成员、上传文字稿、手动添加任务、负责人审核发布、工作台完成与刷新持久化；检查桌面和390px手机布局。截图在 output/playwright；测试数据未写入正式数据库。
+```bash
+docker compose --env-file .env.docker --profile speech up -d --build funasr
+```
 
-npm.cmd run verify:extraction 验证迁出基线完整性。不要重新运行 scripts/extract-crm.cjs 覆盖文件。原授权声明保留在 reference/crm。
+首次下载模型可能较慢。转写地址填 http://funasr:10097/v1，等待模型健康再上传录音。
 
-## 旧项目删除状态
+## 文档
 
-用户要求删除 F:\0-AI agent\02-会议纪要 全部旧代码、数据库、录音和模型，不备份。两次递归删除都被工具自动安全审核拦截（blocked by policy），因此旧目录仍在。未绕过拦截；新项目不依赖旧目录，可在资源管理器中手动删除旧目录。
+- [部署、验收、局域网访问、更新与备份](docs/部署指南.md)
+- [账号与完成证明](docs/账号与完成证明.md)
+- [飞书接入](docs/飞书接入说明.md)
+- [钉钉接入](docs/钉钉接入.md)
+- [MySQL 存储](docs/MySQL存储说明.md)
 
-## GitHub 源码范围
+## 开发
 
-仓库保留当前会议工作台的应用源码、必要的 modules/shared 资源、转写服务源码、测试与构建脚本。reference/crm 为本机原 CRM 追溯副本，不随仓库上传；verify:extraction 仅用于保留该副本的本地工作区。
+Node.js 22+：npm ci、npm run build、npm test。现有本地部署仍可使用 .env 和启动脚本；新环境推荐 Compose，完成空数据库与账号初始化。
 
-数据库、成员账号、接入密钥、录音、附件、模型及运行环境不包含在源码中。新环境需要自行配置 .env、MySQL 与 FunASR，安装依赖后运行构建。上文的账号和已安装服务描述仅对应原本机部署，不是仓库默认账号或自带服务。
+app 为当前应用，modules/meeting-agent/view.html 和 shared 是构建资源。reference 原 CRM 追溯副本不上传，verify:extraction 仅适用于保留该副本的本地工作区。
 
+仓库不包含真实账号、数据库、密钥、录音、附件和模型。增加部署脚本不会改变 GitHub 私有状态，其他人必须获得仓库访问权限。第三方代码和模型遵守各自许可证。
