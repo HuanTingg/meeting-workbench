@@ -1,0 +1,20 @@
+node_modules/
+.runtime/
+dist/
+.env
+.env.*
+!.env.example
+data/
+uploads/
+logs/
+__pycache__/
+
+# Local previews and generated artifacts
+output/
+.playwright-cli/
+public/
+*.pyc
+
+# Original CRM archive is local reference, not this application
+/reference/
+

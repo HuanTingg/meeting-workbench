@@ -1,0 +1,163 @@
+<div class="view active" id="dashboard">
+          <div class="page-head">
+            <div>
+              <h1>工作台</h1>
+            </div>
+            <div class="head-actions">
+              <button class="btn primary" id="beefDailyOpen" type="button">巴西牛肉日报</button>
+              <span class="badge green">实时行动快照</span>
+            </div>
+          </div>
+
+          <div class="scope-banner">
+            <span>当前账号：<b id="scopeUser">登录后加载</b> · 数据范围：<b id="scopeText">登录后按账号权限读取</b></span>
+            <span class="scope-tags"><span class="scope-tag" id="businessScopeTag">本人业务</span><span class="scope-tag personal" id="todoScopeTag">本人待办</span></span>
+          </div>
+
+          <div class="command-center customer-only">
+            <section class="panel focus-panel">
+              <div class="focus-title">
+                <h2>正在生成经营建议</h2>
+                <p></p>
+              </div>
+              <div class="briefing-why">
+                <div><b>判断依据</b><span id="briefingBasis">依据待办、客户状态和提醒时间生成。</span></div>
+                <div><b>建议动作</b><span id="briefingAction">先处理逾期提醒，再跟进意向客户。</span></div>
+                <div><b>业务影响</b><span id="briefingImpact">--</span></div>
+              </div>
+              <div class="focus-metrics">
+                <div class="focus-metric"><span>逾期待跟进客户</span><b>--</b><small>数据加载中</small></div>
+                <div class="focus-metric"><span>高优先级待办</span><b>--</b><small>数据加载中</small></div>
+                <div class="focus-metric"><span>意向客户</span><b>--</b><small>数据加载中</small></div>
+                <div class="focus-metric"><span>成交客户</span><b>--</b><small>数据加载中</small></div>
+              </div>
+            </section>
+
+          </div>
+
+          <div class="todo-board">
+            <section class="panel section">
+              <div class="section-head">
+                <div class="section-title"><span class="icon"><svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><path d="M21 12a9 9 0 1 1-9-9"/></svg></span><div><h2>待办清单 <span class="scope-tag personal">本人待办</span></h2></div></div>
+                <div class="head-actions"><button class="btn">批量完成</button><button class="btn primary">新增待办</button></div>
+              </div>
+              <div class="todo-toolbar">
+                <label class="quick-add">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+                  <input placeholder="快速新增：例如 明天 10 点跟进重点客户报价" />
+                </label>
+                <div class="todo-filters">
+	                  <span class="todo-chip active">今天 --</span><span class="todo-chip">逾期 --</span><span class="todo-chip">我负责 --</span><span class="todo-chip">客户跟进</span><span class="todo-chip">历史清单 --</span>
+                </div>
+              </div>
+              <div class="todo-list"><div class="todo-history-empty">待办数据加载中</div></div>
+	              <details class="todo-history">
+	                <summary class="todo-history-head">
+	                  <div><h3>历史清单</h3></div>
+	                  <div class="history-stats"><b id="todo-history-count">0 条</b><b id="todo-history-amount">¥0k</b></div>
+	                </summary>
+	                <div class="todo-history-list">
+	                  <div class="todo-history-empty">暂无隔天历史待办</div>
+	                </div>
+	              </details>
+	            </section>
+
+            <aside class="panel section">
+              <div class="section-head"><div class="section-title"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M8 17V9"/><path d="M13 17V5"/><path d="M18 17v-6"/></svg></span><div><h2>待办洞察</h2></div></div></div>
+              <div class="todo-insights">
+                <div class="todo-score">
+                  <div class="todo-score-card"><span>今日待办</span><b>--</b></div>
+                  <div class="todo-score-card"><span>已逾期</span><b style="color:var(--rose)">--</b></div>
+                  <div class="todo-score-card"><span>完成率</span><b>--</b></div>
+                  <div class="todo-score-card"><span>高影响</span><b>--</b></div>
+                </div>
+                <table class="mini-table">
+                  <thead><tr><th>类型</th><th>数量</th><th>风险</th></tr></thead>
+                  <tbody><tr><td colspan="3">数据加载中</td></tr></tbody>
+                </table>
+                <div class="todo-calendar"><div class="todo-day">加载中</div></div>
+              </div>
+            </aside>
+          </div>
+
+          <section class="panel section dashboard-data-board">
+            <div class="dashboard-data-board-head">
+              <div><h2>数据看板 <span class="scope-tag" data-business-scope>业务范围</span></h2><p id="dashboardBoardRange">按所选时间实时统计人员工作量与经营进度</p></div>
+              <div class="dashboard-board-filter">
+                <label><span>开始时间</span><input id="dashboardBoardStartDate" type="date"></label>
+                <label><span>结束时间</span><input id="dashboardBoardEndDate" type="date"></label>
+                <div class="dashboard-period-tabs" aria-label="工作台统计周期">
+                  <button type="button" class="active" data-dashboard-period="today" aria-pressed="true">今日</button>
+                  <button type="button" data-dashboard-period="week" aria-pressed="false">本周</button>
+                  <button type="button" data-dashboard-period="month" aria-pressed="false">本月</button>
+                </div>
+                <button class="btn" id="dashboardBoardFilterButton" type="button">筛选</button>
+                <button class="btn" id="dashboardBoardFilterResetButton" type="button">重置</button>
+                <button class="btn" id="dashboardOrderRefresh" type="button">刷新</button>
+              </div>
+            </div>
+            <div class="dashboard-board-tabs" role="tablist" aria-label="数据看板分类">
+              <button class="active" type="button" data-dashboard-board="tasks">任务达成</button>
+              <button type="button" data-dashboard-board="customers">客户总览</button>
+              <button type="button" data-dashboard-board="orders">订单总览</button>
+              <button type="button" data-dashboard-board="purchases">采购总览</button>
+              <button type="button" data-dashboard-board="outbound">出库总览</button>
+            </div>
+            <div class="dashboard-board-pane active" data-dashboard-board-pane="tasks">
+              <div class="dashboard-task-import" id="dashboardTaskManagerActions" hidden>
+                <span>按姓名导入销售金额和当月新增客户目标（均必填）；手动新增与导入新客户分别统计，重复导入不计数。</span>
+                <div><button class="btn" id="dashboardTaskTemplateButton" type="button">下载模板</button><button class="btn primary" id="dashboardTaskImportButton" type="button">导入任务</button></div>
+                <input id="dashboardTaskFileInput" type="file" accept=".xlsx,.xls,.csv" hidden>
+              </div>
+              <div class="dashboard-board-kpis" id="dashboardTaskActuals"></div>
+              <div class="dashboard-company-task" id="dashboardCompanyTaskSummary"></div>
+              <h3 class="dashboard-task-list-title">销售员销售任务完成情况</h3>
+              <div class="dashboard-task-grid" id="dashboardTaskRows"><div class="todo-history-empty">任务数据加载中</div></div>
+              <div class="dashboard-board-chart-grid dashboard-task-chart-grid"><article><header><b>销售员任务完成率</b><span>折线展示</span></header><div class="dashboard-board-chart" id="dashboardTaskCompareChart"></div></article><article><header><b>销售额贡献占比</b><span>按销售员姓名</span></header><div class="dashboard-board-chart" id="dashboardTaskShareChart"></div></article><article><header><b>销售目标与完成额</b><span>按姓名对比</span></header><div class="dashboard-board-chart" id="dashboardTaskActualChart"></div></article></div>
+              <h3 class="dashboard-task-list-title">月度新增客户任务 · 按所选月份累计</h3>
+              <div class="dashboard-board-kpis" id="dashboardCustomerTaskActuals"></div>
+              <div class="dashboard-task-grid" id="dashboardCustomerTaskRows"></div>
+              <div class="dashboard-board-chart-grid"><article><header><b>新增客户来源</b><span>按登记人分别统计</span></header><div class="dashboard-board-chart" id="dashboardCustomerTaskSourceChart"></div></article><article><header><b>新增客户数量完成率</b><span>月度进度与剩余任务见人员卡片</span></header><div class="dashboard-board-chart" id="dashboardCustomerTaskProgressChart"></div></article></div>
+            </div>
+            <div class="dashboard-board-pane" data-dashboard-board-pane="customers">
+              <div class="dashboard-board-kpis" id="dashboardCustomerKpis"></div>
+              <div class="dashboard-board-chart-grid"><article><header><b>业务员客户工作量</b><span>新增与跟进</span></header><div class="dashboard-board-chart" id="dashboardCustomerWorkChart"></div></article><article><header><b>业务员销售表现</b><span>订单金额</span></header><div class="dashboard-board-chart" id="dashboardCustomerSalesChart"></div></article><article><header><b>客户状态结构</b><span>普通、意向与成交</span></header><div class="dashboard-board-chart" id="dashboardCustomerStatusChart"></div></article><article><header><b>客户登记来源</b><span>导入与手动新增</span></header><div class="dashboard-board-chart" id="dashboardCustomerOriginChart"></div></article></div>
+            </div>
+            <div class="dashboard-board-pane" data-dashboard-board-pane="orders">
+              <div class="dashboard-order-stage-counts" id="dashboardOrderStageCounts"><span>订单数据加载中</span></div>
+              <div class="dashboard-board-kpis" id="dashboardOrderKpis"></div><div class="dashboard-board-chart-grid"><article><header><b>订单环节分布</b><span>当前流程位置</span></header><div class="dashboard-board-chart" id="dashboardOrderStageChart"></div></article><article><header><b>负责人销售额</b><span>按负责人汇总</span></header><div class="dashboard-board-chart" id="dashboardOrderOwnerChart"></div></article><article><header><b>各环节金额</b><span>业务链路金额</span></header><div class="dashboard-board-chart" id="dashboardOrderAmountChart"></div></article><article><header><b>订单关联完整度</b><span>采购与出库关联</span></header><div class="dashboard-board-chart" id="dashboardOrderLinkChart"></div></article></div>
+            </div>
+            <div class="dashboard-board-pane" data-dashboard-board-pane="purchases">
+              <div class="dashboard-board-kpis" id="dashboardPurchaseKpis"></div>
+              <div class="dashboard-board-chart-grid"><article><header><b>采购员采购金额</b><span>人员对比</span></header><div class="dashboard-board-chart" id="dashboardPurchaseOwnerAmountChart"></div></article><article><header><b>品名采购花费</b><span>按品名排名</span></header><div class="dashboard-board-chart" id="dashboardPurchaseProductAmountChart"></div></article><article><header><b>采购员采购重量</b><span>kg</span></header><div class="dashboard-board-chart" id="dashboardPurchaseWeightChart"></div></article><article><header><b>品名金额占比</b><span>采购结构</span></header><div class="dashboard-board-chart" id="dashboardPurchaseProductShareChart"></div></article></div>
+            </div>
+            <div class="dashboard-board-pane" data-dashboard-board-pane="outbound">
+              <div class="dashboard-board-kpis" id="dashboardOutboundKpis"></div>
+              <div class="dashboard-board-chart-grid"><article><header><b>负责人出库进度</b><span>待审批、运输中、已收货</span></header><div class="dashboard-board-chart" id="dashboardOutboundProgressChart"></div></article><article><header><b>负责人实际收款</b><span>按实收金额</span></header><div class="dashboard-board-chart" id="dashboardOutboundReceivedChart"></div></article><article><header><b>交付状态结构</b><span>出库完成情况</span></header><div class="dashboard-board-chart" id="dashboardOutboundStatusChart"></div></article><article><header><b>销售额与实收</b><span>回款对比</span></header><div class="dashboard-board-chart" id="dashboardOutboundMoneyChart"></div></article></div>
+            </div>
+          </section>
+
+          <div class="dashboard-grid">
+            <div class="panel section">
+              <div class="section-head">
+                <div class="section-title"><span class="icon"><svg viewBox="0 0 24 24"><path d="M12 8v5l3 3"/><circle cx="12" cy="12" r="10"/></svg></span><div><h2>跟进优先级队列 <span class="scope-tag" data-business-scope>业务范围</span></h2></div></div>
+                <button class="btn" id="batchPriorityButton">批量生成跟进待办</button>
+              </div>
+              <div class="task-list"><div class="todo-history-empty">跟进任务加载中</div></div>
+            </div>
+
+            <div class="panel section">
+              <div class="section-head">
+                <div class="section-title"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M7 6v12"/><path d="M17 6v12"/><path d="M3 18h18"/></svg></span><div><h2>客户状态概览 <span class="scope-tag" data-business-scope>业务范围</span></h2></div></div>
+              </div>
+              <div class="bars"><div class="todo-history-empty">客户状态加载中</div></div>
+            </div>
+          </div>
+
+          <style>
+            .dashboard-data-board{margin:16px 0}.dashboard-data-board-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px}.dashboard-data-board-head h2{margin:0;font-size:16px}.dashboard-data-board-head p{margin:5px 0 0;color:var(--muted);font-size:11px}.dashboard-board-filter{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}.dashboard-board-filter>span{color:var(--muted);font-size:10px}.dashboard-board-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:7px;background:#eef4f2;border-radius:10px;margin-bottom:14px}.dashboard-board-tabs button{height:42px;border:0;border-radius:8px;background:transparent;color:#52645f;font-weight:700;cursor:pointer}.dashboard-board-tabs button.active{background:#fff;color:var(--brand);box-shadow:0 3px 12px rgba(16,58,49,.1)}.dashboard-board-pane{display:none}.dashboard-board-pane.active{display:block}.dashboard-board-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:12px}.dashboard-board-kpis>div{padding:12px;border:1px solid var(--line);border-radius:9px;background:#fbfdfc}.dashboard-board-kpis span,.dashboard-board-kpis small{display:block;color:var(--muted);font-size:10px}.dashboard-board-kpis b{display:block;margin:5px 0;font-size:18px;color:#173d35}.dashboard-task-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.dashboard-task-card{padding:14px;border:1px solid var(--line);border-radius:10px;background:#fff}.dashboard-task-card header{display:flex;justify-content:space-between;gap:8px}.dashboard-task-card header b{font-size:13px}.dashboard-task-card header em{font-size:10px;font-style:normal;color:var(--brand)}.dashboard-task-values{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0}.dashboard-task-values span{font-size:9px;color:var(--muted)}.dashboard-task-values b{display:block;margin-top:3px;font-size:14px;color:#173d35}.dashboard-task-progress{height:7px;overflow:hidden;border-radius:99px;background:#e8efed}.dashboard-task-progress i{display:block;height:100%;border-radius:inherit;background:var(--brand)}.dashboard-task-card small{display:block;margin-top:7px;color:var(--muted);font-size:9px}.dashboard-board-subtitle{margin:14px 0 8px;font-size:12px;color:#38564f}.dashboard-order-stage-counts{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}.dashboard-order-stage-counts span{display:inline-flex;gap:6px;align-items:center;padding:6px 9px;border-radius:99px;background:#eef4f2;color:#52645f;font-size:10px}.dashboard-order-stage-counts b{color:var(--brand)}.dashboard-order-table-wrap{width:100%;overflow:auto;border:1px solid var(--line);border-radius:8px}.dashboard-order-table{width:100%;min-width:860px;border-collapse:collapse;font-size:11px}.dashboard-order-table th,.dashboard-order-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}.dashboard-order-table th{position:sticky;top:0;background:#eef4f2;color:#52645f;font-size:10px}.dashboard-order-table tbody tr:last-child td{border-bottom:0}.dashboard-order-table td:nth-child(4){max-width:220px;overflow:hidden;text-overflow:ellipsis}.dashboard-order-table .btn{height:28px;padding:0 8px;font-size:9px}@media(max-width:800px){.dashboard-data-board-head{display:block}.dashboard-board-filter{justify-content:flex-start;margin-top:10px}.dashboard-board-tabs{display:flex;overflow-x:auto}.dashboard-board-tabs button{min-width:110px}.dashboard-board-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-task-grid{grid-template-columns:1fr}}
+            .dashboard-data-board{margin:0}.dashboard-board-filter{align-items:flex-end}.dashboard-board-filter>label{display:grid;gap:3px;min-width:132px;color:var(--muted);font-size:9px}.dashboard-board-filter>label input{width:100%;height:34px;padding:0 8px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink);font:inherit;font-size:10px}.dashboard-board-filter>.btn{height:34px}.dashboard-task-import{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:13px;padding:11px 13px;border:1px solid #cfe1dc;border-radius:9px;background:#f3f8f6;color:#52645f;font-size:10px}.dashboard-task-import[hidden]{display:none!important}.dashboard-task-import>div{display:flex;gap:7px}.dashboard-board-kpis{gap:12px;margin-bottom:14px}.dashboard-board-kpis>div{padding:17px 18px;border-radius:10px;background:var(--surface);box-shadow:0 7px 20px rgba(15,40,34,.04)}.dashboard-board-kpis b{margin:8px 0 6px;font-size:25px;line-height:1;color:var(--ink)}.dashboard-company-task{margin-bottom:14px}.dashboard-company-task .dashboard-task-card{border-color:#9fc9bf;background:linear-gradient(135deg,#f2f9f7,#fff);box-shadow:0 9px 24px rgba(15,118,110,.08)}.dashboard-company-task .dashboard-task-card header b{font-size:15px}.dashboard-task-list-title{margin:0 0 9px;color:#38564f;font-size:12px}.dashboard-task-grid{grid-template-columns:repeat(3,minmax(260px,1fr));max-height:520px;overflow:auto;padding:1px 5px 5px 1px}.dashboard-task-card{padding:15px 16px;background:var(--surface);box-shadow:0 7px 20px rgba(15,40,34,.04)}.dashboard-task-progress i{background:linear-gradient(90deg,#0f766e,#20a68f)}.dashboard-board-chart-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.dashboard-task-chart-grid>article:last-child{grid-column:1/-1}.dashboard-board-chart-grid>article{min-width:0;padding:15px 16px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.dashboard-board-chart-grid header{display:flex;align-items:center;justify-content:space-between;gap:12px}.dashboard-board-chart-grid header b{font-size:14px}.dashboard-board-chart-grid header span{color:var(--muted);font-size:10px}.dashboard-board-chart{width:100%;height:250px}@media(max-width:1200px){.dashboard-task-grid{grid-template-columns:repeat(2,minmax(260px,1fr))}}@media(max-width:1100px){.dashboard-board-filter{flex-wrap:wrap}}@media(max-width:800px){.dashboard-board-chart-grid,.dashboard-task-grid{grid-template-columns:1fr}.dashboard-task-chart-grid>article:last-child{grid-column:auto}.dashboard-task-import{align-items:stretch;flex-direction:column}}
+            @media(min-width:801px){.dashboard-data-board-head{display:flex;align-items:flex-end;flex-wrap:wrap}.dashboard-data-board-head>div:first-child{flex:1 1 300px}.dashboard-board-filter{flex:0 1 auto;width:auto;margin-left:auto;justify-content:flex-end}}
+          </style>
+
+        </div>

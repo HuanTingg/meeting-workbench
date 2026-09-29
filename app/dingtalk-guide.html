@@ -1,0 +1,23 @@
+<div class="view" id="dingtalk-guide" hidden>
+  <div class="page-head"><div><h1>使用说明</h1><p>完成群机器人、企业应用与成员绑定，即可推送会议任务。</p></div></div>
+  <section class="panel local-settings ding-guide">
+    <h2>01 · 配置群通知</h2>
+    <p>在钉钉目标群打开「群设置 → 群管理 → 机器人」，添加自定义机器人。选择加签安全设置，复制 Webhook 与 SEC 开头的加签密钥。</p>
+    <p>进入「钉钉配置 → 接入配置」，填写群名称、Webhook 和加签密钥，开启群通知并保存。若机器人设置了关键词，这里的消息关键词需与之匹配。</p>
+    <a href="https://open.dingtalk.com/document/orgapp/custom-bot-creation-and-installation" target="_blank" rel="noopener noreferrer">查看官方机器人创建说明 ↗</a>
+    <h2>02 · 配置负责人通知</h2>
+    <p>请企业管理员或具备开发权限的人员，在钉钉开发者后台创建企业内部应用，获取 AppKey、AppSecret、AgentId。检查发送工作通知权限、应用可见范围及版本发布状态。</p>
+    <p>在「接入配置」填写上述三个值，开启负责人通知并保存。这种方式发送企业应用工作通知；群机器人本身不能给负责人单独发消息。</p>
+    <a href="https://open.dingtalk.com/document/orgapp/basic-concepts" target="_blank" rel="noopener noreferrer">查看应用凭证与身份说明 ↗</a>
+    <h2>03 · 绑定成员</h2>
+    <p>在企业管理后台「通讯录 → 成员管理 → 员工详情」查看 UserId，然后进入本系统「成员管理」，点击对应成员的「绑定钉钉」。请使用企业内 UserId，不要填写姓名、手机号或 UnionId。</p>
+    <h2>04 · 测试与发布</h2>
+    <ol><li>先保存接入配置，再发送群测试通知。</li><li>选择已绑定的成员，发送个人测试通知，确认钉钉实际收到消息。</li><li>在「会议管理」上传会议资料，核对任务内容、负责人及截止时间后发布。</li><li>启用通知后，群里收到会议任务汇总，每位负责人只收到自己的任务。</li></ol>
+    <h2>发送记录怎么看</h2>
+    <p>「钉钉已受理」表示接口接收成功，不代表送达或已读。明确失败可在修正配置后重试；结果不确定时，先在钉钉核实是否已收到，避免重复发送。</p>
+    <p>更换群或接收人后，旧目标的记录不能直接重试；超长内容需要拆分会议任务后处理。</p>
+    <h2>使用范围</h2>
+    <ul><li>仅通知启用后新发布的会议任务，不补发历史会议，手动新增待办暂不自动通知。</li><li>电脑和本地服务需要保持运行，并能访问钉钉接口；主动发送无需公网域名或内网穿透。</li><li>目前不接收群聊天、不支持通知卡片回写任务，也不提供钉钉扫码登录。</li><li>密钥直接填写在本地配置页，留空保留已保存的值。</li></ul>
+    <div class="local-actions"><button class="btn primary" data-nav="dingtalk">前往接入配置</button></div>
+  </section>
+</div>

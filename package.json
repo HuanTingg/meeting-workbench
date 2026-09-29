@@ -1,0 +1,23 @@
+{
+  "name": "meeting-workbench-source",
+  "version": "0.1.0",
+  "private": true,
+  "description": "基于 CRM 会议 Agent 与工作台的独立本地网页",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "typescript": "5.7.3"
+  },
+  "scripts": {
+    "verify:extraction": "node scripts/verify-extraction.cjs",
+    "build": "tsc --noEmit --moduleResolution node --target ES2022 --lib DOM,DOM.Iterable,ES2022 --strict app/ui.ts app/meeting.ts app/dingtalk-ui.ts app/feishu-ui.ts app/accounts-ui.ts && node scripts/build.cjs",
+    "start": "node app/server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "db:migrate": "node scripts/migrate-mysql.mjs",
+    "db:chinese": "node scripts/migrate-chinese.mjs"
+  },
+  "dependencies": {
+    "mysql2": "^3.24.4"
+  }
+}

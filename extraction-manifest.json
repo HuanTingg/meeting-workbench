@@ -1,0 +1,2448 @@
+{
+  "source": "F:\\0-AI agent\\04-CRM客户",
+  "extractedAt": "2026-09-28T01:50:46.776Z",
+  "files": [
+    {
+      "source": "frontend/src/business-order-print.ts",
+      "destination": "reference/crm/frontend/src/business-order-print.ts",
+      "sha256": "4b12c1639871c1df2a119d6b04f880f9082746d1704d7743291e5aa6e5e420d8"
+    },
+    {
+      "source": "frontend/src/customer-map.ts",
+      "destination": "reference/crm/frontend/src/customer-map.ts",
+      "sha256": "aa0b43b9b8aea3ba9b3259762a30af2decc6c07ad8ad18ac65dcdc989f49e675"
+    },
+    {
+      "source": "frontend/src/integrations/integration-api-test.ts",
+      "destination": "reference/crm/frontend/src/integrations/integration-api-test.ts",
+      "sha256": "fca2272f9ce5b0e57e4723d3e78893929119d25712f837473eaf8b72b6778f8d"
+    },
+    {
+      "source": "frontend/src/integrations/integration-api.ts",
+      "destination": "reference/crm/frontend/src/integrations/integration-api.ts",
+      "sha256": "d2b7c4fe0c3f02c1066cb1e3ff344bd0f8c8be214760cf9f0db073d2128e82ee"
+    },
+    {
+      "source": "frontend/src/integrations/integration-center.ts",
+      "destination": "reference/crm/frontend/src/integrations/integration-center.ts",
+      "sha256": "2aa63cca6c34ecfb1f6bedf8f16dc73a2001e4c0f6be69bd7ae518e930eb525a"
+    },
+    {
+      "source": "frontend/src/integrations/local-runner-center.ts",
+      "destination": "reference/crm/frontend/src/integrations/local-runner-center.ts",
+      "sha256": "5633aad39dbe668b4f764f847efbe1c4549feb7175dc5de691bc197f8344a76e"
+    },
+    {
+      "source": "frontend/src/lead-ai-search.ts",
+      "destination": "reference/crm/frontend/src/lead-ai-search.ts",
+      "sha256": "f6807dd0c160006c16d6f4edd145fec0f3a891444416bb91d8a6824bdd407a47"
+    },
+    {
+      "source": "frontend/src/lead-source-selection.ts",
+      "destination": "reference/crm/frontend/src/lead-source-selection.ts",
+      "sha256": "77006218a4c0ca808690fc5a510213d7cecad7cc1a551ca6d1d5f75b514dfadc"
+    },
+    {
+      "source": "frontend/src/mysql-dump-import-test.ts",
+      "destination": "reference/crm/frontend/src/mysql-dump-import-test.ts",
+      "sha256": "b7e5d2da0c53e83c69a21d6cd4df62f65f01827314251466ab40008d74f87bf9"
+    },
+    {
+      "source": "frontend/src/mysql-dump-import.ts",
+      "destination": "reference/crm/frontend/src/mysql-dump-import.ts",
+      "sha256": "0fd4e42dc908fe703a92960b348b54ed861095052c4076a191b5106d3e415c81"
+    },
+    {
+      "source": "frontend/src/planet.ts",
+      "destination": "reference/crm/frontend/src/planet.ts",
+      "sha256": "82566747890b64adf1c44877c3bc1c5764c777dcf04c4e1dc1d84a59a2b4ca9c"
+    },
+    {
+      "source": "frontend/src/prospect-radar.ts",
+      "destination": "reference/crm/frontend/src/prospect-radar.ts",
+      "sha256": "6da08206b454a1c3132c96daad1b902cd6dd265a4832c3a826b1fa7968f80ad2"
+    },
+    {
+      "source": "frontend/src/prototype-api.ts",
+      "destination": "reference/crm/frontend/src/prototype-api.ts",
+      "sha256": "d493389d8aeaaaab04415d5f1645c7af98e778827c3a84e54a3fefee36837bc6"
+    },
+    {
+      "source": "frontend/src/self-test.ts",
+      "destination": "reference/crm/frontend/src/self-test.ts",
+      "sha256": "07940ee3ad79e8cd3708ae4b8e8efeecb1409c0c35b0d9393a4e043b16903553"
+    },
+    {
+      "source": "frontend/src/todo-navigation-test.ts",
+      "destination": "reference/crm/frontend/src/todo-navigation-test.ts",
+      "sha256": "fcdf35bfae6b8e32dbe43f07da02cf79dfc74e1e29e166b19657d78357383569"
+    },
+    {
+      "source": "frontend/src/todo-navigation.ts",
+      "destination": "reference/crm/frontend/src/todo-navigation.ts",
+      "sha256": "0a0a70597b0009d74e2ee8d16497b042f09f0ebbb1a0c3c27b1498b8ea09b78c"
+    },
+    {
+      "source": "frontend/src/vehicle-plate.ts",
+      "destination": "reference/crm/frontend/src/vehicle-plate.ts",
+      "sha256": "1ece397f1c2b5e46a4e4afc989be21b117c6fb1a54356f27707c221c512ce26a"
+    },
+    {
+      "source": "frontend/src/vite-env.d.ts",
+      "destination": "reference/crm/frontend/src/vite-env.d.ts",
+      "sha256": "424faf9241dd699dda995b367ed36665732da1e6ec1f33b2fd40394488ecac92"
+    },
+    {
+      "source": "backend/src/access-control-overview-test.ts",
+      "destination": "reference/crm/backend/src/access-control-overview-test.ts",
+      "sha256": "067c3624d5c167cb2aaaecc25271a5461209aa28a4e51c46c908e6afb5d52b40"
+    },
+    {
+      "source": "backend/src/access-control-overview.ts",
+      "destination": "reference/crm/backend/src/access-control-overview.ts",
+      "sha256": "fb352faeddf09aba7710ac04de283ebba23bd0d4b0ebbbcdc770e31413d64b53"
+    },
+    {
+      "source": "backend/src/advanced-document-templates.ts",
+      "destination": "reference/crm/backend/src/advanced-document-templates.ts",
+      "sha256": "c090a36dfd3bcbd7574677555720533674f6928be318b1299d40f26220feac0b"
+    },
+    {
+      "source": "backend/src/agent-api-contracts-test.ts",
+      "destination": "reference/crm/backend/src/agent-api-contracts-test.ts",
+      "sha256": "e3df3617e495b23319b095e2fc9d7550be255bf539724225518804724d48dd63"
+    },
+    {
+      "source": "backend/src/agent-api-contracts.ts",
+      "destination": "reference/crm/backend/src/agent-api-contracts.ts",
+      "sha256": "1fb8dd517aef240d2c8473286fb89258d04c847bc69e219110e62fddbd1e5ee6"
+    },
+    {
+      "source": "backend/src/agent-api-policy-test.ts",
+      "destination": "reference/crm/backend/src/agent-api-policy-test.ts",
+      "sha256": "8db085b6bb99a5fb0fc999c8394a3f8a1e0b4fda36ac205252dacbe116fcad3b"
+    },
+    {
+      "source": "backend/src/agent-api-policy.ts",
+      "destination": "reference/crm/backend/src/agent-api-policy.ts",
+      "sha256": "7ad1cfe1d6bb4a74332efe33e7d2f77fc0b9dbe22c6ae5973a062f195c1cbe62"
+    },
+    {
+      "source": "backend/src/agent-benchmark-test.ts",
+      "destination": "reference/crm/backend/src/agent-benchmark-test.ts",
+      "sha256": "6fb487e1d7b521b0e470c482af7facc691837f3bf6fa0c4445eed78fec4c5618"
+    },
+    {
+      "source": "backend/src/agent-benchmark.ts",
+      "destination": "reference/crm/backend/src/agent-benchmark.ts",
+      "sha256": "1a93536a9f1127cb0c5fb63a130d74278aa3cf06898af53e8b6dc72439fb38cd"
+    },
+    {
+      "source": "backend/src/agent-conversation-control-test.ts",
+      "destination": "reference/crm/backend/src/agent-conversation-control-test.ts",
+      "sha256": "c096a50e146e3aeae594c1c848a5937fb88e2b49672c17109b044e795be96936"
+    },
+    {
+      "source": "backend/src/agent-goal.ts",
+      "destination": "reference/crm/backend/src/agent-goal.ts",
+      "sha256": "c7299d6b6863c97ab7584ad132da864ffa537edde3efe345bf7871c9f05263a3"
+    },
+    {
+      "source": "backend/src/agent-intent-corpus-test.ts",
+      "destination": "reference/crm/backend/src/agent-intent-corpus-test.ts",
+      "sha256": "10e7fd453655f8fc20a0dcc1581103cf1cf10b5f06d81a5f36b350c18b4676d4"
+    },
+    {
+      "source": "backend/src/agent-intent-corpus.ts",
+      "destination": "reference/crm/backend/src/agent-intent-corpus.ts",
+      "sha256": "86fb85afce32ed0e5ef3087c19bfb8434589e82e1955ae18051fc79d7f39818d"
+    },
+    {
+      "source": "backend/src/agent-internal-http-test.ts",
+      "destination": "reference/crm/backend/src/agent-internal-http-test.ts",
+      "sha256": "df1600269294205ac100addf18955f82456eb04613b2e4e4126d0721086f99ff"
+    },
+    {
+      "source": "backend/src/agent-internal-http.ts",
+      "destination": "reference/crm/backend/src/agent-internal-http.ts",
+      "sha256": "f9675c3e35c743a495b7b4ef44143bce3dd050ecde47096e4e2d09a76eeef6eb"
+    },
+    {
+      "source": "backend/src/agent-job-security.ts",
+      "destination": "reference/crm/backend/src/agent-job-security.ts",
+      "sha256": "fb0b5e84f81a61019cd73bb3758bbe671301e8b8e61482db0e49568f503fdc16"
+    },
+    {
+      "source": "backend/src/agent-jobs.ts",
+      "destination": "reference/crm/backend/src/agent-jobs.ts",
+      "sha256": "663b6399a6eefccc6f60a5246c793e2dde88d9eae574b36a2cf24945d3cae464"
+    },
+    {
+      "source": "backend/src/agent-knowledge-test.ts",
+      "destination": "reference/crm/backend/src/agent-knowledge-test.ts",
+      "sha256": "88159b481efb2d8ee23acec7683879e9222f46f4ecd9685be99bea26fbf11f3b"
+    },
+    {
+      "source": "backend/src/agent-knowledge.ts",
+      "destination": "reference/crm/backend/src/agent-knowledge.ts",
+      "sha256": "78dc5cd967765a6c0f9fb02ac30da8ba4f236ba70ded16fdcdbbe12b3337fc74"
+    },
+    {
+      "source": "backend/src/agent-memory-test.ts",
+      "destination": "reference/crm/backend/src/agent-memory-test.ts",
+      "sha256": "f1e0dc9b466eed338a72041d1a0a8f8edbc14b59b73b7cb107380c206db10ec7"
+    },
+    {
+      "source": "backend/src/agent-memory.ts",
+      "destination": "reference/crm/backend/src/agent-memory.ts",
+      "sha256": "5981edc32315013a93e2eb8857e178d5f902be5de3c3d1df844e638b03fce7c2"
+    },
+    {
+      "source": "backend/src/agent-mission-state.ts",
+      "destination": "reference/crm/backend/src/agent-mission-state.ts",
+      "sha256": "917086401069767d206b0b973155a839b980a8346de940707358ae8cdf2b7a7c"
+    },
+    {
+      "source": "backend/src/agent-mission-verifier.ts",
+      "destination": "reference/crm/backend/src/agent-mission-verifier.ts",
+      "sha256": "33c8e460d029836f58a3f8fedc2305e6899693c26cada8ce132e50d81815102d"
+    },
+    {
+      "source": "backend/src/agent-model-governance-test.ts",
+      "destination": "reference/crm/backend/src/agent-model-governance-test.ts",
+      "sha256": "8b9febcb34b5c63ae6bd0f298014ed8dc803edeac68365c7a8e6ad23723ab47a"
+    },
+    {
+      "source": "backend/src/agent-model-governance.ts",
+      "destination": "reference/crm/backend/src/agent-model-governance.ts",
+      "sha256": "91097f07b4450a1d975eeb5408d1654f35ad613698e5258cb11bbf89e8109ad0"
+    },
+    {
+      "source": "backend/src/agent-recovery.ts",
+      "destination": "reference/crm/backend/src/agent-recovery.ts",
+      "sha256": "95bfee6ac1d7d1e7cfd003b8cf646e066e5213c147622d6b632993a61d3246f8"
+    },
+    {
+      "source": "backend/src/agent-runtime-architecture-test.ts",
+      "destination": "reference/crm/backend/src/agent-runtime-architecture-test.ts",
+      "sha256": "0764081fcfcdde2ec30d9320635a4a22b5acd00b90fccbe09cd632f688d08621"
+    },
+    {
+      "source": "backend/src/agent-skills-test.ts",
+      "destination": "reference/crm/backend/src/agent-skills-test.ts",
+      "sha256": "6bff0d5ac4fbe9ad7987a34c2d82dad1888a284eecd7aa99fb15412ea9d3c82e"
+    },
+    {
+      "source": "backend/src/agent-skills.ts",
+      "destination": "reference/crm/backend/src/agent-skills.ts",
+      "sha256": "5a4d57fa7e401a68f132bdc60df29336c2d83c914fd69ef38d08533083542e08"
+    },
+    {
+      "source": "backend/src/agent-triggers-test.ts",
+      "destination": "reference/crm/backend/src/agent-triggers-test.ts",
+      "sha256": "835114af2e6caf27d78871c3eb11e8d34d3d04dcac685d2cb59137f640b9ff2c"
+    },
+    {
+      "source": "backend/src/agent-triggers.ts",
+      "destination": "reference/crm/backend/src/agent-triggers.ts",
+      "sha256": "bab80c0b3821ea55e263ebada876986dde2b61d9645e45bcf1b51476a0ca80e8"
+    },
+    {
+      "source": "backend/src/agent-turn-decision-test.ts",
+      "destination": "reference/crm/backend/src/agent-turn-decision-test.ts",
+      "sha256": "e7681b88c35e6004dd21676589c553cbc525d771805ea752f2d3c4b695d96870"
+    },
+    {
+      "source": "backend/src/agent-turn-decision.ts",
+      "destination": "reference/crm/backend/src/agent-turn-decision.ts",
+      "sha256": "a9ad4d4b6f4cf813ef2776b2717f9a0af19dbd3f0c794da2cfcf7d3756bf131a"
+    },
+    {
+      "source": "backend/src/agent-workflow-test.ts",
+      "destination": "reference/crm/backend/src/agent-workflow-test.ts",
+      "sha256": "78fcc72bcd8e5f90d064f1e8724fa49484cfac328ff04a5b6a6ebacb2345e4e7"
+    },
+    {
+      "source": "backend/src/agent-workflow.ts",
+      "destination": "reference/crm/backend/src/agent-workflow.ts",
+      "sha256": "af61839a901bd0e9dd0fb7b7a09076c4777f738f9f50fe7d8589b6c208039f90"
+    },
+    {
+      "source": "backend/src/ai-agent-test.ts",
+      "destination": "reference/crm/backend/src/ai-agent-test.ts",
+      "sha256": "f0a9765ab2f1b779093786b7c8c7a663216c8892da78b5f93962329a20e58121"
+    },
+    {
+      "source": "backend/src/ai-agent.ts",
+      "destination": "reference/crm/backend/src/ai-agent.ts",
+      "sha256": "7bc230a6b6ae1f672304a3785b8964e89c5f7f54b9bd140a5928266dc3259eff"
+    },
+    {
+      "source": "backend/src/ai-distill-chat-candidates.ts",
+      "destination": "reference/crm/backend/src/ai-distill-chat-candidates.ts",
+      "sha256": "39871fedbefd06e6d91dd862c59de3be544f4cd88993d876549c6e28ce6c31ae"
+    },
+    {
+      "source": "backend/src/ai-http-security.ts",
+      "destination": "reference/crm/backend/src/ai-http-security.ts",
+      "sha256": "712fe6e3397d2f31d357072f3e21f8913d6021f29d5d7a79b59a5a33c42e9a97"
+    },
+    {
+      "source": "backend/src/ai-model-runtime-test.ts",
+      "destination": "reference/crm/backend/src/ai-model-runtime-test.ts",
+      "sha256": "42206eba7a28a781b3358b48a3f0908bd75167f040a17f57665d30e2e718a4f3"
+    },
+    {
+      "source": "backend/src/ai-model-runtime.ts",
+      "destination": "reference/crm/backend/src/ai-model-runtime.ts",
+      "sha256": "4814e4cf577704f35a433edef2d3c0339f6eb048c6b15c8f9d1e50704ca4442a"
+    },
+    {
+      "source": "backend/src/ai-search-provider.ts",
+      "destination": "reference/crm/backend/src/ai-search-provider.ts",
+      "sha256": "31e0dfb7ff75501bf3311f8ef4f8999c38f1a8d715bf37c78316ed2acf342967"
+    },
+    {
+      "source": "backend/src/ai-web-search-policy-test.ts",
+      "destination": "reference/crm/backend/src/ai-web-search-policy-test.ts",
+      "sha256": "2bd8c1ede6191234916ca891fe932a741eda7949635c934e856d6a64503558f7"
+    },
+    {
+      "source": "backend/src/ai-web-search-policy.ts",
+      "destination": "reference/crm/backend/src/ai-web-search-policy.ts",
+      "sha256": "fd0991d5565595b85c3f0a7be70dbc4d2d614a9ee820e437149466ff4d609257"
+    },
+    {
+      "source": "backend/src/assisted-source-providers.ts",
+      "destination": "reference/crm/backend/src/assisted-source-providers.ts",
+      "sha256": "6a21c2c39fe9c41eeb84d976ec538392f562e9da768564afc15d20c2be0c0e4c"
+    },
+    {
+      "source": "backend/src/auth.ts",
+      "destination": "reference/crm/backend/src/auth.ts",
+      "sha256": "6f238b0bf491447c8036ac13879cb5ca463785034c29aaa82d0bf5331038cb96"
+    },
+    {
+      "source": "backend/src/authorization-test.ts",
+      "destination": "reference/crm/backend/src/authorization-test.ts",
+      "sha256": "d07531e48572df023b059448fdb71cf4f7e590400cd8d72eee397222641bf2bb"
+    },
+    {
+      "source": "backend/src/authorization.ts",
+      "destination": "reference/crm/backend/src/authorization.ts",
+      "sha256": "768e70d35e8727259cc4d88930f3a3f20e3c9fd2e89f8c001931250fafcc6e5c"
+    },
+    {
+      "source": "backend/src/auto-updater-test.ts",
+      "destination": "reference/crm/backend/src/auto-updater-test.ts",
+      "sha256": "7de660369579afe8f47e7d849e24dcf06bed6a2b34362b98596ecae04a970fba"
+    },
+    {
+      "source": "backend/src/auto-updater.ts",
+      "destination": "reference/crm/backend/src/auto-updater.ts",
+      "sha256": "de14806a1c97ba6b37e0fcbde0c2d1e413e6a09f7b324fd3b9f14c510fd6960c"
+    },
+    {
+      "source": "backend/src/beef-daily-report-test.ts",
+      "destination": "reference/crm/backend/src/beef-daily-report-test.ts",
+      "sha256": "2a4d365f178edc3a627d46af9cea8b363319295eb1786b5399bfefd3444c66ff"
+    },
+    {
+      "source": "backend/src/beef-daily-report.ts",
+      "destination": "reference/crm/backend/src/beef-daily-report.ts",
+      "sha256": "0b40feb8eced65468dceeeca91ce1aef2173ed467848ccb0f85849f93fd0d1f3"
+    },
+    {
+      "source": "backend/src/business-card-ocr-test.ts",
+      "destination": "reference/crm/backend/src/business-card-ocr-test.ts",
+      "sha256": "6003bcaa8694a1652ecbc4c71be852c133b92b69512857f7dfe660a50729f81d"
+    },
+    {
+      "source": "backend/src/business-card-ocr.ts",
+      "destination": "reference/crm/backend/src/business-card-ocr.ts",
+      "sha256": "77f68c3ba51ee650d26db9df779134f599732e8b8208464ab6dfdc6dd06238b3"
+    },
+    {
+      "source": "backend/src/canonical-json.ts",
+      "destination": "reference/crm/backend/src/canonical-json.ts",
+      "sha256": "035e34abc9e134aee61a01366c45a486092d195725ff7d86c0ce1d68499ca9da"
+    },
+    {
+      "source": "backend/src/chinese-database-identifiers.ts",
+      "destination": "reference/crm/backend/src/chinese-database-identifiers.ts",
+      "sha256": "35e2ac9b20172969b6e5e4f810acc41cf2e32b4faecb6a530de7540ef47dc806"
+    },
+    {
+      "source": "backend/src/collaboration-test.ts",
+      "destination": "reference/crm/backend/src/collaboration-test.ts",
+      "sha256": "180baf0eb95b78b3533270e125b16771a5234926293f27d420c397800c439405"
+    },
+    {
+      "source": "backend/src/credential-security.ts",
+      "destination": "reference/crm/backend/src/credential-security.ts",
+      "sha256": "d136a2932a41f328b3fe24d1103791fe26c3e3528b727614a68a9f731a3f8f7d"
+    },
+    {
+      "source": "backend/src/customer-daily-target-http-test.ts",
+      "destination": "reference/crm/backend/src/customer-daily-target-http-test.ts",
+      "sha256": "c2d0a80039b94c2a81b26b3b596a6073c28a48f5cc70cba359fc638044de2d6e"
+    },
+    {
+      "source": "backend/src/customer-daily-target-test.ts",
+      "destination": "reference/crm/backend/src/customer-daily-target-test.ts",
+      "sha256": "637506945832e7619dea13b37cb283f53f209cf7cffd78a937b562fcff7b90d6"
+    },
+    {
+      "source": "backend/src/customer-daily-target.ts",
+      "destination": "reference/crm/backend/src/customer-daily-target.ts",
+      "sha256": "706f56de6b837c2a77350da9a0ceaec332a66aa6a34bcd46c5e1474db69b7822"
+    },
+    {
+      "source": "backend/src/customer-export-http-test.ts",
+      "destination": "reference/crm/backend/src/customer-export-http-test.ts",
+      "sha256": "c00031101e644231b11f01e49f6b4618bdf4af9c941cf8c5afa99f26f914b518"
+    },
+    {
+      "source": "backend/src/customer-intelligence-test.ts",
+      "destination": "reference/crm/backend/src/customer-intelligence-test.ts",
+      "sha256": "7137c33863572af070d81bb29b92c47981557ad10a877ae24f0a8e41efe11d25"
+    },
+    {
+      "source": "backend/src/customer-intelligence.ts",
+      "destination": "reference/crm/backend/src/customer-intelligence.ts",
+      "sha256": "8b7968372b54c49726200162cfb6a6ae0ee3f8cde7ed3663b3759103542d425f"
+    },
+    {
+      "source": "backend/src/customer-maintenance-test.ts",
+      "destination": "reference/crm/backend/src/customer-maintenance-test.ts",
+      "sha256": "2219b1b64ef86a90993a70e9a5d49317e9a1de2f61fc1530ee7736db55db5601"
+    },
+    {
+      "source": "backend/src/customer-maintenance.ts",
+      "destination": "reference/crm/backend/src/customer-maintenance.ts",
+      "sha256": "ca05a972c858db883af98338ff8f0fcbbbe3334963b1881276024a9ef91af462"
+    },
+    {
+      "source": "backend/src/customer-public-pool.ts",
+      "destination": "reference/crm/backend/src/customer-public-pool.ts",
+      "sha256": "8596f9c7dd0ee93fb96a133c9382681370d76a9de36c2fc3f5aabeb9b853dbb3"
+    },
+    {
+      "source": "backend/src/customs-export.ts",
+      "destination": "reference/crm/backend/src/customs-export.ts",
+      "sha256": "256008c3844e41cf8c6bf25eae1c34e34c72f0b80a1a0a60ba54f41e67cb0a20"
+    },
+    {
+      "source": "backend/src/data.ts",
+      "destination": "reference/crm/backend/src/data.ts",
+      "sha256": "a408df3e5c43e48dabd9774818a310d206fa035f0ab1580028e54abe5ef69be1"
+    },
+    {
+      "source": "backend/src/database-backup.ts",
+      "destination": "reference/crm/backend/src/database-backup.ts",
+      "sha256": "dd99599566d10e4f02d3a05aa7708d1a9a8d7fc472cf057f1ee271388855e68d"
+    },
+    {
+      "source": "backend/src/database-maintenance-mysql-test.ts",
+      "destination": "reference/crm/backend/src/database-maintenance-mysql-test.ts",
+      "sha256": "bb4c69329740a71b0ceffbcaca40100c9a4ad991ab519a7395e996510c000132"
+    },
+    {
+      "source": "backend/src/database-profile-test.ts",
+      "destination": "reference/crm/backend/src/database-profile-test.ts",
+      "sha256": "fa1a07f57a969649decd8c9ef573e6d54b45628579f7bc64500e35377bbd32bb"
+    },
+    {
+      "source": "backend/src/database-profile.ts",
+      "destination": "reference/crm/backend/src/database-profile.ts",
+      "sha256": "1d166a6a252da523f355f3d12b1a192be4da9c2dac320a6ad0367e529be5c761"
+    },
+    {
+      "source": "backend/src/development-email-draft-test.ts",
+      "destination": "reference/crm/backend/src/development-email-draft-test.ts",
+      "sha256": "8c604af8330a49b82bc9d4500a4ff3fdb0fc420bb614371761392bf70a5e1234"
+    },
+    {
+      "source": "backend/src/domestic-lead-sources-test.ts",
+      "destination": "reference/crm/backend/src/domestic-lead-sources-test.ts",
+      "sha256": "b2b9b78aae6f16b1bc38b336bc4f3e8bfb6ac217badae565eae37bfc50fb622a"
+    },
+    {
+      "source": "backend/src/email-delivery-security-test.ts",
+      "destination": "reference/crm/backend/src/email-delivery-security-test.ts",
+      "sha256": "a522df58aa28d94e80221ce43104db4af1e2b5cd161e0573f30e07ceee8e1596"
+    },
+    {
+      "source": "backend/src/email-touchpoints.ts",
+      "destination": "reference/crm/backend/src/email-touchpoints.ts",
+      "sha256": "a2fcaf8898dc2c2c499498af514e3703d64aede7337043c51061cff24bbf5de9"
+    },
+    {
+      "source": "backend/src/email-tracking.ts",
+      "destination": "reference/crm/backend/src/email-tracking.ts",
+      "sha256": "bb83f7e9b351ec5f833b478f58dcf868e107193c22d070514c6fffdc85d9a2ae"
+    },
+    {
+      "source": "backend/src/eu-ted-provider.ts",
+      "destination": "reference/crm/backend/src/eu-ted-provider.ts",
+      "sha256": "918411d9eef4cf86159de1e66dbe33849f1613a3a40eeac8aef261f82c7768f7"
+    },
+    {
+      "source": "backend/src/eurostat-comext-provider-test.ts",
+      "destination": "reference/crm/backend/src/eurostat-comext-provider-test.ts",
+      "sha256": "4fe342b002e0bb369cec56d654bc514f22940ffe666488ef6b5a0a2e6df0de76"
+    },
+    {
+      "source": "backend/src/eurostat-comext-provider.ts",
+      "destination": "reference/crm/backend/src/eurostat-comext-provider.ts",
+      "sha256": "71069584d2eac511b4b2656d9bab4286767396cacdde85aebcfbf41174a9bf86"
+    },
+    {
+      "source": "backend/src/exam-system-test.ts",
+      "destination": "reference/crm/backend/src/exam-system-test.ts",
+      "sha256": "2ee43f9cf7482556bb6b5a8415d2bfe1e92130978dc51d7971e4e5c9a44bc7cc"
+    },
+    {
+      "source": "backend/src/excel-preview.ts",
+      "destination": "reference/crm/backend/src/excel-preview.ts",
+      "sha256": "8acf184d605aba43727aa5d8121fdcd95af4ddeb21acc363712de9188a9866dc"
+    },
+    {
+      "source": "backend/src/google-places-provider-test.ts",
+      "destination": "reference/crm/backend/src/google-places-provider-test.ts",
+      "sha256": "528f91108effdf2ff17b8621190e5a616f89075645c47cdcae7035bddcb74708"
+    },
+    {
+      "source": "backend/src/iam/approval-graph.ts",
+      "destination": "reference/crm/backend/src/iam/approval-graph.ts",
+      "sha256": "fde315388ec2805fbef40b6c34df55ac4e66f7e7001ae05d379d462d223c4432"
+    },
+    {
+      "source": "backend/src/iam/approval-service-test.ts",
+      "destination": "reference/crm/backend/src/iam/approval-service-test.ts",
+      "sha256": "fa4bfa45b69577e2c3f15b00d82b302bdeec215f3787aa6ad7c86000e2426f08"
+    },
+    {
+      "source": "backend/src/iam/approval-service.ts",
+      "destination": "reference/crm/backend/src/iam/approval-service.ts",
+      "sha256": "1ccee481f5534350df6617aa7421f0d5f29c21144b18ad2cbc3694419a43c7c1"
+    },
+    {
+      "source": "backend/src/iam/custom-role-authorization-test.ts",
+      "destination": "reference/crm/backend/src/iam/custom-role-authorization-test.ts",
+      "sha256": "1536479d1422657f68057f43a3f1822d08825b3bf0df2cdaaef639153d593885"
+    },
+    {
+      "source": "backend/src/iam/iam-authorization-engine-test.ts",
+      "destination": "reference/crm/backend/src/iam/iam-authorization-engine-test.ts",
+      "sha256": "579d8beb0e4fa65f4932149fdfc09e5aa49b49c4adfa9c75dc6af31b9b4d2928"
+    },
+    {
+      "source": "backend/src/iam/iam-authorization-engine.ts",
+      "destination": "reference/crm/backend/src/iam/iam-authorization-engine.ts",
+      "sha256": "3cc017dbf38fe6b506d5efbd365dddfc9db84fe3d5980ee7b93e4bf02adc110e"
+    },
+    {
+      "source": "backend/src/iam/iam-business-tenant-migration.ts",
+      "destination": "reference/crm/backend/src/iam/iam-business-tenant-migration.ts",
+      "sha256": "91aceb6c383009dbe782c80591de0cb31935f42ab3c10c0338d60a98b588da6f"
+    },
+    {
+      "source": "backend/src/iam/iam-capabilities-test.ts",
+      "destination": "reference/crm/backend/src/iam/iam-capabilities-test.ts",
+      "sha256": "e034add9ebda4dd70feb8429e704a017b68d62fb76ffb9760198ce43a19162f3"
+    },
+    {
+      "source": "backend/src/iam/iam-capabilities.ts",
+      "destination": "reference/crm/backend/src/iam/iam-capabilities.ts",
+      "sha256": "45cfa2ffedc83c400e8533f01f60a3edea4616f787d090add80bc5691b803ad5"
+    },
+    {
+      "source": "backend/src/iam/iam-foundation-test.ts",
+      "destination": "reference/crm/backend/src/iam/iam-foundation-test.ts",
+      "sha256": "7f8be334d34d07f4c365bc7234897b951fad2b8a70672d76f56d98b477ae335b"
+    },
+    {
+      "source": "backend/src/iam/iam-foundation.ts",
+      "destination": "reference/crm/backend/src/iam/iam-foundation.ts",
+      "sha256": "74aa3c0ba9d5e1c8984b8fb3578d91099668d3c71e27fe8b92f498c6dd386143"
+    },
+    {
+      "source": "backend/src/iam/iam-management-service.ts",
+      "destination": "reference/crm/backend/src/iam/iam-management-service.ts",
+      "sha256": "ca86da455b05e0af0e6020943fb32973f858cf734211cb0271010159b3f71bee"
+    },
+    {
+      "source": "backend/src/iam/platform-mfa-test.ts",
+      "destination": "reference/crm/backend/src/iam/platform-mfa-test.ts",
+      "sha256": "a834110346f171b78603da8215f3b481b95c637cd6ca49016be9a49cdf80d669"
+    },
+    {
+      "source": "backend/src/iam/platform-mfa.ts",
+      "destination": "reference/crm/backend/src/iam/platform-mfa.ts",
+      "sha256": "90a79c295c643eaa59b2783bf59d361b702001cf18177e4d2a0f71b5066e403c"
+    },
+    {
+      "source": "backend/src/iam/platform-operations-service.ts",
+      "destination": "reference/crm/backend/src/iam/platform-operations-service.ts",
+      "sha256": "e3c89a9114a6f93caca8d9f7ef296eb7ba3cd4adaf0269c2b4a33dad898148bf"
+    },
+    {
+      "source": "backend/src/identity-authority-providers-test.ts",
+      "destination": "reference/crm/backend/src/identity-authority-providers-test.ts",
+      "sha256": "41c5c9fda5964cd9ed9fc7a19d00aafe44255e7dcde9fbf2be3890dbaebe6756"
+    },
+    {
+      "source": "backend/src/inbound-mail-watcher.ts",
+      "destination": "reference/crm/backend/src/inbound-mail-watcher.ts",
+      "sha256": "8ef4c5690374263a12b2f4185c6aa5c585a24fa187f40cb43f7c46f56771e32d"
+    },
+    {
+      "source": "backend/src/integrations/connector-catalog.ts",
+      "destination": "reference/crm/backend/src/integrations/connector-catalog.ts",
+      "sha256": "d3d685518f02710895dfe8f45ddee87ed28dc69e59f15dfa547895d38df95345"
+    },
+    {
+      "source": "backend/src/integrations/integration-api-token-service-test.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-api-token-service-test.ts",
+      "sha256": "307f8ee369c46973caf6858ceaf935ad4b78cad4322efe89db6ae12b87a41f39"
+    },
+    {
+      "source": "backend/src/integrations/integration-approval-service-test.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-approval-service-test.ts",
+      "sha256": "bfb474deda04b94bfffc8f900baaf710fc05f62609a8c69de81a5173dadb7aaf"
+    },
+    {
+      "source": "backend/src/integrations/integration-control-repository.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-control-repository.ts",
+      "sha256": "ba348b6fcd2cd8a5b54b049ec31aaa1071d59030a0839602292a947013940993"
+    },
+    {
+      "source": "backend/src/integrations/integration-credential-vault.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-credential-vault.ts",
+      "sha256": "423fd0c5f5865536ca3743ee54a417efa23e86f902b7e6519db597ee71cf2dd8"
+    },
+    {
+      "source": "backend/src/integrations/integration-errors.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-errors.ts",
+      "sha256": "ed980f36e4ef0d3ce117732e53dfbc3828f8ff3d0ad49836c3e57f1e3cd21357"
+    },
+    {
+      "source": "backend/src/integrations/integration-foundation-test.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-foundation-test.ts",
+      "sha256": "4cdfe7de19d940d04200bc61beec846a02cde6445c2f87fd160101756bfe9d5c"
+    },
+    {
+      "source": "backend/src/integrations/integration-http-routes-test.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-http-routes-test.ts",
+      "sha256": "4978a100d83fb345a64de31826c9c9628a3dd115ad0e3a9b3b99582ae2677341"
+    },
+    {
+      "source": "backend/src/integrations/integration-http-routes.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-http-routes.ts",
+      "sha256": "d9bfa286e9a1f487d44d4a91c2b5bda0a0e510fd64d19db59f4e697ae5ede37b"
+    },
+    {
+      "source": "backend/src/integrations/integration-mysql-schema.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-mysql-schema.ts",
+      "sha256": "347c206467d1f3be98a6310a4648d35a1b1ad5be8932afc293c55e569f2916de"
+    },
+    {
+      "source": "backend/src/integrations/integration-oauth-service-test.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-oauth-service-test.ts",
+      "sha256": "422a0681e7c859875d84f6e55f4789fdf72cd2ea461e2c29cdf606fdb09f0bed"
+    },
+    {
+      "source": "backend/src/integrations/integration-queue.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-queue.ts",
+      "sha256": "02816df141e3e55e0c9dcadd36bb543ad026a8da84ce3152f933ead0db11ddb0"
+    },
+    {
+      "source": "backend/src/integrations/integration-repository-test.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-repository-test.ts",
+      "sha256": "ee10d684a41bae58f313d5f0bfe8bb9f76c12b01ffb71f44b5ec6a3dd0808108"
+    },
+    {
+      "source": "backend/src/integrations/integration-repository.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-repository.ts",
+      "sha256": "3c58e4ac8db40f91fab612c9568f94620146ce82380f893884a219e3b7ef06b8"
+    },
+    {
+      "source": "backend/src/integrations/integration-runtime-config-test.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-runtime-config-test.ts",
+      "sha256": "7411e9f0454a5387bbc102d7c96e866b30a8f64d4a69587bf3fb2f43433f046b"
+    },
+    {
+      "source": "backend/src/integrations/integration-runtime-config.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-runtime-config.ts",
+      "sha256": "97dbaa8d993939bab7deddc804060cbdb9e69647c60b75fab1494ac323c93ee2"
+    },
+    {
+      "source": "backend/src/integrations/integration-runtime.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-runtime.ts",
+      "sha256": "d3482be5be2e02d659d31b0475ffbf5cdf206f1ed7ef346664155e4313d2bf8a"
+    },
+    {
+      "source": "backend/src/integrations/integration-service-test.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-service-test.ts",
+      "sha256": "be0da99a402d15d2a18a6b635b93bdfe865aa0e5d332b93ab642147fbd58b4db"
+    },
+    {
+      "source": "backend/src/integrations/integration-service.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-service.ts",
+      "sha256": "8271c260ad3299043de832cafb8cf75f349eb64cf7f58b756e68822094cb79c7"
+    },
+    {
+      "source": "backend/src/integrations/integration-types.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-types.ts",
+      "sha256": "a6145d408667ebea77f0c764091930e3c05843f0bc242613aa260c0939a85b06"
+    },
+    {
+      "source": "backend/src/integrations/integration-webhook-test.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-webhook-test.ts",
+      "sha256": "19f35fea30032df44abbb4594f491cb372eb3b646f42662b7b214045c55537b1"
+    },
+    {
+      "source": "backend/src/integrations/integration-webhook.ts",
+      "destination": "reference/crm/backend/src/integrations/integration-webhook.ts",
+      "sha256": "780071d952f37f0f7678020e21fbd9d645b2090f711b1e322062eb43cddb5c4b"
+    },
+    {
+      "source": "backend/src/integrations/local-runner-http-routes.ts",
+      "destination": "reference/crm/backend/src/integrations/local-runner-http-routes.ts",
+      "sha256": "40d259ea785236ef27024158a70304a21594a469901944fda14b0d8e5cf59a26"
+    },
+    {
+      "source": "backend/src/integrations/local-runner-mysql-test.ts",
+      "destination": "reference/crm/backend/src/integrations/local-runner-mysql-test.ts",
+      "sha256": "177bfe051f0fb0b24f8a77ddfbe71ce0f6a8f813140eec5c0b312f35429e886d"
+    },
+    {
+      "source": "backend/src/integrations/local-runner-repository.ts",
+      "destination": "reference/crm/backend/src/integrations/local-runner-repository.ts",
+      "sha256": "f35a5e606b8b32755a350aa4eef2b02adcede39594eb13a565b9fc829187c66f"
+    },
+    {
+      "source": "backend/src/integrations/local-runner-service.ts",
+      "destination": "reference/crm/backend/src/integrations/local-runner-service.ts",
+      "sha256": "9b09ddaf76767b3527a23be4ac9990750be5d7445dd7d82c499837b4953a7637"
+    },
+    {
+      "source": "backend/src/integrations/local-runner-types.ts",
+      "destination": "reference/crm/backend/src/integrations/local-runner-types.ts",
+      "sha256": "0b879d51efc5455d6ecfe08aa28a318818b3a394ca535c239c6057539a86a125"
+    },
+    {
+      "source": "backend/src/knowledge-assets-test.ts",
+      "destination": "reference/crm/backend/src/knowledge-assets-test.ts",
+      "sha256": "c25396024a38c26eb8b6d885102781d53c2d20fecac4b174352783fdbb78b3c7"
+    },
+    {
+      "source": "backend/src/lead-deletion-test.ts",
+      "destination": "reference/crm/backend/src/lead-deletion-test.ts",
+      "sha256": "5c10821b7ec6f9d7a1370860a378f6218aa3af39523d8b3d5f3b4c13ce329a84"
+    },
+    {
+      "source": "backend/src/lead-finder-launch-test.ts",
+      "destination": "reference/crm/backend/src/lead-finder-launch-test.ts",
+      "sha256": "3c2b595a33ae20686ab9bb05d00011fadf5e72135e52fbe2a5ff3763654e06b9"
+    },
+    {
+      "source": "backend/src/lead-finder-launch.ts",
+      "destination": "reference/crm/backend/src/lead-finder-launch.ts",
+      "sha256": "c96f2f100e5bcc15f55e785515734e2c7f9a1a6e756c307353cdd7425f313b92"
+    },
+    {
+      "source": "backend/src/lead-providers.ts",
+      "destination": "reference/crm/backend/src/lead-providers.ts",
+      "sha256": "e1bc26c74f9d37ad316900778136aabe7c7f8fac4f6e3782bd14a2cd5dc1362b"
+    },
+    {
+      "source": "backend/src/market-analysis-runs-test.ts",
+      "destination": "reference/crm/backend/src/market-analysis-runs-test.ts",
+      "sha256": "09654fd2649a3967c7a87e179a194f63140122fa0c61866077e4a01bbf85369e"
+    },
+    {
+      "source": "backend/src/market-analysis-runs.ts",
+      "destination": "reference/crm/backend/src/market-analysis-runs.ts",
+      "sha256": "67130f5634f907a385e4303f4648cdd2bdc7d5bb143b594127b6933a69a6a18f"
+    },
+    {
+      "source": "backend/src/market-opportunity-facts-test.ts",
+      "destination": "reference/crm/backend/src/market-opportunity-facts-test.ts",
+      "sha256": "5c5d6a8ae410d7ae7c45345c27f0da6b38978545f031708d1d7fb1caa2cd3295"
+    },
+    {
+      "source": "backend/src/market-opportunity-facts.ts",
+      "destination": "reference/crm/backend/src/market-opportunity-facts.ts",
+      "sha256": "314a688591abbd3bfa466886149ba36c4dbeac9e9a90037501c955998e97a849"
+    },
+    {
+      "source": "backend/src/market-opportunity-list-test.ts",
+      "destination": "reference/crm/backend/src/market-opportunity-list-test.ts",
+      "sha256": "88e7c777aadca893b2ea1f80f936e37bad7877c668a2af32089fa13aa69857d3"
+    },
+    {
+      "source": "backend/src/market-opportunity-list.ts",
+      "destination": "reference/crm/backend/src/market-opportunity-list.ts",
+      "sha256": "a70f1f2bc956f6ae003eb0e22f33058972bb2faf974a242b638cb1dd019b6f72"
+    },
+    {
+      "source": "backend/src/market-trade-observations-test.ts",
+      "destination": "reference/crm/backend/src/market-trade-observations-test.ts",
+      "sha256": "e1e22748d4790fce0d11ffcbc0f8b3a64784c2aba28450c85aba68199d0fc909"
+    },
+    {
+      "source": "backend/src/market-trade-observations.ts",
+      "destination": "reference/crm/backend/src/market-trade-observations.ts",
+      "sha256": "bb87156ba21f6d0c35c5e407feda4dbc29cdce16c2a7a169e2072aa005f94822"
+    },
+    {
+      "source": "backend/src/migrate-mysql.ts",
+      "destination": "reference/crm/backend/src/migrate-mysql.ts",
+      "sha256": "5fbd79ffc642e49fd6c2fece83d1354e5e511420b914d1119b924530ffa5c930"
+    },
+    {
+      "source": "backend/src/morning-meeting-transcription.ts",
+      "destination": "reference/crm/backend/src/morning-meeting-transcription.ts",
+      "sha256": "fc2cf95c654f5de4ad0c6a4b3db35f2cef6bcff7a9fc0648389f9a2fc63c9765"
+    },
+    {
+      "source": "backend/src/mysql-data-import-test.ts",
+      "destination": "reference/crm/backend/src/mysql-data-import-test.ts",
+      "sha256": "cffbc9f6d21ea4704a5c01d1596409b674d06d8c1d670db9cea18763309b1fd9"
+    },
+    {
+      "source": "backend/src/mysql-data-import.ts",
+      "destination": "reference/crm/backend/src/mysql-data-import.ts",
+      "sha256": "c8d006373cfec9493cfaa2f5492c6fdd2666229c54cdc5b5b40dc82e3c6807a9"
+    },
+    {
+      "source": "backend/src/mysql-store.ts",
+      "destination": "reference/crm/backend/src/mysql-store.ts",
+      "sha256": "ebb39b5103f698028ef0df1b2a7916eb0b18e0c385df93cb49e2067f23a13155"
+    },
+    {
+      "source": "backend/src/notification-permission-http-test.ts",
+      "destination": "reference/crm/backend/src/notification-permission-http-test.ts",
+      "sha256": "d3f9ef3eaa13f4ff9b9d34ab9a6b8733bb7db4bd3cb26e93b905a00dcc4b58fe"
+    },
+    {
+      "source": "backend/src/order-access-test.ts",
+      "destination": "reference/crm/backend/src/order-access-test.ts",
+      "sha256": "90f89f78f5592411d25b6126cc246b47cf060098a7fcbcd61cf214e143997ef8"
+    },
+    {
+      "source": "backend/src/order-access.ts",
+      "destination": "reference/crm/backend/src/order-access.ts",
+      "sha256": "2917e3ff64bd4475af3dbdc889cdc741c32cccbf070d2f34224cf963609f572d"
+    },
+    {
+      "source": "backend/src/order-agent-continuation-test.ts",
+      "destination": "reference/crm/backend/src/order-agent-continuation-test.ts",
+      "sha256": "219673d3526ef5b699699b80e0564470a090b85172e903a130a84cf2e589387b"
+    },
+    {
+      "source": "backend/src/order-agent-intake-test.ts",
+      "destination": "reference/crm/backend/src/order-agent-intake-test.ts",
+      "sha256": "e66feb2c52af8e245d223f2aaf1560946982c98434755f7ce8d3d60fc2aadea2"
+    },
+    {
+      "source": "backend/src/order-agent-intake.ts",
+      "destination": "reference/crm/backend/src/order-agent-intake.ts",
+      "sha256": "dbcd59ae56ca5b85f282eb115440197bc731a3b1ab2f777015b12466febaa1e2"
+    },
+    {
+      "source": "backend/src/order-attachment-storage.ts",
+      "destination": "reference/crm/backend/src/order-attachment-storage.ts",
+      "sha256": "05c17c4fb7713bfe9a0139b1bfe6cc471717304490592f219cd93cc178123636"
+    },
+    {
+      "source": "backend/src/order-completion-test.ts",
+      "destination": "reference/crm/backend/src/order-completion-test.ts",
+      "sha256": "f04935a8da969ff5509c4c6c37fb49ced7125525e70ddf6b9f5b4b0e542fd401"
+    },
+    {
+      "source": "backend/src/order-completion.ts",
+      "destination": "reference/crm/backend/src/order-completion.ts",
+      "sha256": "0679529246b97165d24fc0b517a8e64fc6657af28910e31b7bf68807dfe0c5c7"
+    },
+    {
+      "source": "backend/src/order-lifecycle-test.ts",
+      "destination": "reference/crm/backend/src/order-lifecycle-test.ts",
+      "sha256": "7c9cd3fd25b6f3aaa043626ea6b6f854f70d1e54d459a0f3670bea905c72ac63"
+    },
+    {
+      "source": "backend/src/order-revision-test.ts",
+      "destination": "reference/crm/backend/src/order-revision-test.ts",
+      "sha256": "f114ce7ffc2eb202897adc18d5714aa854f4c42cf957edf9c1950adf05d804c3"
+    },
+    {
+      "source": "backend/src/order-validation-test.ts",
+      "destination": "reference/crm/backend/src/order-validation-test.ts",
+      "sha256": "124c6379c6ca598a248c4d1dcb9c02c7396e4ae6096958289fd94ab48ee3be4a"
+    },
+    {
+      "source": "backend/src/order-validation.ts",
+      "destination": "reference/crm/backend/src/order-validation.ts",
+      "sha256": "2f29a956bf1eece7fcc11fef4dc59b8b90003cf48be4b264d1d862637035e04e"
+    },
+    {
+      "source": "backend/src/organization-identity-conflict-review-mysql.ts",
+      "destination": "reference/crm/backend/src/organization-identity-conflict-review-mysql.ts",
+      "sha256": "ef9f392ff142fdcf223fd180b30d2e0618c3b2937f23e82aa70cb3d119e4b122"
+    },
+    {
+      "source": "backend/src/organization-identity-conflict-review-test.ts",
+      "destination": "reference/crm/backend/src/organization-identity-conflict-review-test.ts",
+      "sha256": "95f2927ac4186cd05fd109835195bda7103df5130212bad92981486e5493d5ad"
+    },
+    {
+      "source": "backend/src/organization-identity-conflict-review.ts",
+      "destination": "reference/crm/backend/src/organization-identity-conflict-review.ts",
+      "sha256": "1615c9632262073cfbfc0c0ce67082b6de58f5e3984c652ce646bac22beee0ba"
+    },
+    {
+      "source": "backend/src/organization-relations-mysql.ts",
+      "destination": "reference/crm/backend/src/organization-relations-mysql.ts",
+      "sha256": "b1d335383a0406cb5c8ee839e67de9511a0c4b0d7b5607eea9b33d897782e4bd"
+    },
+    {
+      "source": "backend/src/organization-relations-test.ts",
+      "destination": "reference/crm/backend/src/organization-relations-test.ts",
+      "sha256": "c9a11fa51e01a9f388b52489eba7d3ea9a8f29141315ea31f7c78ab144655d4e"
+    },
+    {
+      "source": "backend/src/organization-relations.ts",
+      "destination": "reference/crm/backend/src/organization-relations.ts",
+      "sha256": "4fdbe65f516a4f84fe47a0a1cf2fc8e1e641a1b492369932dda2bb4f8b40a1d3"
+    },
+    {
+      "source": "backend/src/organization-strong-identity-mysql-test.ts",
+      "destination": "reference/crm/backend/src/organization-strong-identity-mysql-test.ts",
+      "sha256": "d07c04ef3e15b95f5a93bd2bdcbe2a55f504443f79d3a6f39f2f094efddc8889"
+    },
+    {
+      "source": "backend/src/organization-strong-identity-mysql.ts",
+      "destination": "reference/crm/backend/src/organization-strong-identity-mysql.ts",
+      "sha256": "0da5453c39b04bb61f56725b501bb9f853d7f8a2678e581c0d750e11981204de"
+    },
+    {
+      "source": "backend/src/organization-strong-identity-test.ts",
+      "destination": "reference/crm/backend/src/organization-strong-identity-test.ts",
+      "sha256": "02fb69143b8bce0f73f1a0343a7b4445fdff661986fdb856c1e211cc93dd9777"
+    },
+    {
+      "source": "backend/src/organization-strong-identity.ts",
+      "destination": "reference/crm/backend/src/organization-strong-identity.ts",
+      "sha256": "633791092aac397396ae22c588c4e70622b18ce23eb1f48d7d9b785156e155b1"
+    },
+    {
+      "source": "backend/src/outbound-notification-test.ts",
+      "destination": "reference/crm/backend/src/outbound-notification-test.ts",
+      "sha256": "50293939e495b73feed5f8ae29a431613e075ac1228ff0a1799cffa7cf40af29"
+    },
+    {
+      "source": "backend/src/outbound-release-test.ts",
+      "destination": "reference/crm/backend/src/outbound-release-test.ts",
+      "sha256": "f5239bd78806cd5645dd934b243ab5ffcc20ded09a8a72f97b8cdf87e698baf4"
+    },
+    {
+      "source": "backend/src/outbound-release.ts",
+      "destination": "reference/crm/backend/src/outbound-release.ts",
+      "sha256": "55fc0bbbe24a02b36f7b93a15c3ecd3a319a97e84138f1241dfa5618b2cc4261"
+    },
+    {
+      "source": "backend/src/outbound-security.ts",
+      "destination": "reference/crm/backend/src/outbound-security.ts",
+      "sha256": "1b22e3c473e5cb74cf4d897ac9a43f3e40ff113bffceede69290f1cd0726d2a7"
+    },
+    {
+      "source": "backend/src/outreach-sequences-test.ts",
+      "destination": "reference/crm/backend/src/outreach-sequences-test.ts",
+      "sha256": "ad71688a2138dfea1990326465bd553e2f3a21dfd38018eaeff353234b299eeb"
+    },
+    {
+      "source": "backend/src/outreach-sequences.ts",
+      "destination": "reference/crm/backend/src/outreach-sequences.ts",
+      "sha256": "aaeba13314b974e1b17f29a401965ecfe182d4c73dfc350d8b73ecb5f61f70e4"
+    },
+    {
+      "source": "backend/src/payment-account-permission-http-test.ts",
+      "destination": "reference/crm/backend/src/payment-account-permission-http-test.ts",
+      "sha256": "3bae44bcd532c9e6ecc30887aac99c4263ecd43ea4f0f4968189e595ebc46b7f"
+    },
+    {
+      "source": "backend/src/procurement-provider-utils.ts",
+      "destination": "reference/crm/backend/src/procurement-provider-utils.ts",
+      "sha256": "18dec57921a7d12fd924f872f47906d3f8748e1dc335a95ca462f8e694739dec"
+    },
+    {
+      "source": "backend/src/procurement-providers-test.ts",
+      "destination": "reference/crm/backend/src/procurement-providers-test.ts",
+      "sha256": "9f2f86fab64d50c597d26a3cd464ee2b2f480aa67711a6f4ed1a77612bb871a1"
+    },
+    {
+      "source": "backend/src/procurement-signals-test.ts",
+      "destination": "reference/crm/backend/src/procurement-signals-test.ts",
+      "sha256": "319966a1632f4ac2822a189b5f700951d26ea94c1d99264f5a0ea4915af5ffbb"
+    },
+    {
+      "source": "backend/src/procurement-signals.ts",
+      "destination": "reference/crm/backend/src/procurement-signals.ts",
+      "sha256": "e7c15c184f2c0b76711e3393019e58edae2334a11076ec17895eae0df58af0bd"
+    },
+    {
+      "source": "backend/src/profile-password-test.ts",
+      "destination": "reference/crm/backend/src/profile-password-test.ts",
+      "sha256": "273fc8a012731c032834433f84dff5045b236ca837bb222a8d469b2fe3aa729d"
+    },
+    {
+      "source": "backend/src/prospect-ai-website-discovery-test.ts",
+      "destination": "reference/crm/backend/src/prospect-ai-website-discovery-test.ts",
+      "sha256": "f306e87464150b853a60fe72a1aaf833e16e21cccc639e907c2c31ec8fee260d"
+    },
+    {
+      "source": "backend/src/prospect-ai-website-discovery.ts",
+      "destination": "reference/crm/backend/src/prospect-ai-website-discovery.ts",
+      "sha256": "e436b3f24b2a7c8ea40c6581b8353597ea54a7fff81aa4de84d2fb564f6570c8"
+    },
+    {
+      "source": "backend/src/prospect-bullmq-backend.ts",
+      "destination": "reference/crm/backend/src/prospect-bullmq-backend.ts",
+      "sha256": "fde18f32b76531ae851d7d2d17390eb0d458323bf1f38cff97e23f6f1fc0a276"
+    },
+    {
+      "source": "backend/src/prospect-campaign-mysql-test.ts",
+      "destination": "reference/crm/backend/src/prospect-campaign-mysql-test.ts",
+      "sha256": "55291de9aba408d5173125a3bd94e4384069ac9cc7e6d4f53407e9083b22f271"
+    },
+    {
+      "source": "backend/src/prospect-campaigns-test.ts",
+      "destination": "reference/crm/backend/src/prospect-campaigns-test.ts",
+      "sha256": "eac573a0fa5cb0f7cfd402542b6680930e424b784b67489e1a1f5010cd0b713a"
+    },
+    {
+      "source": "backend/src/prospect-campaigns.ts",
+      "destination": "reference/crm/backend/src/prospect-campaigns.ts",
+      "sha256": "295304a0c80fd87e4e6c55c93a7061c6379facd3553a0d4e2dc5e758ec48dd51"
+    },
+    {
+      "source": "backend/src/prospect-candidate-actions.ts",
+      "destination": "reference/crm/backend/src/prospect-candidate-actions.ts",
+      "sha256": "0e1d625d3f2cd3a7ba5ee6516f9d92578f5c8560e194eaf4f32841c4c7e7f6c3"
+    },
+    {
+      "source": "backend/src/prospect-candidate-pipeline-test.ts",
+      "destination": "reference/crm/backend/src/prospect-candidate-pipeline-test.ts",
+      "sha256": "6c2cf91306d6bbe25c3bae79a92c57b2eb2681c65a4bf2e7b35b21b063c126b9"
+    },
+    {
+      "source": "backend/src/prospect-candidate-pipeline.ts",
+      "destination": "reference/crm/backend/src/prospect-candidate-pipeline.ts",
+      "sha256": "e6fb3fda0e2b26ba555cf650b06aa635fd7e606eb3fafd34580492f997bcb57c"
+    },
+    {
+      "source": "backend/src/prospect-contact-enrichment-test.ts",
+      "destination": "reference/crm/backend/src/prospect-contact-enrichment-test.ts",
+      "sha256": "0456bfa27edff55e84050157e14738d07b13b8b4ee403de743a4b0e83dcb48c6"
+    },
+    {
+      "source": "backend/src/prospect-contact-enrichment.ts",
+      "destination": "reference/crm/backend/src/prospect-contact-enrichment.ts",
+      "sha256": "ea7da09b9ae766eb95051884bf63d263639fdc7b433aee60399b6993acb2f895"
+    },
+    {
+      "source": "backend/src/prospect-coverage-memory-mysql-test.ts",
+      "destination": "reference/crm/backend/src/prospect-coverage-memory-mysql-test.ts",
+      "sha256": "453769163c15e471152a40249a4f438e31cc5238f449803b2901581f91abfac3"
+    },
+    {
+      "source": "backend/src/prospect-coverage-memory-mysql.ts",
+      "destination": "reference/crm/backend/src/prospect-coverage-memory-mysql.ts",
+      "sha256": "734dd864ce3cbbe71a015227ecd8c40fa7dc280535d6b56726b7c34c88caa3d4"
+    },
+    {
+      "source": "backend/src/prospect-coverage-memory-test.ts",
+      "destination": "reference/crm/backend/src/prospect-coverage-memory-test.ts",
+      "sha256": "b4df0d4990c9bf0d32a14e5b7d545d16594402343a3ca1e46113f587b6e33f03"
+    },
+    {
+      "source": "backend/src/prospect-coverage-memory.ts",
+      "destination": "reference/crm/backend/src/prospect-coverage-memory.ts",
+      "sha256": "4a1551259be695e40517d6b98e4c14062054be255abd5b895f0c969cc1baf9d2"
+    },
+    {
+      "source": "backend/src/prospect-customer-conversion-test.ts",
+      "destination": "reference/crm/backend/src/prospect-customer-conversion-test.ts",
+      "sha256": "2f2a6cbf430c59dd5040bafcb067253ca17bfc5ecbd1cf6c5fd65a08351884c1"
+    },
+    {
+      "source": "backend/src/prospect-customer-conversion.ts",
+      "destination": "reference/crm/backend/src/prospect-customer-conversion.ts",
+      "sha256": "140109699a2b6feb29635e1a1c2eedcf6274f72a47300cfce276ace46524071f"
+    },
+    {
+      "source": "backend/src/prospect-deep-mining-test.ts",
+      "destination": "reference/crm/backend/src/prospect-deep-mining-test.ts",
+      "sha256": "d61fe6c7cf8901f622328ad461f326702d7c42d7d1414cf2960e280873fd5888"
+    },
+    {
+      "source": "backend/src/prospect-deep-mining.ts",
+      "destination": "reference/crm/backend/src/prospect-deep-mining.ts",
+      "sha256": "69f551274ae86c3de73e66d5cf38723e576c64c972ba852c63b7148a7247f460"
+    },
+    {
+      "source": "backend/src/prospect-execution-kernel-test.ts",
+      "destination": "reference/crm/backend/src/prospect-execution-kernel-test.ts",
+      "sha256": "d9a3bf66ebe76e9498cab5f9c7fcc5cee3fff83df82815dcdfcc20d631cdda80"
+    },
+    {
+      "source": "backend/src/prospect-execution-kernel.ts",
+      "destination": "reference/crm/backend/src/prospect-execution-kernel.ts",
+      "sha256": "2349b54fe8ff5c9e2d0382922f94e0481448d7a0ba1d363aeab9217fb7ff94ac"
+    },
+    {
+      "source": "backend/src/prospect-execution-mysql-test.ts",
+      "destination": "reference/crm/backend/src/prospect-execution-mysql-test.ts",
+      "sha256": "ec00a2a1f638d68478e04d9dbac8a48b8efad93e77b9e5de13a9d2ac5b0bcf80"
+    },
+    {
+      "source": "backend/src/prospect-fake-provider.ts",
+      "destination": "reference/crm/backend/src/prospect-fake-provider.ts",
+      "sha256": "2fb3441dbe67eaeb91ecc83e58c3393f2abaf11f19d107c57c6889695265aa2d"
+    },
+    {
+      "source": "backend/src/prospect-identity-authority-profiles.ts",
+      "destination": "reference/crm/backend/src/prospect-identity-authority-profiles.ts",
+      "sha256": "273de9687d590837bb9c4cf90891dea7420537a3ea55f9774e4d3814607cd685"
+    },
+    {
+      "source": "backend/src/prospect-identity-bootstrap-http-test.ts",
+      "destination": "reference/crm/backend/src/prospect-identity-bootstrap-http-test.ts",
+      "sha256": "24c80c600d753eb605371a6bd0f0a1934cb0dd3d1e38c9da84f334c0c0899fde"
+    },
+    {
+      "source": "backend/src/prospect-identity-bootstrap-mysql-test.ts",
+      "destination": "reference/crm/backend/src/prospect-identity-bootstrap-mysql-test.ts",
+      "sha256": "e4b32da59f30773ae66c12619bd415d67ab2767bc1fb27ad027930bea330e71c"
+    },
+    {
+      "source": "backend/src/prospect-identity-bootstrap-test.ts",
+      "destination": "reference/crm/backend/src/prospect-identity-bootstrap-test.ts",
+      "sha256": "ebb02ade07043052660773b658ebbe2f897aeee212d87d9db25b60059785fac4"
+    },
+    {
+      "source": "backend/src/prospect-identity-bootstrap.ts",
+      "destination": "reference/crm/backend/src/prospect-identity-bootstrap.ts",
+      "sha256": "087c686924f9942b8df744d3f2a2b52032a71c22f582567400264568c4f07957"
+    },
+    {
+      "source": "backend/src/prospect-lead-conversion-mysql-test.ts",
+      "destination": "reference/crm/backend/src/prospect-lead-conversion-mysql-test.ts",
+      "sha256": "d68c215d3a494bd0fc62c51c51f839aecbcb64e6e4c17dee3c1794c876202263"
+    },
+    {
+      "source": "backend/src/prospect-lead-conversion-test.ts",
+      "destination": "reference/crm/backend/src/prospect-lead-conversion-test.ts",
+      "sha256": "d9523bf1a3947a3cff8a94e5e0dfa00a93a3f2e3e4861db6daadc1c6eaf57f59"
+    },
+    {
+      "source": "backend/src/prospect-lead-conversion.ts",
+      "destination": "reference/crm/backend/src/prospect-lead-conversion.ts",
+      "sha256": "8c18ae02000f974efb923d12ba0d8497588c6dde5cb4eec4a9d5f3c9421e1bb0"
+    },
+    {
+      "source": "backend/src/prospect-live-events-test.ts",
+      "destination": "reference/crm/backend/src/prospect-live-events-test.ts",
+      "sha256": "4036c6438eeb92845ad092dc821dc5208c4e30c903657e53cc967e8266d53889"
+    },
+    {
+      "source": "backend/src/prospect-live-events.ts",
+      "destination": "reference/crm/backend/src/prospect-live-events.ts",
+      "sha256": "928db5456b21f34d64d4ffc1110fe158d4a5a0c6198fccdb6178ecc09a01cfe3"
+    },
+    {
+      "source": "backend/src/prospect-outcome-feedback-test.ts",
+      "destination": "reference/crm/backend/src/prospect-outcome-feedback-test.ts",
+      "sha256": "6acb02fade5b4ae12a0aa711ad644deb357df5d7fb4987c08c1de3bc9d9a3a68"
+    },
+    {
+      "source": "backend/src/prospect-outcome-feedback.ts",
+      "destination": "reference/crm/backend/src/prospect-outcome-feedback.ts",
+      "sha256": "1425f15f9bb1ab26cc135277e495a34e926008d66835643219ee52d9285661ab"
+    },
+    {
+      "source": "backend/src/prospect-outreach-eligibility.ts",
+      "destination": "reference/crm/backend/src/prospect-outreach-eligibility.ts",
+      "sha256": "f061e22762c57c023fa3457e444c0363cd04d21c56090e4ee0e7739fe2ce2066"
+    },
+    {
+      "source": "backend/src/prospect-outreach-http-test.ts",
+      "destination": "reference/crm/backend/src/prospect-outreach-http-test.ts",
+      "sha256": "3019c521920937f8c87e83b2b85ee6aff474fc3ca4169fe0ca197ac7cb44c956"
+    },
+    {
+      "source": "backend/src/prospect-outreach-test.ts",
+      "destination": "reference/crm/backend/src/prospect-outreach-test.ts",
+      "sha256": "a8ba89325f359a8015bff889202dddfd5be29e5719d87c49e009b2e05c1bf90f"
+    },
+    {
+      "source": "backend/src/prospect-outreach.ts",
+      "destination": "reference/crm/backend/src/prospect-outreach.ts",
+      "sha256": "5499e3cbedf9a70ea90243038276628c9bda64558f30e08ca2c6f4222e0a7671"
+    },
+    {
+      "source": "backend/src/prospect-provider-dispatcher.ts",
+      "destination": "reference/crm/backend/src/prospect-provider-dispatcher.ts",
+      "sha256": "409be7c6eea6ab399e925d2b366435931f3aee3ccf54030920af8cc7164bb891"
+    },
+    {
+      "source": "backend/src/prospect-provider-request-ledger-test.ts",
+      "destination": "reference/crm/backend/src/prospect-provider-request-ledger-test.ts",
+      "sha256": "faafbe4a1161584514a46f5df88af65f720200c65d3887d7f91a10ebf72df040"
+    },
+    {
+      "source": "backend/src/prospect-provider-request-ledger.ts",
+      "destination": "reference/crm/backend/src/prospect-provider-request-ledger.ts",
+      "sha256": "86ce5f1d04f1766dd458cf9e59650c6faff3784cee3476f44849de1e70d2aea5"
+    },
+    {
+      "source": "backend/src/prospect-qualification-mysql-test.ts",
+      "destination": "reference/crm/backend/src/prospect-qualification-mysql-test.ts",
+      "sha256": "0de5d66d4bb75ca0a2d4f9f0d21485b65580c0e38575b4653166c5e8e0f079a7"
+    },
+    {
+      "source": "backend/src/prospect-qualification-mysql.ts",
+      "destination": "reference/crm/backend/src/prospect-qualification-mysql.ts",
+      "sha256": "eed299642738cbf9fe5a944ddb8790ec472cdb51f9056b2bf346d4d25e73a531"
+    },
+    {
+      "source": "backend/src/prospect-qualification-test.ts",
+      "destination": "reference/crm/backend/src/prospect-qualification-test.ts",
+      "sha256": "e70ae337958cc0e3a97b31cfab345c0a1e9d4c13b08a37c2ce10c3b53d54ef2f"
+    },
+    {
+      "source": "backend/src/prospect-qualification-workflow-test.ts",
+      "destination": "reference/crm/backend/src/prospect-qualification-workflow-test.ts",
+      "sha256": "d012b631cc6d1335de8c2b88ba86d3aff5cc4f67b0b1c239fdbc36793f798a0f"
+    },
+    {
+      "source": "backend/src/prospect-qualification-workflow.ts",
+      "destination": "reference/crm/backend/src/prospect-qualification-workflow.ts",
+      "sha256": "431a26c6546c4473e5c8a9da0b3f04bd7f07b53ad6e531390e7ab2108d39e1cd"
+    },
+    {
+      "source": "backend/src/prospect-qualification.ts",
+      "destination": "reference/crm/backend/src/prospect-qualification.ts",
+      "sha256": "9eed2f49a07814937f969bf367f27b6884a403b253223e4d1ef0e2cb7b199d4f"
+    },
+    {
+      "source": "backend/src/prospect-queue-coordinator-test.ts",
+      "destination": "reference/crm/backend/src/prospect-queue-coordinator-test.ts",
+      "sha256": "a67c2f2b8e40d38425639cdab2d17f03327429d1b325e5236b588fa510f3e177"
+    },
+    {
+      "source": "backend/src/prospect-queue-coordinator.ts",
+      "destination": "reference/crm/backend/src/prospect-queue-coordinator.ts",
+      "sha256": "fcbd763f83577b9d78df101a25b84f384af1c7459f90d99d4370f7ff65dabf2e"
+    },
+    {
+      "source": "backend/src/prospect-run-guards.ts",
+      "destination": "reference/crm/backend/src/prospect-run-guards.ts",
+      "sha256": "0a0d1cc86cb71f1a4e289e56effd125c228d133c9b27b88a33b011e5c90aadf1"
+    },
+    {
+      "source": "backend/src/prospect-run-mysql-test.ts",
+      "destination": "reference/crm/backend/src/prospect-run-mysql-test.ts",
+      "sha256": "41db1061e62b829bc897107c90f96736f09e42fcf0774bc4d59aa28108cae107"
+    },
+    {
+      "source": "backend/src/prospect-run-queue-bridge.ts",
+      "destination": "reference/crm/backend/src/prospect-run-queue-bridge.ts",
+      "sha256": "48e1f06e3ed06622fa983b0e5a192208b81f873f78ae3df5c747938e203de927"
+    },
+    {
+      "source": "backend/src/prospect-runs-test.ts",
+      "destination": "reference/crm/backend/src/prospect-runs-test.ts",
+      "sha256": "55b570856f018ec20eef5ae114bea1f0778eb1023a0fb2b1de320dca7670afe4"
+    },
+    {
+      "source": "backend/src/prospect-runs.ts",
+      "destination": "reference/crm/backend/src/prospect-runs.ts",
+      "sha256": "5c90771f7ec0268c87bbf7841215d6501ff3498743c4ca85d64c83016ee54c22"
+    },
+    {
+      "source": "backend/src/prospect-scheduler-test.ts",
+      "destination": "reference/crm/backend/src/prospect-scheduler-test.ts",
+      "sha256": "a6675d319814ccae881ae417713f2e9ddfad581da9469887af97dfab49e4c1d1"
+    },
+    {
+      "source": "backend/src/prospect-scheduler.ts",
+      "destination": "reference/crm/backend/src/prospect-scheduler.ts",
+      "sha256": "27db36ad4e22c5e5f89f3f1492402973385f22584277ddeb0186919d96c3a5bc"
+    },
+    {
+      "source": "backend/src/prospect-schedules.ts",
+      "destination": "reference/crm/backend/src/prospect-schedules.ts",
+      "sha256": "a5649f8883708953d0e47d1f3ce015f32d78d5f0a022da219dd83eccd95afc61"
+    },
+    {
+      "source": "backend/src/prospect-scorecard.ts",
+      "destination": "reference/crm/backend/src/prospect-scorecard.ts",
+      "sha256": "be384c39fb9b3ae475766fa818fa58d8a5c88d3a7658c2c4380c0f8e5b41be6b"
+    },
+    {
+      "source": "backend/src/prospect-search-planner.ts",
+      "destination": "reference/crm/backend/src/prospect-search-planner.ts",
+      "sha256": "38436007cc175cb6365f99cc3727c01435777368dae3b12b2d09fb75622bacfe"
+    },
+    {
+      "source": "backend/src/prospect-shortlist-http-test.ts",
+      "destination": "reference/crm/backend/src/prospect-shortlist-http-test.ts",
+      "sha256": "e692aa14fb461b812fec32343277f55591d6364e5e5fdfec379b7feeac842e4b"
+    },
+    {
+      "source": "backend/src/prospect-source-raw-test.ts",
+      "destination": "reference/crm/backend/src/prospect-source-raw-test.ts",
+      "sha256": "cee3a2f6e917bfd9e4ee48a6f564e9392e8b2e0703e49bb3c59d5e637c00ed16"
+    },
+    {
+      "source": "backend/src/prospect-source-raw.ts",
+      "destination": "reference/crm/backend/src/prospect-source-raw.ts",
+      "sha256": "1dfdc1a76c5703f539fdb086798abb2984150348c4192e255f0d35f76907d6fd"
+    },
+    {
+      "source": "backend/src/prospect-strategies-test.ts",
+      "destination": "reference/crm/backend/src/prospect-strategies-test.ts",
+      "sha256": "20ad4567f6d23cd358152072b0e8be97a36f47555619bd9e65f3d44d5a8db6ed"
+    },
+    {
+      "source": "backend/src/prospect-strategies.ts",
+      "destination": "reference/crm/backend/src/prospect-strategies.ts",
+      "sha256": "575b771760640e68d4f5a32bd2a6dca01c282898ad985dd735dba15b02670d43"
+    },
+    {
+      "source": "backend/src/prospect-strategy-mysql-test.ts",
+      "destination": "reference/crm/backend/src/prospect-strategy-mysql-test.ts",
+      "sha256": "630cfee9905c548642bcfed05051a9e0cbac7b7633ec800316aca4b00b8b174c"
+    },
+    {
+      "source": "backend/src/prospect-strategy-source-position.ts",
+      "destination": "reference/crm/backend/src/prospect-strategy-source-position.ts",
+      "sha256": "93d3b0f37159232b60798b037b1692a2e70c19999662ebf0ef89f58fb180e868"
+    },
+    {
+      "source": "backend/src/prospect-super-search-test.ts",
+      "destination": "reference/crm/backend/src/prospect-super-search-test.ts",
+      "sha256": "e658815214c7c86c7f6f38a1e0b1d8f54927b58ff2f94dd3e21b8162dde3f403"
+    },
+    {
+      "source": "backend/src/prospect-super-search.ts",
+      "destination": "reference/crm/backend/src/prospect-super-search.ts",
+      "sha256": "e4da518629c8aaac573f276775af9cc2a2f6a318ca2068cd15a6e821e574d708"
+    },
+    {
+      "source": "backend/src/prospect-verification-test.ts",
+      "destination": "reference/crm/backend/src/prospect-verification-test.ts",
+      "sha256": "838c654374401600049ff05509380c2b2c4ac567ed532c32627b16523895f640"
+    },
+    {
+      "source": "backend/src/prospect-verification.ts",
+      "destination": "reference/crm/backend/src/prospect-verification.ts",
+      "sha256": "8317e795be9e16ae304e7ecdd0b6ee596631dfd4ac92b84acb88e13ea3d939bd"
+    },
+    {
+      "source": "backend/src/prospect-website-discovery-test.ts",
+      "destination": "reference/crm/backend/src/prospect-website-discovery-test.ts",
+      "sha256": "4f2f1467078e15eafb580669cfff5da2b63e8c45968883b84321c6c3bee41c33"
+    },
+    {
+      "source": "backend/src/prospect-website-discovery.ts",
+      "destination": "reference/crm/backend/src/prospect-website-discovery.ts",
+      "sha256": "c6d1ac92771dbf832becfc5ff7dc1439b409f8d6e0bceb271fd185f616edc91d"
+    },
+    {
+      "source": "backend/src/prospect-worker-entry.ts",
+      "destination": "reference/crm/backend/src/prospect-worker-entry.ts",
+      "sha256": "72bb0256e85196f01bb65c735613fe2b45a0917af916cd061ee14ea8e97a2c1c"
+    },
+    {
+      "source": "backend/src/prospect-worker-service.ts",
+      "destination": "reference/crm/backend/src/prospect-worker-service.ts",
+      "sha256": "bc9323a15534356ac27ecebe7042d2590f1915dad6799197c591e20d084b95bc"
+    },
+    {
+      "source": "backend/src/prospect-worker-test.ts",
+      "destination": "reference/crm/backend/src/prospect-worker-test.ts",
+      "sha256": "bdd66adcb67df2800e1aff602d321ed802fcd3b165a9454c24d7d869aaafbf40"
+    },
+    {
+      "source": "backend/src/prospect-worker.ts",
+      "destination": "reference/crm/backend/src/prospect-worker.ts",
+      "sha256": "b3a64f1d9a5ec51d8406c7ae566ad542f19ffb21b8e259df362884137efbe893"
+    },
+    {
+      "source": "backend/src/provider-catalog.ts",
+      "destination": "reference/crm/backend/src/provider-catalog.ts",
+      "sha256": "d9b852cde93d06cd84e7609af311f47e4b45f848abc86e01845da1cf3aec0746"
+    },
+    {
+      "source": "backend/src/provider-contract.ts",
+      "destination": "reference/crm/backend/src/provider-contract.ts",
+      "sha256": "a0cae34eebfd4af12ecf28516086507a67f1e22824b926e97f3022530730d974"
+    },
+    {
+      "source": "backend/src/provider-http-client.ts",
+      "destination": "reference/crm/backend/src/provider-http-client.ts",
+      "sha256": "7e88b8f9d4fe24d3ca55093fb695ab726df337e4e3659e53525c6a52078d7da6"
+    },
+    {
+      "source": "backend/src/provider-mysql-persistence-test.ts",
+      "destination": "reference/crm/backend/src/provider-mysql-persistence-test.ts",
+      "sha256": "6e62f32960b4cb68b7acd9b6b74840b155405325c2e37d105106ff3e04f05e14"
+    },
+    {
+      "source": "backend/src/provider-network-security.ts",
+      "destination": "reference/crm/backend/src/provider-network-security.ts",
+      "sha256": "2fa1ff70ffb7b1c9eba51c071ad08cab613d308c47380749129d97ca846389b4"
+    },
+    {
+      "source": "backend/src/provider-request-logging.ts",
+      "destination": "reference/crm/backend/src/provider-request-logging.ts",
+      "sha256": "07b8487184c2f94f42b7def503dedd51e662ac96b137aa85c13a02baa82aa52f"
+    },
+    {
+      "source": "backend/src/provider-response-cache-test.ts",
+      "destination": "reference/crm/backend/src/provider-response-cache-test.ts",
+      "sha256": "eea2a5b423ce67f9e1c43d74e61ae2c1a8006e7f5e51e147a1f1bae524abf1b2"
+    },
+    {
+      "source": "backend/src/provider-response-cache.ts",
+      "destination": "reference/crm/backend/src/provider-response-cache.ts",
+      "sha256": "ed6c9e1228e095f80a7b66bfb889c0c2d4cfca4184de7c10715b64198caeb3af"
+    },
+    {
+      "source": "backend/src/provider-runtime-test.ts",
+      "destination": "reference/crm/backend/src/provider-runtime-test.ts",
+      "sha256": "9077d8bb0bf056ff283e3b237fbbea9740ba87a1059b1fad8ed0f1af09807437"
+    },
+    {
+      "source": "backend/src/provider-runtime.ts",
+      "destination": "reference/crm/backend/src/provider-runtime.ts",
+      "sha256": "b1fb328c63711b428246a05726e2130beccdd1378856610673c1a37ef342f1aa"
+    },
+    {
+      "source": "backend/src/provider-trade-runtime-test.ts",
+      "destination": "reference/crm/backend/src/provider-trade-runtime-test.ts",
+      "sha256": "c0c76724a5eb74ab97f865638c97e3e97510f9bfe4ab22f3ffcb37171f30bd5a"
+    },
+    {
+      "source": "backend/src/provision-beta-admins.ts",
+      "destination": "reference/crm/backend/src/provision-beta-admins.ts",
+      "sha256": "dd41ce443b7993a7ee010f2a5df4bd410db312230d6ade59c9812fd2ca3a7ef5"
+    },
+    {
+      "source": "backend/src/public-company-providers.ts",
+      "destination": "reference/crm/backend/src/public-company-providers.ts",
+      "sha256": "7a2ff5d3d2557eafbfbde744218c3776b30c8b62472be8302268d5da126dd829"
+    },
+    {
+      "source": "backend/src/public-procurement-providers.ts",
+      "destination": "reference/crm/backend/src/public-procurement-providers.ts",
+      "sha256": "108498675a634e0130c7b4b2b159f9cc61989aaf3ed1376450622e8a48a483cd"
+    },
+    {
+      "source": "backend/src/public-sources-provider-test.ts",
+      "destination": "reference/crm/backend/src/public-sources-provider-test.ts",
+      "sha256": "79f0af467aaf3387d8fc36d189478ad34d53d26df7f0fe59a4fe18fcd3d5bd33"
+    },
+    {
+      "source": "backend/src/purchase-invoice.ts",
+      "destination": "reference/crm/backend/src/purchase-invoice.ts",
+      "sha256": "deeb20d18f03eecfcb492aeb51d2dfc742d55a6dd5f3eea780f20d07914f96a1"
+    },
+    {
+      "source": "backend/src/quote-history-workflow-test.ts",
+      "destination": "reference/crm/backend/src/quote-history-workflow-test.ts",
+      "sha256": "5c3df7460fc3c0193d054851ed286a7289e96007707cc6644192fd3e343e6970"
+    },
+    {
+      "source": "backend/src/runtime-env.ts",
+      "destination": "reference/crm/backend/src/runtime-env.ts",
+      "sha256": "2f26958434fc011accce503b33b16b35d68d2307a4336c52a40845f41db06974"
+    },
+    {
+      "source": "backend/src/sales-distillation-test.ts",
+      "destination": "reference/crm/backend/src/sales-distillation-test.ts",
+      "sha256": "25dc856ed60e8bab398e9c2b6144735971fb3b107392dda1a6fc980dee57f3d2"
+    },
+    {
+      "source": "backend/src/sales-distillation.ts",
+      "destination": "reference/crm/backend/src/sales-distillation.ts",
+      "sha256": "69e02b12be87ec108a663c93e26d6a5076e64d085448b80ef35874b0e5fac30d"
+    },
+    {
+      "source": "backend/src/sales-finance-todos.ts",
+      "destination": "reference/crm/backend/src/sales-finance-todos.ts",
+      "sha256": "b13433ac170f23ce0ae85b6c81eb9b4d98819746f1cba6368258d640d5727ce9"
+    },
+    {
+      "source": "backend/src/sales-purchase-approval-test.ts",
+      "destination": "reference/crm/backend/src/sales-purchase-approval-test.ts",
+      "sha256": "97dd994f5e337a31c6e22230a4462f4c9ab81e65d3baebf4ba98367c8f21769f"
+    },
+    {
+      "source": "backend/src/sales-training.ts",
+      "destination": "reference/crm/backend/src/sales-training.ts",
+      "sha256": "88849656795f81ae56066c309ab249f4894e5a90ed999d892d1e259aaddad162"
+    },
+    {
+      "source": "backend/src/sec-edgar-provider-test.ts",
+      "destination": "reference/crm/backend/src/sec-edgar-provider-test.ts",
+      "sha256": "4c575a6aafa63ee9cd9b44e8a62c8dc11286981d2896ccb3691107889c088af9"
+    },
+    {
+      "source": "backend/src/sec-edgar-provider.ts",
+      "destination": "reference/crm/backend/src/sec-edgar-provider.ts",
+      "sha256": "0b51be86243758bb7394247fc576d7e677bf2d1ef1226c8f6a418592a5941b64"
+    },
+    {
+      "source": "backend/src/security-test.ts",
+      "destination": "reference/crm/backend/src/security-test.ts",
+      "sha256": "8ab6816b2c97b4e7eafa3043f5a53d8343f088c757ca22b322bc1553fd195ce4"
+    },
+    {
+      "source": "backend/src/self-test.ts",
+      "destination": "reference/crm/backend/src/self-test.ts",
+      "sha256": "ff9e3b304d01a18a276b1df95ff7a6c159d683e62fa5a0b508e74070fa5e9bb5"
+    },
+    {
+      "source": "backend/src/server-network.ts",
+      "destination": "reference/crm/backend/src/server-network.ts",
+      "sha256": "6f167d4748e0bf574a2b922076e861611d4aa9c11df344df1749306115e803c5"
+    },
+    {
+      "source": "backend/src/server.ts",
+      "destination": "reference/crm/backend/src/server.ts",
+      "sha256": "11c529ef19f2584fc2fd6d3194b24a03c8f9e606ffe826240793cd98b2f13bb8"
+    },
+    {
+      "source": "backend/src/service-monitor-test.ts",
+      "destination": "reference/crm/backend/src/service-monitor-test.ts",
+      "sha256": "b4ed495f02a72cbcf8ced5da9e8391d5565635b06a64882b06e7b30b679ded7d"
+    },
+    {
+      "source": "backend/src/service-monitor.ts",
+      "destination": "reference/crm/backend/src/service-monitor.ts",
+      "sha256": "9e25240e7d7a2f935d1ecf03d50364e0fb88b5e7d60187eff7ed62e512132b47"
+    },
+    {
+      "source": "backend/src/shipment-ocr.ts",
+      "destination": "reference/crm/backend/src/shipment-ocr.ts",
+      "sha256": "5641e030e6b5cfcccc97c6988ff346e613acae67b11b76b3748cbb7564842927"
+    },
+    {
+      "source": "backend/src/skill-resources-test.ts",
+      "destination": "reference/crm/backend/src/skill-resources-test.ts",
+      "sha256": "16d1f3e371d166a8ba91e1dd76135a12fb0ffd37de0f6da56b32ff3a3b03fea8"
+    },
+    {
+      "source": "backend/src/store.ts",
+      "destination": "reference/crm/backend/src/store.ts",
+      "sha256": "8b5e5a139a3ee860926ccb93f19e2932a80f1b379f35098d026204693e0364f4"
+    },
+    {
+      "source": "backend/src/supplier-workflow-test.ts",
+      "destination": "reference/crm/backend/src/supplier-workflow-test.ts",
+      "sha256": "4fa60e1633aed0a2a71cbb1f2e6845a06808985ccdb5521f71deac3053de8380"
+    },
+    {
+      "source": "backend/src/swagger.ts",
+      "destination": "reference/crm/backend/src/swagger.ts",
+      "sha256": "8be682cef8db6f8a56b0bcbe8c334600bac9304c1b33f343cae238bcee84439b"
+    },
+    {
+      "source": "backend/src/test-login-accounts-test.ts",
+      "destination": "reference/crm/backend/src/test-login-accounts-test.ts",
+      "sha256": "516a4d27d61048862d61e730b5ac9c9b36a8f863b6deee12178c49dbdf6fa9cc"
+    },
+    {
+      "source": "backend/src/test-login-accounts.ts",
+      "destination": "reference/crm/backend/src/test-login-accounts.ts",
+      "sha256": "6820ea6617a935b6bf87e989a2c58020c11f0e09f8ee87a5d9786d6c80efc8ca"
+    },
+    {
+      "source": "backend/src/tracking-provider.ts",
+      "destination": "reference/crm/backend/src/tracking-provider.ts",
+      "sha256": "596bba40d0fdd8a15efc888ff9525fd2b4b1c7fc84fba2c40e112524fdb5e576"
+    },
+    {
+      "source": "backend/src/trade-document-defaults-workflow-test.ts",
+      "destination": "reference/crm/backend/src/trade-document-defaults-workflow-test.ts",
+      "sha256": "8fc7baf3ad9a9ba7064e2c54a195afec30993fa7671ea543b390aeba52a5eb15"
+    },
+    {
+      "source": "backend/src/trade-document-excel-workflow-test.ts",
+      "destination": "reference/crm/backend/src/trade-document-excel-workflow-test.ts",
+      "sha256": "cd45dce0cf923bbf56a895b8e6f996bbdef731d144d0ed6fe755f63d4276d30b"
+    },
+    {
+      "source": "backend/src/trade-document-import-workflow-test.ts",
+      "destination": "reference/crm/backend/src/trade-document-import-workflow-test.ts",
+      "sha256": "f90e3884bb9ae12ffca796559ec8ff1e9dc3503200fc82893691979fbc653ce6"
+    },
+    {
+      "source": "backend/src/trade-document-import.ts",
+      "destination": "reference/crm/backend/src/trade-document-import.ts",
+      "sha256": "dcfac2e1e4ff9aa007b93b38aa65117e80d653e630c4e65cc717c77c2856f707"
+    },
+    {
+      "source": "backend/src/trade-document-ocr-test.ts",
+      "destination": "reference/crm/backend/src/trade-document-ocr-test.ts",
+      "sha256": "d0593b526f9ee91f2ba117adb11ccec2044de4ff7013c30197a9ed807943bf4e"
+    },
+    {
+      "source": "backend/src/trade-document-ocr.ts",
+      "destination": "reference/crm/backend/src/trade-document-ocr.ts",
+      "sha256": "966095c5afd9dbfb527c759a2401496ae66df6739abf155a761acc218d0f7275"
+    },
+    {
+      "source": "backend/src/trade-document-recognition-template-test.ts",
+      "destination": "reference/crm/backend/src/trade-document-recognition-template-test.ts",
+      "sha256": "2afbd68920828af857eeaf22817e822a3ccc1b24b3994c2db4af0ba149dad492"
+    },
+    {
+      "source": "backend/src/trade-document-recognition-template.ts",
+      "destination": "reference/crm/backend/src/trade-document-recognition-template.ts",
+      "sha256": "2118d26e8a404564c30e639b66cb862df2a7c6a96788c2ac9904e18dfa19a314"
+    },
+    {
+      "source": "backend/src/trade-observation-list-test.ts",
+      "destination": "reference/crm/backend/src/trade-observation-list-test.ts",
+      "sha256": "8fd263d2759e6ba0758b8c2810145db0f86a8247bad5824cb3463efe4a707830"
+    },
+    {
+      "source": "backend/src/trade-observation-list.ts",
+      "destination": "reference/crm/backend/src/trade-observation-list.ts",
+      "sha256": "b62f7e0138f87aa216a4dfb1d02ba8f9f26d6f2c3d5b5cd1f69161e350f9224e"
+    },
+    {
+      "source": "backend/src/trade-providers.ts",
+      "destination": "reference/crm/backend/src/trade-providers.ts",
+      "sha256": "d101cb98798a6882160bd65cfa56fd68a951815b2c6e4529f15c5404f301a52b"
+    },
+    {
+      "source": "backend/src/types.ts",
+      "destination": "reference/crm/backend/src/types.ts",
+      "sha256": "67dd237bf99196de5aa55c04da4a44222ff303bef50921a514a258b9fee74b15"
+    },
+    {
+      "source": "backend/src/uk-contracts-finder-provider.ts",
+      "destination": "reference/crm/backend/src/uk-contracts-finder-provider.ts",
+      "sha256": "bb1b626b6a7e61924675ff0f999750b14b750f2a1a076f2562e92b241a20f487"
+    },
+    {
+      "source": "backend/src/un-comtrade-provider-test.ts",
+      "destination": "reference/crm/backend/src/un-comtrade-provider-test.ts",
+      "sha256": "736df3712700ba1af7e218dc97d06b48f231ead2a828ab5c201bcb97b823998e"
+    },
+    {
+      "source": "backend/src/un-comtrade-provider.ts",
+      "destination": "reference/crm/backend/src/un-comtrade-provider.ts",
+      "sha256": "1501a9f829db081c5c0f5f23a1b93288241c690f908515e35d2b8cd4b9ff93e3"
+    },
+    {
+      "source": "backend/src/us-census-trade-provider-test.ts",
+      "destination": "reference/crm/backend/src/us-census-trade-provider-test.ts",
+      "sha256": "86f726feddbbd4508f843cfc5191bffdd754867279b37cb8278c772b5dbef5f9"
+    },
+    {
+      "source": "backend/src/us-census-trade-provider.ts",
+      "destination": "reference/crm/backend/src/us-census-trade-provider.ts",
+      "sha256": "88004af61e68553dc2e07fd197d76d99fa664b8ddaaa6381c6b4f15bd2b0615c"
+    },
+    {
+      "source": "backend/src/website-contact-ai-test.ts",
+      "destination": "reference/crm/backend/src/website-contact-ai-test.ts",
+      "sha256": "97a06670baa9858b48161a6ceeebb48f2824e773bb578ab51ea10549e4e7ffcb"
+    },
+    {
+      "source": "backend/src/website-contact-ai.ts",
+      "destination": "reference/crm/backend/src/website-contact-ai.ts",
+      "sha256": "2eae043988415c72ab38a7a9a661d9de726827e1b2e8f10661ff864914943734"
+    },
+    {
+      "source": "backend/src/website-probe-http-test.ts",
+      "destination": "reference/crm/backend/src/website-probe-http-test.ts",
+      "sha256": "ac2727ffe80d0fe83b5e64e3bdf6e0e04fb15f47df4853c7baa19d790a455064"
+    },
+    {
+      "source": "backend/src/website-probe-test.ts",
+      "destination": "reference/crm/backend/src/website-probe-test.ts",
+      "sha256": "85b68a0e89326bfa3da4469eba6c39f441b7483bffab6e3ad111fc6730a1643c"
+    },
+    {
+      "source": "backend/src/website-probe.ts",
+      "destination": "reference/crm/backend/src/website-probe.ts",
+      "sha256": "d12618e5a90190d35721cca882d0b8288089ce869d75384c5854e59063218027"
+    },
+    {
+      "source": "backend/src/wecom-command-gateway-test.ts",
+      "destination": "reference/crm/backend/src/wecom-command-gateway-test.ts",
+      "sha256": "009b42c26067ca5f1aa8cbcca141452bab8931054bf890035cb02e67484cebb1"
+    },
+    {
+      "source": "backend/src/wecom-command-gateway.ts",
+      "destination": "reference/crm/backend/src/wecom-command-gateway.ts",
+      "sha256": "17724515fd8f8f5eb6f5f84f86f94f41c64e31448abb89ea47d1a89b9e13c04c"
+    },
+    {
+      "source": "backend/src/wecom-command-http-test.ts",
+      "destination": "reference/crm/backend/src/wecom-command-http-test.ts",
+      "sha256": "a05e84c65a9e49c24bae0273e7ef9985c71d6f3ec61ac865e717830ef74f46e5"
+    },
+    {
+      "source": "backend/src/whatsapp-service.ts",
+      "destination": "reference/crm/backend/src/whatsapp-service.ts",
+      "sha256": "ce334bdf98e0e67491151f2fdec2f9ce71bec66e64aa8661410ddecb4e88737d"
+    },
+    {
+      "source": "backend/src/wikidata-website-provider-test.ts",
+      "destination": "reference/crm/backend/src/wikidata-website-provider-test.ts",
+      "sha256": "9b2b9f499b86279df13cf9160ae0503b81a911582252e95905fe2d167dde51bd"
+    },
+    {
+      "source": "backend/src/workbench-overview.ts",
+      "destination": "reference/crm/backend/src/workbench-overview.ts",
+      "sha256": "5569a180453d571906e187592853c65d430d24202fd9f3a51cf791748b4fcde1"
+    },
+    {
+      "source": "backend/src/workbench-role-test.ts",
+      "destination": "reference/crm/backend/src/workbench-role-test.ts",
+      "sha256": "4b28b3bf660ee9d40774fb4f9e5b4a6507595aef098832582ab31624fba4ef34"
+    },
+    {
+      "source": "backend/src/world-bank-procurement-provider.ts",
+      "destination": "reference/crm/backend/src/world-bank-procurement-provider.ts",
+      "sha256": "7d9518a01e33210bda289c95500f16ab9cc5338ae94da8e581c257b60d017174"
+    },
+    {
+      "source": "integration-sdk/src/connector-driver-compliance.ts",
+      "destination": "reference/crm/integration-sdk/src/connector-driver-compliance.ts",
+      "sha256": "194f237043bf6d49ead19821d3ca723db6d79ba885eecb20dc14f6884b33cc4f"
+    },
+    {
+      "source": "integration-sdk/src/connector-manifest-test.ts",
+      "destination": "reference/crm/integration-sdk/src/connector-manifest-test.ts",
+      "sha256": "0b52bfb15dec79ebfbd14f4295508a40dec3f8c894a684e23f3b9d3525d2f034"
+    },
+    {
+      "source": "integration-sdk/src/connector-manifest.ts",
+      "destination": "reference/crm/integration-sdk/src/connector-manifest.ts",
+      "sha256": "612540535e553851a64e34a8b155790a18ef536bb17b1032bef42870b8378cd8"
+    },
+    {
+      "source": "integration-sdk/src/index.ts",
+      "destination": "reference/crm/integration-sdk/src/index.ts",
+      "sha256": "0195a248d0661cc8a4a9a37d89619897f7552afae2faf0fece34a7500403d8a9"
+    },
+    {
+      "source": "services/funasr/app.py",
+      "destination": "reference/crm/services/funasr/app.py",
+      "sha256": "f743d79e89ca124de517e5c4ed47a528e26c98c7623e6ed9c6342c5befec2200"
+    },
+    {
+      "source": "services/funasr/README.md",
+      "destination": "reference/crm/services/funasr/README.md",
+      "sha256": "83b13291133b635d66bb0d2cda16324f8a469931c78f38e61c5d89f7c8674c98"
+    },
+    {
+      "source": "services/funasr/requirements.txt",
+      "destination": "reference/crm/services/funasr/requirements.txt",
+      "sha256": "ec1aeb1dcd1e301fb84abde6f06e3feeb7a50648768a2199394621447e027406"
+    },
+    {
+      "source": "services/funasr/__init__.py",
+      "destination": "reference/crm/services/funasr/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "source": "frontend/index.html",
+      "destination": "reference/crm/frontend/index.html",
+      "sha256": "a64e6d3f5faa9971da04275fd586c2f23600169700b1bdfb7ce484d58c6baa3b"
+    },
+    {
+      "source": "frontend/package.json",
+      "destination": "reference/crm/frontend/package.json",
+      "sha256": "0d4654911af8a227a7f6efc64fa99e1e2d1d446fc8d8c152b87c1bf4dec39edc"
+    },
+    {
+      "source": "frontend/tsconfig.json",
+      "destination": "reference/crm/frontend/tsconfig.json",
+      "sha256": "3e569656acb2afb3fff2ed902e32d59af9e3786c7b90035e2036fbb4b65a01d5"
+    },
+    {
+      "source": "frontend/vite.config.ts",
+      "destination": "reference/crm/frontend/vite.config.ts",
+      "sha256": "78a6e58abb36b8fa9b9356dda9090097da1b1fd3bfc861a4db9d29c7b97825fc"
+    },
+    {
+      "source": "backend/package.json",
+      "destination": "reference/crm/backend/package.json",
+      "sha256": "74737a2f2b7fedfb4b92d0b45b4ad2e734ad49c34fb203b509351ec468ea8f99"
+    },
+    {
+      "source": "backend/tsconfig.json",
+      "destination": "reference/crm/backend/tsconfig.json",
+      "sha256": "2071849f011e98396f52858a6354c2a3c763bd202be576cc85c760f19bbc8794"
+    },
+    {
+      "source": "package.json",
+      "destination": "reference/crm/package.json",
+      "sha256": "967a0c36180d7fe888d9305fdf7d4b172d45c14e908df636be103c18cd7082be"
+    },
+    {
+      "source": "package-lock.json",
+      "destination": "reference/crm/package-lock.json",
+      "sha256": "c1aef8b07f0e605edbc0deb8e34aa50fcb4108fc06f47049e740f9ec3d781cd4"
+    },
+    {
+      "source": "LICENSE",
+      "destination": "reference/crm/LICENSE",
+      "sha256": "cd2f649b0012cd46df12865c127fb9bef91a097df286036f425f69395f1b812c"
+    },
+    {
+      "source": "NOTICE",
+      "destination": "reference/crm/NOTICE",
+      "sha256": "636b30ee54575f81ea1d3fdac8e69c36040845aac013f3c88d2cabdfe0d19c1c"
+    },
+    {
+      "source": "AUTHORS.md",
+      "destination": "reference/crm/AUTHORS.md",
+      "sha256": "ae7db43987b7c5753599cb8932db7ce6496d3a79c0118cf4448f58cc82d28912"
+    },
+    {
+      "source": "THIRD_PARTY_NOTICES.md",
+      "destination": "reference/crm/THIRD_PARTY_NOTICES.md",
+      "sha256": "ed023514fe61360687b2b65c9b36f6f34a51bad23026bfa92796100d5a81af6f"
+    },
+    {
+      "source": "scripts/setup-funasr.ps1",
+      "destination": "reference/crm/scripts/setup-funasr.ps1",
+      "sha256": "1ff97b5b164a6632766f29da80b7e8351163b5e5d1decd43d46bbccefaec6bb7"
+    },
+    {
+      "source": "scripts/start-funasr.ps1",
+      "destination": "reference/crm/scripts/start-funasr.ps1",
+      "sha256": "32e05f942cc17e508fa92c0795e1259a58b7e3f177bec5cbee01ea7432a6507d"
+    },
+    {
+      "source": "docs/岗位工作台与数据清理-20260924.md",
+      "destination": "reference/crm/docs/岗位工作台与数据清理-20260924.md",
+      "sha256": "22b131a57690da526deb681f247d3e77cf2bdf5cf1fc6f2bb8efc97b174dd037"
+    },
+    {
+      "source": "backend/src/morning-meeting-transcription.ts",
+      "destination": "modules/meeting-agent/transcription.ts",
+      "sha256": "fc2cf95c654f5de4ad0c6a4b3db35f2cef6bcff7a9fc0648389f9a2fc63c9765"
+    },
+    {
+      "source": "backend/src/workbench-overview.ts",
+      "destination": "modules/workbench/overview.ts",
+      "sha256": "5569a180453d571906e187592853c65d430d24202fd9f3a51cf791748b4fcde1"
+    },
+    {
+      "source": "backend/src/workbench-role-test.ts",
+      "destination": "modules/workbench/overview.test.ts",
+      "sha256": "4b28b3bf660ee9d40774fb4f9e5b4a6507595aef098832582ab31624fba4ef34"
+    },
+    {
+      "source": "frontend/src/todo-navigation.ts",
+      "destination": "modules/workbench/todo-navigation.ts",
+      "sha256": "0a0a70597b0009d74e2ee8d16497b042f09f0ebbb1a0c3c27b1498b8ea09b78c"
+    },
+    {
+      "source": "frontend/src/todo-navigation-test.ts",
+      "destination": "modules/workbench/todo-navigation.test.ts",
+      "sha256": "fcdf35bfae6b8e32dbe43f07da02cf79dfc74e1e29e166b19657d78357383569"
+    }
+  ],
+  "fragments": [
+    {
+      "source": "frontend/src/prototype-api.ts",
+      "destination": "modules/meeting-agent/frontend.ts",
+      "startLine": 8847,
+      "endLine": 9071,
+      "sha256": "fd78f0a7a30e1c3906a30a9b1b28324b21d0d7db1ae23eef66bfc3050644d945"
+    },
+    {
+      "source": "frontend/src/prototype-api.ts",
+      "destination": "modules/meeting-agent/transcription-settings.ts",
+      "sha256": "77bac969723eb3df54c0550a10ef96f4ff798981b2229dc865508838cd6475c8",
+      "declarations": [
+        {
+          "name": "saveMorningMeetingTranscription",
+          "startLine": 14025,
+          "endLine": 14050
+        },
+        {
+          "name": "testMorningMeetingTranscription",
+          "startLine": 14052,
+          "endLine": 14063
+        }
+      ]
+    },
+    {
+      "source": "frontend/src/prototype-api.ts",
+      "destination": "modules/workbench/frontend.ts",
+      "sha256": "a037e4f180ed544d1961ef0bc5432b711686f2511028bf01c376cdb0b1f08f5e",
+      "declarations": [
+        {
+          "name": "DashboardPeriod",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "let dashboardLeadFunnelChart: ReturnType<typeof echarts.init> | null = null;",
+          "startLine": 44,
+          "endLine": 44
+        },
+        {
+          "name": "let dashboardLeadFunnelResizeObserver: ResizeObserver | null = null;",
+          "startLine": 45,
+          "endLine": 45
+        },
+        {
+          "name": "let dashboardRefreshPromise: Promise<void> | null = null;",
+          "startLine": 48,
+          "endLine": 48
+        },
+        {
+          "name": "let activeDashboardBoard: \"tasks\" | \"customers\" | \"orders\" | \"purchases\" | \"outbound\" = \"tasks\";",
+          "startLine": 49,
+          "endLine": 49
+        },
+        {
+          "name": "let dashboardDataBoardCharts: ReturnType<typeof echarts.init>[] = [];",
+          "startLine": 50,
+          "endLine": 50
+        },
+        {
+          "name": "let dashboardDataBoardResizeObserver: ResizeObserver | null = null;",
+          "startLine": 51,
+          "endLine": 51
+        },
+        {
+          "name": "let dashboardBoardStartDate = chinaToday();",
+          "startLine": 52,
+          "endLine": 52
+        },
+        {
+          "name": "let dashboardBoardEndDate = chinaToday();",
+          "startLine": 53,
+          "endLine": 53
+        },
+        {
+          "name": "let dashboardBoardUpdatedText = \"数据加载中\";",
+          "startLine": 54,
+          "endLine": 54
+        },
+        {
+          "name": "const DASHBOARD_LIVE_REFRESH_MS = 10_000;",
+          "startLine": 64,
+          "endLine": 64
+        },
+        {
+          "name": "Todo",
+          "startLine": 620,
+          "endLine": 652
+        },
+        {
+          "name": "WorkbenchOverview",
+          "startLine": 2791,
+          "endLine": 2796
+        },
+        {
+          "name": "DashboardSummary",
+          "startLine": 2797,
+          "endLine": 2899
+        },
+        {
+          "name": "parseTodoDate",
+          "startLine": 4191,
+          "endLine": 4204
+        },
+        {
+          "name": "isHistoricalTodo",
+          "startLine": 4206,
+          "endLine": 4208
+        },
+        {
+          "name": "todoCreatedTime",
+          "startLine": 4210,
+          "endLine": 4220
+        },
+        {
+          "name": "sortTodos",
+          "startLine": 4222,
+          "endLine": 4233
+        },
+        {
+          "name": "activeTodos",
+          "startLine": 4235,
+          "endLine": 4237
+        },
+        {
+          "name": "historyTodos",
+          "startLine": 4239,
+          "endLine": 4241
+        },
+        {
+          "name": "todoTypeText",
+          "startLine": 4247,
+          "endLine": 4256
+        },
+        {
+          "name": "OrderDashboardMode",
+          "startLine": 5812,
+          "endLine": 5812
+        },
+        {
+          "name": "let activeOrderDashboard: OrderDashboardMode = \"sales\";",
+          "startLine": 5814,
+          "endLine": 5814
+        },
+        {
+          "name": "activeDashboardTaskMonth",
+          "startLine": 5970,
+          "endLine": 5972
+        },
+        {
+          "name": "loadDashboardTaskImportAccess",
+          "startLine": 5974,
+          "endLine": 5981
+        },
+        {
+          "name": "applyOrderDashboard",
+          "startLine": 6067,
+          "endLine": 6073
+        },
+        {
+          "name": "dashboardCacheKey",
+          "startLine": 10312,
+          "endLine": 10314
+        },
+        {
+          "name": "readDashboardCache",
+          "startLine": 10316,
+          "endLine": 10328
+        },
+        {
+          "name": "writeDashboardCache",
+          "startLine": 10330,
+          "endLine": 10339
+        },
+        {
+          "name": "renderDashboardCache",
+          "startLine": 10341,
+          "endLine": 10349
+        },
+        {
+          "name": "refreshDashboardOnly",
+          "startLine": 10351,
+          "endLine": 10377
+        },
+        {
+          "name": "requestDashboardRefresh",
+          "startLine": 10379,
+          "endLine": 10383
+        },
+        {
+          "name": "refreshVisibleDashboard",
+          "startLine": 10385,
+          "endLine": 10389
+        },
+        {
+          "name": "renderDashboard",
+          "startLine": 10391,
+          "endLine": 10444
+        },
+        {
+          "name": "openWorkbenchView",
+          "startLine": 10446,
+          "endLine": 10452
+        },
+        {
+          "name": "renderRoleWorkbench",
+          "startLine": 10454,
+          "endLine": 10466
+        },
+        {
+          "name": "renderRoleWorkbenchPanels",
+          "startLine": 10468,
+          "endLine": 10485
+        },
+        {
+          "name": "dashboardMetricCards",
+          "startLine": 10487,
+          "endLine": 10490
+        },
+        {
+          "name": "dashboardQuantity",
+          "startLine": 10492,
+          "endLine": 10495
+        },
+        {
+          "name": "ensureDashboardBoardView",
+          "startLine": 10497,
+          "endLine": 10501
+        },
+        {
+          "name": "renderDashboardDataBoard",
+          "startLine": 10505,
+          "endLine": 10591
+        },
+        {
+          "name": "renderDashboardOrderWorkflow",
+          "startLine": 10593,
+          "endLine": 10599
+        },
+        {
+          "name": "renderDashboardBoardCharts",
+          "startLine": 10601,
+          "endLine": 10665
+        },
+        {
+          "name": "dashboardMoneyText",
+          "startLine": 10854,
+          "endLine": 10862
+        },
+        {
+          "name": "formatTodoTime",
+          "startLine": 10878,
+          "endLine": 10892
+        },
+        {
+          "name": "renderDashboardDense",
+          "startLine": 11139,
+          "endLine": 11152
+        },
+        {
+          "name": "renderDashboardKnowledgePanels",
+          "startLine": 11154,
+          "endLine": 11185
+        },
+        {
+          "name": "renderTodoInsights",
+          "startLine": 11193,
+          "endLine": 11207
+        },
+        {
+          "name": "renderPriorityTasks",
+          "startLine": 11209,
+          "endLine": 11233
+        },
+        {
+          "name": "batchProcessPriorityTasks",
+          "startLine": 11235,
+          "endLine": 11255
+        },
+        {
+          "name": "navigateFromTodo",
+          "startLine": 11279,
+          "endLine": 11340
+        },
+        {
+          "name": "renderTodos",
+          "startLine": 11342,
+          "endLine": 11451
+        },
+        {
+          "name": "visibleTodoIds",
+          "startLine": 11453,
+          "endLine": 11455
+        },
+        {
+          "name": "persistTodoOrder",
+          "startLine": 11457,
+          "endLine": 11468
+        },
+        {
+          "name": "pinTodo",
+          "startLine": 11470,
+          "endLine": 11477
+        },
+        {
+          "name": "bindTodoDrag",
+          "startLine": 11479,
+          "endLine": 11572
+        },
+        {
+          "name": "toggleTodoExecution",
+          "startLine": 11574,
+          "endLine": 11587
+        },
+        {
+          "name": "renderTodoHistory",
+          "startLine": 11589,
+          "endLine": 11636
+        },
+        {
+          "name": "deleteTodo",
+          "startLine": 11638,
+          "endLine": 11673
+        },
+        {
+          "name": "restoreTodoFromHistory",
+          "startLine": 11675,
+          "endLine": 11687
+        },
+        {
+          "name": "filterTodos",
+          "startLine": 11689,
+          "endLine": 11693
+        },
+        {
+          "name": "updateTodoChips",
+          "startLine": 11695,
+          "endLine": 11711
+        },
+        {
+          "name": "communicationTodoTriggerKey",
+          "startLine": 14273,
+          "endLine": 14275
+        },
+        {
+          "name": "todoMatchesCommunicationFollowup",
+          "startLine": 14277,
+          "endLine": 14282
+        },
+        {
+          "name": "createCustomerCommunicationTodo",
+          "startLine": 14284,
+          "endLine": 14308
+        },
+        {
+          "name": "createCustomerMeetingTodo",
+          "startLine": 14627,
+          "endLine": 14662
+        },
+        {
+          "name": "createSelectedProspectTodo",
+          "startLine": 29977,
+          "endLine": 30012
+        },
+        {
+          "name": "syncProspectTodo",
+          "startLine": 30014,
+          "endLine": 30019
+        },
+        {
+          "name": "createLeadFinderTodos",
+          "startLine": 35336,
+          "endLine": 35380
+        },
+        {
+          "name": "openTodoModal",
+          "startLine": 35484,
+          "endLine": 35508
+        },
+        {
+          "name": "saveTodo",
+          "startLine": 35510,
+          "endLine": 35538
+        },
+        {
+          "name": "createQuickTodo",
+          "startLine": 35540,
+          "endLine": 35558
+        },
+        {
+          "name": "pushPlanTasksToTodos",
+          "startLine": 36139,
+          "endLine": 36176
+        },
+        {
+          "name": "renderTopbarStats",
+          "startLine": 40322,
+          "endLine": 40326
+        }
+      ]
+    },
+    {
+      "source": "backend/src/server.ts",
+      "destination": "modules/meeting-agent/routes.ts",
+      "sha256": "f59ffad6c265eaab97beecae980d4fc10c8f0dbb57927c73fee5d5a956d3b54b",
+      "declarations": [
+        {
+          "name": "app.use(\"/api/morning-meetings/upload\", express.raw({\r\n  type: [\"audio/*\", \"video/mp4\", \"application",
+          "startLine": 587,
+          "endLine": 590
+        },
+        {
+          "name": "morningMeetingTranscriptionForTeam",
+          "startLine": 7127,
+          "endLine": 7138
+        },
+        {
+          "name": "const morningMeetingDirectory = path.resolve(\r\n  process.env.GOODJOB_UPLOADS_DIR?.trim() || path.res",
+          "startLine": 8942,
+          "endLine": 8945
+        },
+        {
+          "name": "canManageMorningMeetings",
+          "startLine": 8947,
+          "endLine": 8949
+        },
+        {
+          "name": "assertMorningMeetingManager",
+          "startLine": 8951,
+          "endLine": 8955
+        },
+        {
+          "name": "findMorningMeeting",
+          "startLine": 8957,
+          "endLine": 8964
+        },
+        {
+          "name": "morningMeetingMembers",
+          "startLine": 8966,
+          "endLine": 8970
+        },
+        {
+          "name": "app.get(\"/api/morning-meetings\", requireAuth, (req, res) => {\r\n  if (!assertMorningMeetingManager(re",
+          "startLine": 8972,
+          "endLine": 8978
+        },
+        {
+          "name": "app.get(\"/api/morning-meetings/:id\", requireAuth, (req, res) => {\r\n  if (!assertMorningMeetingManage",
+          "startLine": 8980,
+          "endLine": 8985
+        },
+        {
+          "name": "app.post(\"/api/morning-meetings/upload\", requireAuth, asyncRoute(async (req, res) => {\r\n  if (!asser",
+          "startLine": 8987,
+          "endLine": 9049
+        },
+        {
+          "name": "app.get(\"/api/morning-meetings/:id/audio\", requireAuth, (req, res) => {\r\n  if (!assertMorningMeeting",
+          "startLine": 9051,
+          "endLine": 9062
+        },
+        {
+          "name": "app.delete(\"/api/morning-meetings/:id\", requireAuth, asyncRoute(async (req, res) => {\r\n  if (!assert",
+          "startLine": 9064,
+          "endLine": 9077
+        },
+        {
+          "name": "app.post(\"/api/morning-meetings/:id/analyze\", requireAuth, asyncRoute(async (req, res) => {\r\n  if (!",
+          "startLine": 9079,
+          "endLine": 9211
+        },
+        {
+          "name": "app.patch(\"/api/morning-meetings/:id/review\", requireAuth, asyncRoute(async (req, res) => {\r\n  if (!",
+          "startLine": 9213,
+          "endLine": 9243
+        },
+        {
+          "name": "app.post(\"/api/morning-meetings/:id/publish\", requireAuth, asyncRoute(async (req, res) => {\r\n  if (!",
+          "startLine": 9245,
+          "endLine": 9295
+        },
+        {
+          "name": "getMorningMeetingAiConfig",
+          "startLine": 23344,
+          "endLine": 23348
+        }
+      ]
+    },
+    {
+      "source": "backend/src/server.ts",
+      "destination": "modules/workbench/routes.ts",
+      "sha256": "dad35759363edd3859c7c7ea75c3010ed1906fda7221842bcbdcc94fc73d7821",
+      "declarations": [
+        {
+          "name": "app.get(\"/api/todos\", requireAuth, asyncRoute(async (req, res) => {\r\n  const store = getStore();\r\n  ",
+          "startLine": 8930,
+          "endLine": 8940
+        },
+        {
+          "name": "app.post(\"/api/todos\", requireAuth, asyncRoute(async (req, res) => {\r\n  const schema = z.object({\r\n ",
+          "startLine": 9297,
+          "endLine": 9336
+        },
+        {
+          "name": "app.post(\"/api/todos/:id/complete\", requireAuth, asyncRoute(async (req, res) => {\r\n  const schema = ",
+          "startLine": 11151,
+          "endLine": 11175
+        },
+        {
+          "name": "app.post(\"/api/todos/archive-due\", requireAuth, asyncRoute(async (req, res) => {\r\n  const store = ge",
+          "startLine": 11177,
+          "endLine": 11183
+        },
+        {
+          "name": "app.post(\"/api/todos/:id/restore\", requireAuth, asyncRoute(async (req, res) => {\r\n  const store = ge",
+          "startLine": 11185,
+          "endLine": 11208
+        },
+        {
+          "name": "app.patch(\"/api/todos/:id\", requireAuth, asyncRoute(async (req, res) => {\r\n  const schema = z.object",
+          "startLine": 11210,
+          "endLine": 11299
+        },
+        {
+          "name": "app.post(\"/api/todos/reorder\", requireAuth, asyncRoute(async (req, res) => {\r\n  const schema = z.obj",
+          "startLine": 11301,
+          "endLine": 11326
+        },
+        {
+          "name": "app.delete(\"/api/todos/:id\", requireAuth, asyncRoute(async (req, res) => {\r\n  const store = getStore",
+          "startLine": 11328,
+          "endLine": 11346
+        },
+        {
+          "name": "app.get(\"/api/dashboard/summary\", requireAuth, (req, res) => {\r\n  // Business scope follows role aut",
+          "startLine": 22547,
+          "endLine": 22947
+        },
+        {
+          "name": "app.get(\"/api/dashboard/leaderboard\", requireAuth, (req, res) => {\r\n  const store = getStore();\r\n  c",
+          "startLine": 22949,
+          "endLine": 22989
+        },
+        {
+          "name": "app.get(\"/api/dashboard/badges\", requireAuth, (req, res) => {\r\n  const store = getStore();\r\n  const ",
+          "startLine": 22991,
+          "endLine": 23030
+        },
+        {
+          "name": "app.post(\"/api/dashboard/priority-tasks/batch-process\", requireAuth, asyncRoute(async (req, res) => ",
+          "startLine": 23032,
+          "endLine": 23071
+        }
+      ]
+    },
+    {
+      "source": "frontend/index.html",
+      "destination": "modules/workbench/view.html",
+      "startLine": 24201,
+      "endLine": 24363,
+      "sha256": "a5699c7441d70d094b0fb0683429c7e06a8c6d701356b00848cecbd25dcc090d"
+    },
+    {
+      "source": "frontend/index.html",
+      "destination": "modules/meeting-agent/view.html",
+      "startLine": 24974,
+      "endLine": 24986,
+      "sha256": "c5bbdf9869c412396e93a5d3b87a90b10561a81cdaca688b01dec8f6c38a06fc"
+    },
+    {
+      "source": "frontend/index.html",
+      "destination": "shared/crm-styles.css",
+      "sha256": "d67dc36c92082b96ca449f6cb3f1fe415e4c33628fb2f7f8694deffeeac4eb7e",
+      "note": "All original inline style blocks in cascade order; later trimming requires visual comparison."
+    }
+  ]
+}

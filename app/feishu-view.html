@@ -1,0 +1,18 @@
+<div class="view" id="feishu" hidden>
+<div class="page-head"><div><h1>接入配置</h1><p>通过飞书应用机器人，将审核后的会议任务通知到群和负责人。</p></div></div>
+<form class="panel local-settings" id="feiForm">
+<h2>应用凭证</h2><p>创建企业自建应用并添加机器人能力，开通“以应用的身份发消息”权限后发布。</p>
+<div class="form-grid"><label class="form-field">App ID<input name="appId" maxlength="200" placeholder="cli_…" autocomplete="off"></label><label class="form-field">App Secret<input name="appSecret" type="password" maxlength="1000" autocomplete="new-password"></label></div>
+<label class="check-label"><input name="clearAppSecret" type="checkbox"> 清除已保存的应用密钥</label>
+<p>密钥只保存在本机服务端，留空保留。更换 App ID 时需重新填写密钥，并重新绑定成员。</p>
+<h2>群通知</h2><label class="check-label"><input type="checkbox" name="groupEnabled"> 发布会议或新增待办时自动通知群</label>
+<div class="form-grid"><label class="form-field">群名称<input name="groupName" maxlength="200" placeholder="会议通知群"></label><label class="form-field">群 chat_id<input name="chatId" maxlength="200" placeholder="oc_…"></label></div>
+<p>请先将此应用机器人加入目标群。这里填写群编号，不是群邀请链接或 Webhook。</p>
+<h2>负责人通知</h2><label class="check-label"><input type="checkbox" name="personalEnabled"> 单独通知每位任务负责人</label>
+<p>在“成员管理”中绑定本应用对应的飞书 open_id，并将接收人加入应用可用范围。每人仅收到自己负责的任务。</p>
+<div class="local-actions"><button type="submit" class="btn primary">保存飞书配置</button></div><p>启用后通知新发布的会议及手动新增的待办，不补发历史记录。钉钉和飞书可分别启用。</p>
+</form>
+<section class="panel local-settings" style="margin-top:18px"><h2>测试发送</h2><p>使用已保存配置，会真实发送测试通知。请先保存配置并启用对应通知。</p><div class="local-actions" style="flex-wrap:wrap"><button class="btn" data-fei-test="group">发送群测试通知</button><select id="feiTestMember" aria-label="飞书测试接收成员"></select><button class="btn" data-fei-test="personal">发送个人测试通知</button></div></section>
+<section class="panel" style="margin-top:18px;padding:22px"><div class="section-head"><h2>发送记录 · 最近200条</h2><button class="btn" id="refreshFei">刷新发送状态</button></div><p>“飞书已受理”表示接口返回成功，不代表接收人已读。结果不确定时请先到飞书核实。</p><div id="feiLogs"></div></section>
+</div>
+<!-- FEISHU_GUIDE -->

@@ -1,0 +1,11 @@
+const fs=require('node:fs');const path=require('node:path');const ts=require('typescript');
+const root=path.resolve(__dirname,'..');const read=f=>fs.readFileSync(path.join(root,f),'utf8');
+const source=read('app/ui.ts')+'\n'+read('app/meeting.ts')+'\n'+read('app/dingtalk-ui.ts')+'\n'+read('app/feishu-ui.ts')+'\n'+read('app/accounts-ui.ts')+'\nvoid bootAuth();\n';
+const result=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.None,strict:true},reportDiagnostics:true});
+if(result.diagnostics?.some(d=>d.category===ts.DiagnosticCategory.Error))throw Error(ts.formatDiagnosticsWithColorAndContext(result.diagnostics,{getCanonicalFileName:x=>x,getCurrentDirectory:()=>root,getNewLine:()=> '\n'}));
+fs.mkdirSync(path.join(root,'public'),{recursive:true});
+fs.writeFileSync(path.join(root,'public/app.js'),result.outputText);
+fs.writeFileSync(path.join(root,'public/index.html'),read('app/index.html').replace('<!-- MEETING_VIEW -->',read('modules/meeting-agent/view.html').replace('<h1>会议 Agent</h1>','<h1>会议管理</h1>').replaceAll('晨会','会议')).replace('<!-- DINGTALK_VIEW -->',read('app/dingtalk-view.html')).replace('<!-- DINGTALK_GUIDE -->',read('app/dingtalk-guide.html')).replace('<!-- FEISHU_VIEW -->',read('app/feishu-view.html')).replace('<!-- FEISHU_GUIDE -->',read('app/feishu-guide.html')));
+fs.copyFileSync(path.join(root,'shared/crm-styles.css'),path.join(root,'public/crm.css'));
+fs.writeFileSync(path.join(root,'public/local.css'),read('app/local.css')+'\n'+read('app/light.css'));
+console.log('Built local meeting workspace.');

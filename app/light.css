@@ -1,0 +1,66 @@
+/* Bright collaboration theme with subtle blue and lavender depth. */
+:root[data-theme="dingtalk"]{color-scheme:light;--bg:#f4f6fc;--ink:#202b42;--text:#39465d;--muted:#748198;--line:#e3e8f2;--line-soft:#eef1f7;--brand:#3978e9;--brand-strong:#2865ce;--brand-tint:#edf3ff;--brand-ring:#3978e925}
+.local-app{background:radial-gradient(ellipse at 90% 0,#e9e5ff99,transparent 48%),radial-gradient(ellipse at 22% 35%,#e4f1ff88,transparent 50%),linear-gradient(145deg,#f7faff,#f4f5fb);background-attachment:fixed}
+.local-sidebar{background:linear-gradient(180deg,#ffffff,#f6f8ff);border-color:#e1e7f2;padding-top:28px}
+.local-brand>span{background:linear-gradient(135deg,#438ef4,#7d6be7);border-radius:11px;box-shadow:0 5px 15px #5680d92a}
+.local-nav{gap:8px}.local-nav button{border:1px solid transparent;border-radius:10px;min-height:46px}
+.local-nav button.active{background:linear-gradient(100deg,#e5eeff,#efedff);border-color:#dce5fc;box-shadow:inset 3px 0 #6a8def;color:#3564be}
+.local-nav button:hover{background:#edf2fc}.local-nav button small{background:#e8edf7}.local-mode i{background:#36b991}
+
+.local-app .panel{border:1px solid #e1e7f2;border-radius:15px;background:linear-gradient(135deg,#ffffff,#fcfdff);box-shadow:0 6px 22px #354d7c06,inset 0 1px #fff}
+.local-app .btn{border-radius:8px;min-height:36px}.local-app .btn.primary{background:linear-gradient(110deg,#397eea,#7169dd);border-color:#5b7ee1;box-shadow:0 4px 12px #507add20}
+.local-app .btn.primary:hover:not(:disabled){background:linear-gradient(110deg,#2d70dc,#655bd2);border-color:#5375d4}
+.local-app input:not([type=checkbox]),.local-app select,.local-app textarea{min-height:40px;border-radius:8px;border-color:#dce3ef;background:#ffffffd9}
+.local-app .local-settings{max-width:none;width:100%}.local-app .local-settings h2{position:relative;padding-left:13px}
+.local-app .local-settings h2:before{content:"";position:absolute;left:0;bottom:4px;width:3px;height:16px;border-radius:3px;background:linear-gradient(#5299f7,#9b83e9)}
+.local-app #dashboard .focus-panel{isolation:isolate;position:relative;padding:30px;background:radial-gradient(ellipse at 95% 0,#e6deff99,transparent 55%),linear-gradient(125deg,#f4f9ff,#f5f4ff);border-color:#dce4f5;overflow:hidden}
+.local-app #dashboard .focus-panel:after{content:"";display:block;position:absolute;z-index:-1;pointer-events:none;top:-140px;right:-90px;width:430px;height:430px;border:1px solid #9aa6d415;border-radius:50%;background:none;mask-image:none;opacity:1;box-shadow:0 0 0 48px #a1b0dc07,0 0 0 100px #a1b0dc04}
+.local-app .focus-title h2{font-size:25px!important;font-weight:600;color:#263955;letter-spacing:.3px}.local-app .focus-title p{font-size:13px}
+.local-app #dashboard .briefing-why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;background:transparent;padding:0;margin-top:26px}
+.local-app .briefing-why div{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:0 0 0 12px;border:0!important}
+.local-app .briefing-why div:before{top:5px;left:0;background:#7997d8}.local-app .briefing-why b{font-size:12px}.local-app .briefing-why span{font-size:13px;line-height:1.8}
+.local-app #dashboard .focus-metrics{margin-top:26px;gap:14px}.local-app .focus-metric{background:#ffffffb3;border:1px solid #e1e7f1!important;border-radius:12px;padding:18px!important;min-height:124px;box-shadow:0 4px 12px #526b9d04}
+.local-app .focus-metric:nth-child(1){background:linear-gradient(125deg,#e5efff,#eceaff);border-color:#d3dff6!important}.local-app .focus-metric:nth-child(1) b{color:#4976d1}.local-app .focus-metric b{font-size:30px;font-weight:500}
+.local-app .todo-chip{border-radius:7px}.local-app .todo-history-empty{background:#f8faff;border-color:#e2e9f5;border-radius:10px;padding:24px}
+.local-app .morning-meeting-list,.local-app .morning-meeting-flow{border-radius:12px}.local-app .modal{border-radius:16px;border:1px solid #e0e7f2;box-shadow:0 25px 85px #26385e30}.local-app .modal-backdrop{background:#18294566;backdrop-filter:blur(5px)}
+.local-app .modal-head,.local-app .modal-foot{background:#fafbff}.local-footer{color:#8894aa}
+@media(max-width:1000px){.local-app #dashboard .briefing-why{grid-template-columns:1fr;gap:14px}}
+@media(max-width:640px){.local-sidebar{padding-top:18px}.local-nav{gap:4px}.local-nav button{min-height:38px}.local-app #dashboard .focus-panel{padding:20px}.local-app .focus-title h2{font-size:21px!important}.local-app .focus-metric{padding:14px!important}.local-app .panel{border-radius:12px}}
+@media(prefers-reduced-motion:reduce){.local-app *{animation:none!important;transition:none!important}}
+
+.local-nav-group{min-width:0}
+.local-nav-group summary{display:flex;align-items:center;gap:12px;min-height:46px;padding:12px;border:1px solid transparent;border-radius:10px;color:#515967;font-size:14px;cursor:pointer;list-style:none}
+.local-nav-group summary::-webkit-details-marker{display:none}
+.local-nav-group summary>span{display:flex;width:20px;flex-shrink:0}
+.local-nav-group summary:hover{background:#edf2fc}
+.local-nav-group.is-current summary{color:#3564be;background:#edf2fd}
+.local-nav-group summary .nav-chevron{width:14px;height:14px;margin-left:auto;transition:transform .15s}
+.local-nav-group[open] .nav-chevron{transform:rotate(90deg)}
+.local-subnav{display:grid;gap:4px;margin:6px 0 2px 22px;padding-left:10px;border-left:1px solid #dbe3f4}
+.local-subnav button{min-height:38px;font-size:13px;padding:8px 14px}
+.local-nav-group summary:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.ding-guide p,.ding-guide li{font-size:13px;line-height:1.9;color:var(--text)}
+.ding-guide ol,.ding-guide ul{padding-left:22px;margin:14px 0}.ding-guide li+li{margin-top:8px}
+.ding-guide a{color:#3564be;font-size:13px;text-underline-offset:3px}.ding-guide .local-actions{margin-top:24px}
+@media(max-width:640px){.local-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible}.local-nav-group{grid-column:1/-1}.local-nav-group summary{min-height:38px;padding:9px 10px;font-size:12px}.local-nav-group summary>span{display:none}.local-subnav{grid-template-columns:repeat(2,minmax(0,1fr));margin-left:12px}}
+
+/* Indeterminate progress: ASR and model APIs do not expose completion percentages. */
+.local-app .morning-progress{min-width:0;width:100%;max-width:240px;display:grid;gap:8px;padding:4px 0}
+.local-app .morning-progress .morning-status{justify-self:start}
+.local-app .morning-progress-track{height:6px;border-radius:999px;overflow:hidden;background:#e5ebf7}
+.local-app .morning-progress-track i{display:block;width:38%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#397eea,#8174e7);animation:meeting-progress-slide 1.6s ease-in-out infinite}
+.local-app .morning-progress small{margin:0;color:var(--muted);font-size:11px;line-height:1.5}
+@keyframes meeting-progress-slide{from{transform:translateX(-110%)}to{transform:translateX(275%)}}
+@media(prefers-reduced-motion:reduce){.local-app .morning-progress-track i{animation:none;transform:translateX(80%)}}
+/* Account entry and role-scoped workspace. */
+.local-app:not(.signed-in) .local-shell{display:none}
+.login-page{min-height:100vh;display:grid;place-items:center;padding:24px}
+.login-page[hidden]{display:none}
+.login-card{width:min(100%,420px);padding:38px;background:#ffffffed;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 60px #354d7c15}
+.login-mark{width:48px;height:48px;background:linear-gradient(135deg,#438ef4,#7d6be7);border-radius:14px;color:white;display:grid;place-items:center;font-size:24px;margin-bottom:20px}
+.login-card h1{margin:0 0 8px}.login-card p,.login-card small{color:var(--muted);font-size:13px;line-height:1.7}
+.login-card form{display:grid;gap:16px;margin:26px 0 20px}.login-card label{display:grid;gap:8px;font-size:13px}.login-card .btn{width:100%}.login-card .ding-error{color:#c53c55}
+.session-panel{display:flex!important;flex-wrap:wrap;gap:8px}.session-panel b{width:100%;font-size:12px;margin-bottom:6px}.session-panel .btn{font-size:11px;padding:6px 10px}
+.local-app[data-role=member] .local-nav [data-nav]:not([data-nav=dashboard]):not([data-nav=morning-meetings]),.local-app[data-role=member] .local-nav-group,.local-app[data-role=member] #ownerFilter{display:none!important}
+.completion-record{border:1px solid var(--line);border-radius:10px;padding:14px;margin:10px 0}.completion-record small{display:block;color:var(--muted);margin-top:6px}.completion-record p{white-space:pre-wrap;overflow-wrap:anywhere}.completion-record a{overflow-wrap:anywhere;color:var(--brand)}
+@media(max-width:640px){.session-panel{margin-top:14px}.login-card{padding:26px}}
