@@ -15,8 +15,7 @@ async function bootAuth(){
   if(currentUser.role==='member'){
     qs('#dashboard h1')!.textContent='任务总览';
     qs('.morning-meeting-head p')!.textContent='查看所有已发布会议，上传并管理自己的会议。';
-    qs('#dashboard .focus-title h2')!.textContent='跟进我的任务，记录每一次完成';
-    qs('#dashboard .focus-title p')!.textContent='查看分配给你的任务，完成时可补充说明和证明附件。';
+    qs('#dashboard .dash-eyebrow')!.textContent='会议协同 / 我的工作台';
   }
   await bootLocal();
 }

@@ -1,0 +1,15 @@
+<div class="view" id="analytics" hidden>
+  <header class="analytics-heading"><div><span class="analytics-eyebrow" id="analyticsScope">会议协同 / 数据看板</span><h1>统计分析</h1></div><span class="analytics-tag">真实任务 · 实时统计</span></header>
+  <form id="analyticsRange" class="panel analytics-toolbar">
+    <div class="analytics-presets" aria-label="统计时间"><button type="button" data-period="week">本周</button><button type="button" data-period="month" class="active">本月</button><button type="button" data-period="custom">自定义</button></div>
+    <label>开始日期<input type="date" id="analyticsStart" required></label><span class="analytics-to">至</span><label>结束日期<input type="date" id="analyticsEnd" required></label><button class="btn" type="submit">应用筛选</button>
+    <span id="analyticsRangeError" role="alert"></span>
+  </form>
+  <p class="analytics-caption" id="analyticsPeriodLabel"></p>
+  <div class="analytics-metrics" id="analyticsMetrics"></div>
+  <div class="analytics-charts"><section class="panel analytics-trend"><div class="analytics-card-head"><div><h2>任务变化趋势</h2><p>按新增日期、最终完成日期统计，点击数据点查看任务</p></div><div class="analytics-legend"><span><i class="blue"></i>新增</span><span><i class="green"></i>完成</span></div></div><div id="analyticsTrend"></div></section>
+  <section class="panel analytics-status"><div class="analytics-card-head"><div><h2>任务状态分布</h2><p>所选期间新增任务的当前状态</p></div></div><div id="analyticsStatus"></div></section></div>
+  <section class="panel analytics-members"><div class="analytics-card-head"><div><h2 id="analyticsMemberTitle">成员任务分布</h2><p>所选期间新增任务，按当前负责人统计；点击色块查看明细</p></div><div class="analytics-legend"><span><i class="blue"></i>未逾期待办</span><span><i class="rose"></i>逾期待办</span><span><i class="green"></i>已完成</span></div></div><div id="analyticsMembers"></div></section>
+  <section class="panel analytics-details"><div class="analytics-card-head"><div><h2 id="analyticsDetailTitle">期间新增任务</h2><p id="analyticsDetailCount"></p></div></div><div id="analyticsDetails"></div></section>
+  <details class="analytics-method"><summary>统计口径</summary><p>日期按北京时间统计，最多选择 366 天。新增任务按创建日期统计；完成任务按当前已完成任务的最终完成日期统计，重新打开的任务不计完成，多次完成不重复累计。状态和成员图仅包含期间新增任务，展示当前状态，不是历史快照。按时完成率 = 期间完成且未超过截止时间的任务 ÷ 期间完成且有有效截止时间的任务；未设截止时间不参与计算，只有日期的截止时间按当天 23:59:59 计算。旧任务缺少日期时不计入对应时间统计。统计仅使用当前账号有权查看的任务。</p></details>
+</div>
