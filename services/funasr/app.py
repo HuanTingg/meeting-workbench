@@ -62,7 +62,11 @@ app = FastAPI(title="会议纪要 FunASR", version="1.0", lifespan=lifespan)
 def normalize_audio(source: Path, target: Path) -> None:
     ffmpeg = shutil.which("ffmpeg")
     if not ffmpeg:
-        raise RuntimeError("未找到 FFmpeg，无法处理手机录音格式")
+        try:
+            import imageio_ffmpeg
+            ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
+        except ImportError as exc:
+            raise RuntimeError("未找到 FFmpeg，请重新运行部署命令") from exc
     result = subprocess.run(
         [ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-i", str(source), "-ac", "1", "-ar", "16000", "-c:a", "pcm_s16le", str(target)],
         capture_output=True,

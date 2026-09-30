@@ -4,59 +4,61 @@
 
 ## 交给 AI 部署
 
-把仓库链接和这段话发给能操作终端的 AI：
+将仓库链接和下面这段话发给能操作终端的 AI：
 
-> 请部署这个仓库，先阅读 AGENTS.md 和 docs/部署指南.md。使用 Docker Compose 创建独立数据库和管理员，不覆盖现有配置或数据。验证健康状态和登录页后，提供访问地址与安全获取初始密码的方法。默认本机访问，需要录音时启用 speech。私有仓库先确认我的账号有访问权限。
+> 请阅读 AGENTS.md 和 docs/部署指南.md，按本机系统执行原生部署。必须安装 MySQL、FunASR、FFmpeg 并下载全部四组模型，验证数据库、模型健康和登录页面。不覆盖已有配置和数据，完成后给我网页地址及读取初始密码的方法。私有仓库需要我的 GitHub 访问权限。
 
-## 快速启动
+## Windows / Mac 命令网页版
 
-安装并启动 Docker（Linux 容器）和 Git，然后执行：
+无需 Docker，不制作安装包、桌面 EXE 或快捷图标。先安装 Git，也可以在 GitHub 中选择 Code → Download ZIP 后解压。
 
 ```bash
 git clone https://github.com/HuanTingg/meeting-workbench.git
 cd meeting-workbench
 ```
 
-Windows PowerShell：
+Windows 10/11 x64，PowerShell：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy.ps1
 ```
 
-Linux/macOS：
+macOS，终端：
 
 ```bash
-sh scripts/deploy.sh
+bash scripts/deploy.sh
 ```
 
-脚本自动生成独立密码、构建应用、启动 MySQL、建表并创建管理员。无需安装本机 Node/MySQL。打开 **http://localhost:8765**，在自己的终端读取初始账号：
+首次运行自动准备 Node.js、Python 3.12、MySQL、FFmpeg、FunASR，以及语音识别、语音活动检测、标点和说话人四组模型。任何必需步骤失败都会停止，不会跳过录音功能。
+
+首次部署需要联网、数 GB 下载空间，建议至少 8 GB 内存、15 GB 可用磁盘。Mac 首次安装 Homebrew / 开发工具可能要求输入系统密码；Windows 缺少 winget 时需安装微软“应用安装程序”。
+
+显示“部署已就绪”后打开 **http://127.0.0.1:8765**。保持终端运行，Ctrl+C 停止。新部署在终端读取初始账号（首次登录必须改密）：
+
+Windows：`Get-Content data/initial-admin.json`；Mac：`cat data/initial-admin.json`。
+
+下次启动无需重复安装：
+
+```powershell
+# Windows
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy.ps1 -StartOnly
+```
 
 ```bash
-docker compose --env-file .env.docker exec web cat /app/data/initial-admin.json
+# Mac
+bash scripts/deploy.sh --start
 ```
 
-首次登录强制改密。重复部署不会重置账号和数据。文字稿与待办可直接使用；AI 和通知使用部署者自己的配置。
+已有 `.env` 的原生部署保留原数据库与账号。AI、钉钉、飞书仍需填写部署者自己的服务密钥和应用配置。
 
-## 可选录音转写
+## 文档与开发
 
-```bash
-docker compose --env-file .env.docker --profile speech up -d --build funasr
-```
-
-首次下载模型可能较慢。转写地址填 http://funasr:10097/v1，等待模型健康再上传录音。
-
-## 文档
-
-- [部署、验收、局域网访问、更新与备份](docs/部署指南.md)
+- [部署、排错、局域网访问和备份](docs/部署指南.md)
 - [账号与完成证明](docs/账号与完成证明.md)
 - [飞书接入](docs/飞书接入说明.md)
 - [钉钉接入](docs/钉钉接入.md)
 - [MySQL 存储](docs/MySQL存储说明.md)
 
-## 开发
+开发检查：Node.js 22+，`npm ci`、`npm run build`、`npm test`。
 
-Node.js 22+：npm ci、npm run build、npm test。现有本地部署仍可使用 .env 和启动脚本；新环境推荐 Compose，完成空数据库与账号初始化。
-
-app 为当前应用，modules/meeting-agent/view.html 和 shared 是构建资源。reference 原 CRM 追溯副本不上传，verify:extraction 仅适用于保留该副本的本地工作区。
-
-仓库不包含真实账号、数据库、密钥、录音、附件和模型。增加部署脚本不会改变 GitHub 私有状态，其他人必须获得仓库访问权限。第三方代码和模型遵守各自许可证。
+仓库不包含真实账号、密钥、录音、数据库或模型。仓库私有时，其他人需要访问权限。第三方组件和模型遵守各自许可证。旧 Compose 文件保留供已有容器部署维护，不再作为默认部署入口。

@@ -21,5 +21,5 @@ for key, folder in {
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("services.funasr.app:app", host="127.0.0.1", port=10097)
+    uvicorn.run("services.funasr.app:app", host="127.0.0.1", port=int(os.getenv("FUNASR_PORT", "10097")))
 

@@ -1,28 +1,47 @@
-name: Verify deployment
+name: Verify native deployment
 on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
 jobs:
-  verify:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-14]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
     env:
-      COMPOSE_TEST_PROJECT: meeting-smoke-ci
-      MEETING_HTTP_PORT: '18765'
+      MEETING_DEPLOY_VERIFY: '1'
+      PYTHONUTF8: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
-      - run: npm ci
-      - run: npm run build
-      - run: npm test
-      - run: node scripts/configure-docker.mjs
-      - run: docker compose --env-file .env.docker config --quiet
-      - run: docker compose --env-file .env.docker -p "$COMPOSE_TEST_PROJECT" up -d --build --wait --wait-timeout 180 db web
-      - run: node scripts/test-compose.mjs
-      - if: failure()
-        run: docker compose --env-file .env.docker -p "$COMPOSE_TEST_PROJECT" logs --tail 100 web db
-      - if: always()
-        run: docker compose --env-file .env.docker -p "$COMPOSE_TEST_PROJECT" down
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Full Windows deployment including four models
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: ./scripts/deploy.ps1
+      - name: Full macOS deployment including four models
+        if: runner.os == 'macOS'
+        run: bash scripts/deploy.sh
+      - name: Application and isolated native database tests
+        shell: bash
+        run: |
+          export MYSQLD_TEST_PATH="$(node -e 'const fs=require("fs");console.log(JSON.parse(fs.readFileSync(".runtime/native-tools.json","utf8").replace(/^\uFEFF/,"")).mysqld)')"
+          npm test
+      - name: Restart without reinstalling dependencies
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: ./scripts/deploy.ps1 -StartOnly
+      - name: Restart without reinstalling dependencies
+        if: runner.os == 'macOS'
+        run: bash scripts/deploy.sh --start
+      - name: Service diagnostics
+        if: failure()
+        shell: bash
+        run: tail -n 80 logs/native-*.log || true
