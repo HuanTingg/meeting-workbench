@@ -43,8 +43,19 @@ export function managedState(home,port){
 }
 export async function startManagedMysql(home,exe,state){
   await assertPortFree(state.port);
-  const datadir=path.join(state.folder,'data'),basedir=path.dirname(path.dirname(exe));
-  const log=path.join(home,'logs','native-mysql.log');
+  let mysqlHome=home;
+  if(process.platform==='win32'&&/[^\x00-\x7f]/.test(home)){
+    // MySQL on Windows cannot reliably open Unicode option paths. A junction
+    // keeps all data in the project while providing an ASCII access path.
+    const alias=path.join(os.tmpdir(),'meeting-native-'+createHash('sha256').update(home).digest('hex').slice(0,12));
+    if(/[^\x00-\x7f]/.test(alias))throw Error('MySQL 需要 ASCII 临时路径，请将 TEMP 和 TMP 设置到可写的英文目录后重试。');
+    if(!fs.existsSync(alias))fs.symlinkSync(home,alias,'junction');
+    if(fs.realpathSync(alias)!==fs.realpathSync(home))throw Error('MySQL 路径别名已被其他目录占用。');
+    mysqlHome=alias;
+  }
+  const mapped=p=>p.startsWith(home+path.sep)?path.join(mysqlHome,path.relative(home,p)):p;
+  const datadir=mapped(path.join(state.folder,'data')),basedir=mapped(path.dirname(path.dirname(exe)));
+  const log=mapped(path.join(home,'logs','native-mysql.log'));
   const base=['--no-defaults',`--basedir=${basedir}`,`--datadir=${datadir}`];
   if(!fs.existsSync(path.join(datadir,'mysql'))){
     if(fs.existsSync(datadir)&&fs.readdirSync(datadir).length)throw Error('MySQL 初始化未完整结束；请检查日志，不会覆盖已有目录。');
@@ -52,13 +63,20 @@ export async function startManagedMysql(home,exe,state){
     console.log('正在初始化独立 MySQL 数据目录…');
     await runProcess(exe,[...base,'--initialize-insecure',`--log-error=${log}`]);
   }
-  const initFile=path.join(state.folder,'bootstrap.sql');
+  const initFile=mapped(path.join(state.folder,'bootstrap.sql'));
   const initialized=path.join(state.folder,'secured');
   if(!fs.existsSync(initialized))fs.writeFileSync(initFile,`SET NAMES utf8mb4;\nALTER USER 'root'@'localhost' IDENTIFIED BY '${state.rootPassword}';\nCREATE DATABASE IF NOT EXISTS \`会议纪要管理\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\nCREATE USER IF NOT EXISTS 'meeting'@'localhost' IDENTIFIED BY '${state.appPassword}';\nGRANT ALL ON \`会议纪要管理\`.* TO 'meeting'@'localhost';\n`,{mode:0o600});
   const socket=path.join(os.tmpdir(),'meeting-'+createHash('sha256').update(home).digest('hex').slice(0,12)+'.sock');
-  const args=[...base,`--port=${state.port}`,'--bind-address=127.0.0.1','--mysqlx=OFF','--character-set-server=utf8mb4','--collation-server=utf8mb4_unicode_ci',`--log-error=${log}`,`--socket=${socket}`,`--pid-file=${path.join(state.folder,'mysql.pid')}`];
+  const args=[...base,`--port=${state.port}`,'--bind-address=127.0.0.1','--mysqlx=OFF','--character-set-server=utf8mb4','--collation-server=utf8mb4_unicode_ci',`--log-error=${log}`,`--socket=${socket}`,`--pid-file=${mapped(path.join(state.folder,'mysql.pid'))}`];
   if(!fs.existsSync(initialized))args.push(`--init-file=${initFile}`);
-  const child=launch(exe,args,log);
+  // Windows MySQL parses non-ASCII command-line option values incorrectly.
+  // Supply UTF-8 paths in an option file rather than the process argument list.
+  const optionFile=path.join(os.tmpdir(),'meeting-'+createHash('sha256').update(home).digest('hex').slice(0,12)+'.cnf');
+  fs.writeFileSync(optionFile,'[mysqld]\n'+args.filter(a=>a!=='--no-defaults').map(a=>{
+    const [key,...value]=a.slice(2).split('=');
+    return key+'="'+value.join('=').replaceAll('\\','/').replaceAll('"','\\"')+'"';
+  }).join('\n')+'\n',{mode:0o600});
+  const child=launch(exe,[`--defaults-file=${optionFile}`],log);
   try{
     await waitReady(async()=>{const conn=await mysql.createConnection({host:'127.0.0.1',port:state.port,user:'meeting',password:state.appPassword,database:'会议纪要管理',charset:'utf8mb4',connectTimeout:1000});await conn.query('SELECT 1');await conn.end();return true;},child,120000,'MySQL');
     fs.writeFileSync(initialized,'Initialized. Do not remove.\n',{mode:0o600});fs.rmSync(initFile,{force:true});return child;

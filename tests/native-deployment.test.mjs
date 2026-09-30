@@ -38,5 +38,6 @@ test('Native MySQL: bootstrap, forced password change, API task persistence, ful
     assert.equal(store.state.accounts[0].mustChangePassword,false);
     assert.deepEqual(readJSON(path.join(dataDir,'initial-admin.json')),initial);
     assert.equal(store.state.settings.transcriptionUrl,'http://127.0.0.1:10097/v1');
-  }finally{await shutdown();if(path.basename(home).startsWith('meeting-native-'))fs.rmSync(home,{recursive:true,force:true});}
+  }catch(error){console.error(fs.readFileSync(path.join(home,'logs','native-mysql.log'),'utf8').slice(-4000));throw error;}
+  finally{await shutdown();if(path.basename(home).startsWith('meeting-native-'))fs.rmSync(home,{recursive:true,force:true});}
 });
