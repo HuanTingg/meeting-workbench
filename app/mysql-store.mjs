@@ -24,7 +24,7 @@ const qi = v => '`' + v.replaceAll('`','``') + '`';
 export function connectionOptions(value) {
   const u=new URL(value);
   const allowed=['127.0.0.1','localhost','[::1]',process.env.MYSQL_ALLOWED_HOST].filter(Boolean);
-  if(u.protocol!=='mysql:' || !allowed.includes(u.hostname))throw Error('数据库地址未获允许；容器部署需设置 MYSQL_ALLOWED_HOST');
+  if(u.protocol!=='mysql:' || !allowed.includes(u.hostname))throw Error('数据库地址未获允许；非本机数据库需明确设置 MYSQL_ALLOWED_HOST');
   return {host:u.hostname,port:Number(u.port||3306),user:decodeURIComponent(u.username),password:decodeURIComponent(u.password),charset:'utf8mb4',connectTimeout:10000};
 }
 export async function createSchema(connection) {
