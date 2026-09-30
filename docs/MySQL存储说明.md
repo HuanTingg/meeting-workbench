@@ -24,7 +24,7 @@
 
 ## 启动与迁移
 
-平时仍双击 `启动会议工作台.cmd`。启动时直接从 MySQL 读取；连接或写入失败会报错，不会静默回退到 JSON。
+原生部署日常启动：Windows 使用 `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deploy.ps1 -StartOnly`，Mac 使用 `bash scripts/deploy.sh --start`。启动时直接从 MySQL 读取；连接或写入失败会报错，不会静默回退到 JSON。
 
 首次迁移使用 `npm.cmd run db:migrate`，必须先停止会议服务。迁移会备份源 `data/workspace.json` 到 `data/backups`，创建表后将数据写入同一事务，并重新连接回读校验。数据库已有初始化标记时，不再用旧 JSON 覆盖数据。应用源码不包含实际数据库密码；连接信息在已忽略的 `.env`。
 

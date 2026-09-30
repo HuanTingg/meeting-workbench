@@ -9,7 +9,7 @@ import {openMysqlStore} from '../app/mysql-store.mjs';
 import {createApplication} from '../app/server.mjs';
 
 test('Native MySQL: bootstrap, forced password change, API task persistence, full restart',{skip:!process.env.MYSQLD_TEST_PATH,timeout:180000},async()=>{
-  const home=fs.mkdtempSync(path.join(os.tmpdir(),'meeting-native-'));
+  const home=fs.mkdtempSync(path.join(os.tmpdir(),'meeting-native-中文路径 '));
   fs.mkdirSync(path.join(home,'logs'));
   const state=managedState(home,Number(process.env.MYSQL_TEST_PORT||13316));
   const dataDir=path.join(home,'data');let sql,server,store;
