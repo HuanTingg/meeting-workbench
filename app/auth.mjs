@@ -1,3 +1,4 @@
+import {roleLabels,operationNames} from './permissions.mjs';
 import {randomBytes, scryptSync, timingSafeEqual, createHash} from 'node:crypto';
 const fail=(message,status=400)=>{throw Object.assign(Error(message),{status});};
 export function hashPassword(password){
@@ -7,7 +8,7 @@ export function hashPassword(password){
 function verify(password,hash){try{const [salt,key]=hash.split(':');const actual=scryptSync(String(password),salt,64);return timingSafeEqual(actual,Buffer.from(key,'hex'));}catch{return false;}}
 export function createAuth(db,save){
   db.accounts??=[];const sessions=new Map(),attempts=new Map();
-  const publicAccount=a=>({id:a.id,memberId:a.memberId,username:a.username,role:a.role,disabled:!!a.disabled,mustChangePassword:!!a.mustChangePassword,name:db.members.find(m=>m.id===a.memberId)?.name||a.username});
+  const publicAccount=a=>({id:a.id,memberId:a.memberId,username:a.username,role:a.role,regions:a.regions||[],storeIds:a.storeIds||[],departments:a.departments||[],permissions:a.permissions||{},disabled:!!a.disabled,name:db.members.find(m=>m.id===a.memberId)?.name||a.username});
   const cookie=(res,value)=>res.setHeader('Set-Cookie',`meeting_session=${value}; HttpOnly; SameSite=Strict; Path=/; Max-Age=${value?28800:0}`);
   function current(req){const token=(req.headers.cookie||'').split(';').map(s=>s.trim()).find(s=>s.startsWith('meeting_session='))?.slice(16);if(!token)return null;const key=createHash('sha256').update(token).digest('hex'),session=sessions.get(key);if(!session)return null;const a=db.accounts.find(a=>a.id===session.accountId);if(session.expires<Date.now()||!a||a.disabled||session.version!==(a.version||0)){sessions.delete(key);return null;}return a;}
   function revoke(id){for(const [key,s] of sessions)if(s.accountId===id)sessions.delete(key);}
@@ -20,18 +21,25 @@ export function createAuth(db,save){
     attempts.delete(key);for(const [k,s] of sessions)if(s.expires<Date.now())sessions.delete(k);
     const token=randomBytes(32).toString('hex');sessions.set(createHash('sha256').update(token).digest('hex'),{accountId:a.id,version:a.version||0,expires:Date.now()+28800000});cookie(res,token);return publicAccount(a);
   }
-  async function changePassword(a,b,res){if(!verify(b.currentPassword,a.passwordHash))fail('当前密码不正确');a.passwordHash=hashPassword(b.password);a.mustChangePassword=false;a.version=(a.version||0)+1;await save();revoke(a.id);cookie(res,'');}
+  async function changePassword(a,b,res){if(!verify(b.currentPassword,a.passwordHash))fail('当前密码不正确');a.passwordHash=hashPassword(b.password);a.version=(a.version||0)+1;await save();revoke(a.id);cookie(res,'');}
   async function configure(memberId,b,actor){
     if(!db.members.some(m=>m.id===memberId))fail('成员不存在',404);
     const username=typeof b.username==='string'?b.username.trim().toLowerCase():'';
     if(!/^[a-z0-9][a-z0-9_.-]{2,39}$/.test(username))fail('账号需为3–40位字母、数字、下划线、点或连字符');
     const old=db.accounts.find(a=>a.memberId===memberId);
     if(db.accounts.some(a=>a!==old&&a.username===username))fail('账号已被使用');
-    if(!['manager','member'].includes(b.role))fail('请选择账号角色');
+    if(!Object.hasOwn(roleLabels,b.role))fail('请选择账号角色');
     if(old?.id===actor.id&&(b.disabled===true||b.role!=='manager'))fail('不能停用或降级当前负责人账号');
     if(old?.role==='manager'&&(b.role!=='manager'||b.disabled===true)&&!db.accounts.some(a=>a!==old&&a.role==='manager'&&!a.disabled))fail('至少保留一个启用的负责人账号');
+    const regions=Array.isArray(b.regions)?[...new Set(b.regions.filter(r=>typeof r==='string'&&r.length<=100))]:[];
+    const storeIds=Array.isArray(b.storeIds)?[...new Set(b.storeIds.filter(id=>db.stores?.some(s=>s.id===id)))]:[];
+    if(b.role==='region'&&(!regions.length||regions.some(r=>!db.stores?.some(s=>s.region===r))))fail('请选择有效的负责大区');
+    if(b.role==='store'&&!storeIds.length)fail('请选择负责门店');
+    const departments=Array.isArray(b.departments)?[...new Set(b.departments.map(x=>String(x).trim()).filter(Boolean))]:old?.departments||[];
+    if(b.role==='department'&&!departments.length)fail('请选择负责部门');
+    const permissions=Object.fromEntries(operationNames.filter(k=>typeof b.permissions?.[k]==='boolean').map(k=>[k,b.permissions[k]]));
     const passwordHash=b.password?hashPassword(b.password):old?.passwordHash;if(!passwordHash)fail('新账号需要设置初始密码');
-    const a={...old,id:old?.id||'account_'+randomBytes(16).toString('hex'),memberId,username,role:b.role,disabled:b.disabled===true,passwordHash,mustChangePassword:b.password?true:old?.mustChangePassword||false,version:(old?.version||0)+1};
+    const a={...old,id:old?.id||'account_'+randomBytes(16).toString('hex'),memberId,username,role:b.role,regions:b.role==='region'?regions:[],storeIds:b.role==='store'?storeIds:[],departments:b.role==='department'?departments:[],permissions,disabled:b.disabled===true,passwordHash,version:(old?.version||0)+1};
     if(old)Object.assign(old,a);else db.accounts.push(a);await save();revoke(a.id);return publicAccount(a);
   }
   return {current,login,changePassword,configure,publicAccount,revoke,logout(req,res){const a=current(req);if(a)revoke(a.id);cookie(res,'');}};

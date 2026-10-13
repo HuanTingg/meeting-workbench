@@ -1,3 +1,4 @@
+import {notificationAllowed} from './permissions.mjs';
 import {randomUUID, createHash} from 'node:crypto';
 const clean=(v,n=200)=>typeof v==='string'?v.trim().slice(0,n):'';
 const error=(message,status=400)=>Object.assign(new Error(message),{status});
@@ -38,16 +39,24 @@ export function createFeishu(db,save,fetchImpl) {
     const prior=db.notifications.find(n=>own(n)&&n.key===key);if(prior)return prior;
     const row={id:'notice_'+randomUUID().replaceAll('-',''),provider:'feishu',key,channel,meetingId,ownerId,title,content,isTest,status:'pending',attempts:0,createdAt:stamp(),error:''};db.notifications.unshift(row);return row;
   }
-  function enqueue(m){
-    const tasks=db.todos.filter(t=>t.meetingId===m.id),headline=`会议任务｜${m.title}`;
+  function enqueue(m,selectedTasks){
+    const tasks=selectedTasks||db.todos.filter(t=>t.meetingId===m.id),headline=`会议任务｜${m.title}`;
     const body=list=>`${headline}\n会议日期：${m.meetingDate}\n\n`+list.map((t,i)=>`${i+1}. ${t.title}\n负责人：${db.members.find(p=>p.id===t.ownerId)?.name||'未指定'}\n截止：${t.dueAt||'未指定'}\n优先级：${({high:'高',medium:'中',normal:'普通'})[t.priority]||'普通'}`).join('\n\n');
-    if(db.feishu.groupEnabled)append('group',m.id,'',headline,body(tasks));
+    if(db.feishu.groupEnabled&&m.sensitivity!=='restricted')append('group',m.id,'',headline,body(tasks));
     if(db.feishu.personalEnabled)for(const ownerId of new Set(tasks.map(t=>t.ownerId)))append('personal',m.id,ownerId,headline,body(tasks.filter(t=>t.ownerId===ownerId)));
   }
   function enqueueTodo(t) {
     const c=db.feishu,headline=`会议任务｜新增待办`;
     const content=`${headline}\n任务：${t.title}\n负责人：${db.members.find(m=>m.id===t.ownerId)?.name||'未指定'}\n截止：${t.dueAt||'未指定'}\n优先级：${({high:'高',medium:'中',normal:'普通'})[t.priority]||'普通'}${t.description?'\n执行说明：'+t.description:''}`;
     for(const channel of ['group','personal'])if(c[channel+'Enabled']){const row=append(channel,'manual:'+t.id,channel==='personal'?t.ownerId:'',headline,content);row.todoId=t.id;row.meetingId='';}
+  }
+  function enqueueEvent(t,event){
+    const labels={dispatch:'待办派单',accept:'已接单',return:'退回补充',redispatch:'补充后派单',block:'任务阻塞',unblock:'阻塞解除',handoff:'协作交接',acknowledge:'交接确认',review_waiting:'待验收提醒',awaiting:'待接单提醒',overdue:'任务超期',upcoming:'任务临期',escalate:'超期升级',transfer:'任务转移',submit:'待办待验收',approve:'验收通过',reject:'验收退回'};
+    if(!labels[event.action])return;
+    const c=db.feishu,headline=`${c.keyword||'会议任务'}｜${labels[event.action]}`;
+    const content=`${headline}\n任务：${t.title}\n执行人：${db.members.find(m=>m.id===t.ownerId)?.name||'未指定'}\n验收人：${db.members.find(m=>m.id===t.reviewerId)?.name||'未指定'}\n说明：${event.note||'无'}`;
+    if(c.groupEnabled&&t.sensitivity!=='restricted'){const row=append('group','event:'+event.id,'',headline,content);row.todoId=t.id;row.meetingId='';}
+    if(c.personalEnabled)for(const recipient of new Set(event.recipientIds||(event.action==='transfer'?[event.previousOwnerId,t.ownerId]:event.action==='submit'?[t.reviewerId]:[t.ownerId])))if(recipient){const row=append('personal','event:'+event.id,recipient,headline,content);row.todoId=t.id;row.meetingId='';}
   }
   async function request(path,body,token='',sending=false){
     let r;try{r=await fetchImpl('https://open.feishu.cn/open-apis/'+path,{method:'POST',headers:{'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},body:JSON.stringify(body),signal:AbortSignal.timeout(15000),redirect:'error'});}catch{throw Object.assign(error(sending?'网络超时或连接中断，发送结果不确定，请到飞书核实。':'获取飞书令牌失败，请检查网络。',502),{uncertain:sending});}
@@ -63,6 +72,7 @@ export function createFeishu(db,save,fetchImpl) {
       if(Buffer.byteLength(row.content,'utf8')>20000)throw error('通知内容过长，请拆分会议任务后发送。');
       if(!c.appId||!c.appSecret)throw error('飞书应用凭证尚未配置');
       let receiver,type;
+      if(!notificationAllowed(db,row))throw error('接收账号已停用、离职或无权访问，或保密资料不允许通过此渠道发送');
       if(row.channel==='group'){
         if(!c.groupEnabled||!c.chatId)throw error('群通知未启用或未配置');
         receiver=c.chatId;type='chat_id';row.recipient=c.groupName;
@@ -89,5 +99,5 @@ export function createFeishu(db,save,fetchImpl) {
   const list=()=>db.notifications.filter(own).slice(0,200).map(({target,key,...row})=>row);
   async function retry(id,allowUnknown){const row=db.notifications.find(n=>own(n)&&n.id===id);if(!row)throw error('通知记录不存在',404);if(!['failed','unknown'].includes(row.status))throw error('只可重试失败或结果不确定的通知',409);if(Date.now()-Date.parse(row.updatedAt)<3500)throw error('请稍后再重试',429);await send(row,allowUnknown);return list().find(n=>n.id===id);}
   async function test(channel,ownerId){if(!['group','personal'].includes(channel))throw error('请选择通知渠道');if(channel==='personal'&&!db.members.some(m=>m.id===ownerId))throw error('请选择测试接收成员');if(db.notifications.some(n=>own(n)&&n.isTest&&Date.now()-Date.parse(n.createdAt)<10000))throw error('测试发送过于频繁，请10秒后重试',429);const row=append(channel,'',ownerId,'飞书连接测试','会议任务｜连接测试\n这是一条来自会议工作台的测试通知，不包含真实任务。',true);await save();await send(row);return list().find(n=>n.id===row.id);}
-  return {config,configure,enqueue,enqueueTodo,drain,list,retry,test};
+  return {config,configure,enqueue,enqueueTodo,enqueueEvent,drain,list,retry,test};
 }

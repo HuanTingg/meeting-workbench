@@ -24,14 +24,14 @@ function analyticsSelect(title:string,tasks:Todo[],scroll=true){
   qs('#analyticsDetailTitle')!.textContent=title;
   qs('#analyticsDetailCount')!.textContent=`共 ${tasks.length} 项 · 点击任务查看说明及完成证明`;
   qs('#analyticsDetails')!.innerHTML=tasks.length?tasks.map((t,i)=>`<button class="analytics-task" data-analytics-task="${i}"><span><b>${escapeHtml(t.title)}</b><small>${escapeHtml(memberName(t.ownerId))} · 截止 ${escapeHtml(t.dueAt||'未设置')}</small></span><span class="analytics-task-state">${t.done?'已完成':analyticsData([t],'0001-01-01','0001-01-01').late(t)?'逾期待办':'未逾期待办'}</span></button>`).join(''):'<div class="analytics-empty">当前条件下暂无任务</div>';
-  qsa<HTMLElement>('[data-analytics-task]').forEach(b=>b.onclick=()=>{const t=tasks[Number(b.dataset.analyticsTask)];openModal('任务详情',`<h3>${escapeHtml(t.title)}</h3><p>${escapeHtml(t.description||'暂无任务说明')}</p><p>负责人：${escapeHtml(memberName(t.ownerId))}</p><p>截止：${escapeHtml(t.dueAt||'未设置')}</p><h3>完成情况</h3>${completionHistory(t)}`,'<button class="btn" data-modal-close>关闭</button>');});
+  qsa<HTMLElement>('[data-analytics-task]').forEach(b=>b.onclick=()=>{const t=tasks[Number(b.dataset.analyticsTask)];showWorkTask(t);});
   if(scroll)qs('#analyticsDetailTitle')!.scrollIntoView({behavior:'smooth',block:'center'});
 }
 function renderAnalytics(){
   const start=qs<HTMLInputElement>('#analyticsStart')!.value,end=qs<HTMLInputElement>('#analyticsEnd')!.value;
   if(!start||!end||start>end||Date.parse(end)-Date.parse(start)>365*86400000)return;
   const data=analyticsData(state.todos,start,end),labels=['未逾期待办','逾期待办','已完成'];
-  const manager=currentUser?.role==='manager';
+  const manager=businessLead();
   qs('#analyticsScope')!.textContent=manager?'会议协同 / 团队数据':'会议协同 / 我的数据';
   qs('#analyticsMemberTitle')!.textContent=manager?'成员任务分布':'我的任务分布';
   const missing=state.todos.filter(t=>!analyticsDay(t.createdAt)).length;

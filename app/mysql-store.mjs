@@ -4,13 +4,16 @@ import {createHash} from 'node:crypto';
 export const DATABASE_NAME = '会议纪要管理';
 // Separate rows for each entity and each configuration; generated columns support inspection/search.
 export const tables = {
+  issues:{},decisions:{},organizations:{},positions:{},auditLogs:{},dailySnapshots:{},dailyReports:{},serviceEvents:{},
+  business_rules:{},mail_settings:{},
+  stores: {name:'name',owner_id:'ownerId'},
   app_metadata: {},
   accounts: {username:'username',member_id:'memberId',role:'role'},
   ai_settings: {model:'model'},
   transcription_settings: {base_url:'transcriptionUrl'},
   feishu_settings: {group_name:'groupName',app_id:'appId',chat_id:'chatId'},
   dingtalk_settings: {group_name:'groupName',agent_id:'agentId'},
-  members: {name:'name',department:'department',dingtalk_user_id:'dingtalkUserId'},
+  members: {region:'region',store_id:'storeId',position:'position',name:'name',department:'department',dingtalk_user_id:'dingtalkUserId'},
   meetings: {title:'title',status:'status',meeting_date:'meetingDate'},
   meeting_speakers: {meeting_id:'meetingId',assignee_id:'assigneeId'},
   meeting_tasks: {meeting_id:'meetingId',assignee_id:'assigneeId',status:'status'},
@@ -18,8 +21,8 @@ export const tables = {
   todos: {owner_id:'ownerId',meeting_id:'meetingId',title:'title'},
   notifications: {meeting_id:'meetingId',owner_id:'ownerId',status:'status',channel:'channel'},
 };
-export const tableNames = {accounts:'成员账号',feishu_settings:'飞书接入配置',app_metadata:'系统元数据',ai_settings:'智能模型配置',transcription_settings:'录音转写配置',dingtalk_settings:'钉钉接入配置',members:'成员信息',meetings:'会议记录',meeting_speakers:'会议发言人',meeting_tasks:'会议任务',transcript_segments:'转写片段',todos:'待办事项',notifications:'通知记录'};
-export const columnNames = {username:'登录账号',member_id:'成员编号',role:'账号角色',app_id:'飞书应用编号',chat_id:'飞书群编号',id:'编号',sort_order:'排序',payload:'数据',updated_at:'更新时间',model:'模型名称',base_url:'服务地址',group_name:'群名称',agent_id:'应用编号',name:'姓名',department:'部门',dingtalk_user_id:'钉钉用户编号',title:'标题',status:'状态',meeting_date:'会议日期',meeting_id:'会议编号',assignee_id:'分配成员编号',owner_id:'负责人编号',channel:'通知渠道'};
+export const tableNames = {business_rules:'业务规则',mail_settings:'邮件配置',issues:'问题档案',decisions:'会议决策',organizations:'组织架构',positions:'岗位信息',auditLogs:'审计日志',dailySnapshots:'每日快照',dailyReports:'员工日报',serviceEvents:'运行记录',stores:'门店信息',accounts:'成员账号',feishu_settings:'飞书接入配置',app_metadata:'系统元数据',ai_settings:'智能模型配置',transcription_settings:'录音转写配置',dingtalk_settings:'钉钉接入配置',members:'成员信息',meetings:'会议记录',meeting_speakers:'会议发言人',meeting_tasks:'会议任务',transcript_segments:'转写片段',todos:'待办事项',notifications:'通知记录'};
+export const columnNames = {region:'大区',store_id:'门店编号',position:'岗位',username:'登录账号',member_id:'成员编号',role:'账号角色',app_id:'飞书应用编号',chat_id:'飞书群编号',id:'编号',sort_order:'排序',payload:'数据',updated_at:'更新时间',model:'模型名称',base_url:'服务地址',group_name:'群名称',agent_id:'应用编号',name:'姓名',department:'部门',dingtalk_user_id:'钉钉用户编号',title:'标题',status:'状态',meeting_date:'会议日期',meeting_id:'会议编号',assignee_id:'分配成员编号',owner_id:'负责人编号',channel:'通知渠道'};
 const qi = v => '`' + v.replaceAll('`','``') + '`';
 export function connectionOptions(value) {
   const u=new URL(value);
@@ -34,15 +37,23 @@ export async function createSchema(connection) {
     const generated=Object.entries(columns).map(([column,field])=>`, ${qi(columnNames[column])} VARCHAR(${column==='base_url'?1000:255}) GENERATED ALWAYS AS (JSON_UNQUOTE(JSON_EXTRACT(\`数据\`, '$.${field}'))) STORED`).join('');
     await connection.query(`CREATE TABLE IF NOT EXISTS ${qi(tableNames[table])} (编号 VARCHAR(180) CHARACTER SET ascii COLLATE ascii_bin PRIMARY KEY, 排序 INT NOT NULL DEFAULT 0, 数据 JSON NOT NULL, 更新时间 TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)${generated}) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4`);
   }
+  const [memberColumns]=await connection.query('SHOW COLUMNS FROM `成员信息`');
+  for(const [column,field] of [['大区','region'],['门店编号','storeId'],['岗位','position']]){
+    if(!memberColumns.some(c=>c.Field===column))await connection.query(`ALTER TABLE 成员信息 ADD COLUMN ${qi(column)} VARCHAR(255) GENERATED ALWAYS AS (JSON_UNQUOTE(JSON_EXTRACT(数据, '$.${field}'))) STORED`);
+  }
+
 }
 export function serializeState(db) {
   const rows=Object.fromEntries(Object.keys(tables).map(t=>[t,[]]));
   const add=(table,id,data,order=rows[table].length)=>rows[table].push({id,order,json:JSON.stringify(data)});
   const {transcriptionUrl='',transcriptionKey='',...ai}=db.settings||{};
   add('ai_settings','default',ai);add('transcription_settings','default',{transcriptionUrl,transcriptionKey});add('dingtalk_settings','default',db.dingtalk||{});
+  if(db.mail)add('mail_settings','default',db.mail);
+  if(db.businessRules)add('business_rules','default',db.businessRules);
+  for(const key of ['issues', 'decisions', 'organizations', 'positions', 'auditLogs', 'dailySnapshots', 'dailyReports', 'serviceEvents'])for(const row of db[key]||[])add(key,row.id,row);
   add('feishu_settings','default',db.feishu||{});
   add('app_metadata','workspace',{version:db.version||1,schemaVersion:2});
-  for(const table of ['members','todos','notifications','accounts'])for(const row of db[table]||[])add(table,row.id,row);
+  for(const table of ['members','todos','notifications','accounts','stores'])for(const row of db[table]||[])add(table,row.id,row);
   for(const m of db.meetings||[]) {
     const {speakers=[],tasks=[],transcriptSegments=[],...meeting}=m;add('meetings',m.id,meeting);
     for(const [table,children] of [['meeting_speakers',speakers],['meeting_tasks',tasks],['transcript_segments',transcriptSegments]])children.forEach((row,i)=>add(table,m.id+':'+i,{...row,meetingId:m.id},i));
@@ -52,7 +63,9 @@ export function serializeState(db) {
 function restore(rows) {
   const cfg=t=>rows[t][0]?.data||{};
   const children=(table,id)=>rows[table].filter(r=>r.data.meetingId===id).map(({data})=>{const {meetingId,...child}=data;return child;});
-  return {accounts:rows.accounts.map(r=>r.data),version:cfg('app_metadata').version||1,settings:{...cfg('ai_settings'),...cfg('transcription_settings')},dingtalk:cfg('dingtalk_settings'),feishu:cfg('feishu_settings'),members:rows.members.map(r=>r.data),todos:rows.todos.map(r=>r.data),notifications:rows.notifications.map(r=>r.data),meetings:rows.meetings.map(({data:m})=>({...m,speakers:children('meeting_speakers',m.id),tasks:children('meeting_tasks',m.id),transcriptSegments:children('transcript_segments',m.id)}))};
+  const operations=Object.fromEntries(['issues', 'decisions', 'organizations', 'positions', 'auditLogs', 'dailySnapshots', 'dailyReports', 'serviceEvents'].filter(k=>rows[k].length).map(k=>[k,rows[k].map(r=>r.data)]));if(rows.business_rules.length)operations.businessRules=cfg('business_rules');
+  if(rows.mail_settings.length)operations.mail=cfg('mail_settings');
+  return {...operations,...(rows.stores.length?{stores:rows.stores.map(r=>r.data)}:{}),accounts:rows.accounts.map(r=>r.data),version:cfg('app_metadata').version||1,settings:{...cfg('ai_settings'),...cfg('transcription_settings')},dingtalk:cfg('dingtalk_settings'),feishu:cfg('feishu_settings'),members:rows.members.map(r=>r.data),todos:rows.todos.map(r=>r.data),notifications:rows.notifications.map(r=>r.data),meetings:rows.meetings.map(({data:m})=>({...m,speakers:children('meeting_speakers',m.id),tasks:children('meeting_tasks',m.id),transcriptSegments:children('transcript_segments',m.id)}))};
 }
 export async function openMysqlStore(url,{initialize=false,seed,databaseName=DATABASE_NAME}={}) {
   const conn=await mysql.createConnection({...connectionOptions(url),database:databaseName});

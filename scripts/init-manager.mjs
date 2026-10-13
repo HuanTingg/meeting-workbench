@@ -7,7 +7,7 @@ try{
  const username=process.argv[3];if(!/^[a-z0-9][a-z0-9_.-]{2,39}$/.test(username||''))throw Error('登录账号格式无效');
  const password=randomBytes(18).toString('base64url');
  const output=path.join(root,'data','负责人初始登录信息.txt');
- fs.writeFileSync(output,`会议纪要负责人账号\n成员：${member.name}\n登录地址：http://127.0.0.1:8765/\n账号：${username}\n初始密码：${password}\n\n首次登录必须修改密码。修改后此初始密码失效，请删除本文件。\n`,{flag:'wx',mode:0o600});
- store.state.accounts=[{id:'account_'+randomBytes(16).toString('hex'),memberId:member.id,username,passwordHash:hashPassword(password),role:'manager',disabled:false,mustChangePassword:true,version:1}];
+ fs.writeFileSync(output,`会议纪要负责人账号\n成员：${member.name}\n登录地址：http://127.0.0.1:8765/\n账号：${username}\n初始密码：${password}\n\n可直接使用此密码登录，也可在网页中主动修改密码。修改后请删除本文件。\n`,{flag:'wx',mode:0o600});
+ store.state.accounts=[{id:'account_'+randomBytes(16).toString('hex'),memberId:member.id,username,passwordHash:hashPassword(password),role:'manager',disabled:false,version:1}];
  await store.save(store.state);console.log('负责人账号已初始化；初始登录信息保存于 data/负责人初始登录信息.txt');
 }finally{await store.close();}

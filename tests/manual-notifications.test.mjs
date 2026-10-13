@@ -10,3 +10,9 @@ test('manual todos enqueue independently for both channels and providers, with s
  ding.enqueueTodo({...todo,id:'todo_b'});assert.equal(ding.list().length,4);
  db.feishu.groupEnabled=false;db.feishu.personalEnabled=false;fei.enqueueTodo({...todo,id:'todo_c'});assert.equal(fei.list().length,2);
 });
+test('workflow notifications target reviewer or transfer participants and deduplicate per event',()=>{
+ const db={members:[{id:'old',name:'旧执行人'},{id:'new',name:'新执行人'},{id:'review',name:'验收人'}],todos:[],dingtalk:{groupEnabled:true,personalEnabled:true},feishu:{groupEnabled:true,personalEnabled:true}};
+ const providers=[createDingTalk(db,()=>{},()=>{throw Error('No sending');}),createFeishu(db,()=>{},()=>{throw Error('No sending');})];
+ const todo={id:'todo_a',title:'整改',ownerId:'new',reviewerId:'review'};
+ for(const p of providers){p.enqueueEvent(todo,{id:'e1',action:'transfer',previousOwnerId:'old',note:'交接'});p.enqueueEvent(todo,{id:'e1',action:'transfer',previousOwnerId:'old',note:'交接'});assert.equal(p.list().length,3);p.enqueueEvent(todo,{id:'e2',action:'submit'});assert.equal(p.list().length,5);assert.ok(p.list().some(n=>n.ownerId==='review'&&n.content.includes('待验收')));}
+});

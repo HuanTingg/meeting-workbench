@@ -8,7 +8,7 @@ import {createApplication} from '../app/server.mjs';
 
 async function fixture(t,fetchImpl) {
   const dataDir=fs.mkdtempSync(path.join(os.tmpdir(),'meeting-local-test-'));
-  fs.writeFileSync(path.join(dataDir,'workspace.json'),JSON.stringify({version:1,members:[],meetings:[],todos:[],accounts:[{id:'account_test',memberId:'test-admin',username:'admin',passwordHash:hashPassword('Test-password-123'),role:'manager'}]}));
+  fs.writeFileSync(path.join(dataDir,'workspace.json'),JSON.stringify({version:1,members:[{id:'test-admin',name:'管理员'}],meetings:[],todos:[],accounts:[{id:'account_test',memberId:'test-admin',username:'admin',passwordHash:hashPassword('Test-password-123'),role:'manager'}]}));
   const server=createApplication({dataDir,fetchImpl});
   await new Promise(r=>server.listen(0,'127.0.0.1',r));
   t.after(async()=>{await new Promise(r=>server.close(r));fs.rmSync(dataDir,{recursive:true,force:true});});
@@ -31,12 +31,12 @@ test('Feishu configuration and member bindings preserve DingTalk fields and pers
   assert.equal((await req('/api/members/'+member.id,'PATCH',{feishuOpenId:'ou_test',feishuAppId:'cli_test'})).data.member.dingtalkUserId,'ding-123');
   assert.equal((await req('/api/members/'+member.id,'PATCH',{dingtalkUserId:'ding-456'})).data.member.feishuOpenId,'ou_test');
   assert.equal((await req('/api/members/'+member.id,'PATCH',{feishuOpenId:'ou_bad',feishuAppId:'cli_other'})).status,400);
-  const disk=JSON.parse(fs.readFileSync(path.join(dataDir,'workspace.json'),'utf8'));assert.equal(disk.feishu.appId,'cli_test');assert.equal(disk.members[0].feishuAppId,'cli_test');
+  const disk=JSON.parse(fs.readFileSync(path.join(dataDir,'workspace.json'),'utf8'));assert.equal(disk.feishu.appId,'cli_test');assert.equal(disk.members.find(m=>m.id===member.id).feishuAppId,'cli_test');
   assert.equal((await req('/api/feishu/config')).data.appSecret,undefined);
 });
 
 test('manager workflow: upload, draft, publish once, complete and persist',async t=>{
-  const {req,upload,dataDir}=await fixture(t);
+  const {req,upload,dataDir,base}=await fixture(t);
   assert.equal((await req('/api/health')).status,200);
   const member=(await req('/api/members','POST',{name:'林雨',department:'产品'})).data.member;
   const m=await upload();
@@ -48,7 +48,13 @@ test('manager workflow: upload, draft, publish once, complete and persist',async
   await req(`/api/morning-meetings/${m.id}/publish`,'POST',{});
   const todos=(await req('/api/todos')).data.todos;assert.equal(todos.length,1);
   assert.equal(todos[0].ownerId,member.id);
+  await req('/api/accounts/'+member.id,'PUT',{username:'worker',role:'member',password:'Worker-password-123'});
+  const ownerLogin=await fetch(base+'/api/auth/login',{method:'POST',headers:{'X-Requested-With':'MeetingLocal'},body:JSON.stringify({username:'worker',password:'Worker-password-123'})});
+  const ownerCookie=ownerLogin.headers.get('set-cookie').split(';')[0];
+  assert.equal((await req('/api/workspace/tasks/'+todos[0].id,'POST',{action:'accept'},{Cookie:ownerCookie})).status,200);
   await req('/api/todos/'+todos[0].id,'PATCH',{done:true});
+  assert.equal((await req('/api/todos')).data.todos[0].status,'pending_review');
+  assert.equal((await req('/api/todos/'+todos[0].id,'PATCH',{action:'approve'})).status,200);
   const disk=JSON.parse(fs.readFileSync(path.join(dataDir,'workspace.json'),'utf8'));assert.equal(disk.todos[0].done,true);
   assert.equal((await req(`/api/morning-meetings/${m.id}/analyze`,'POST',{})).status,409);
   assert.equal((await req('/api/members/'+member.id,'DELETE')).status,400);

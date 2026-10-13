@@ -59,7 +59,7 @@ try{
   }
   const child=launch(tools.node,[path.join(root,'app/server.mjs')],path.join(home,'logs','native-web.log'),{...process.env,MEETING_DATA_DIR:dataDir,PORT:String(port)});children.push(child);
   await waitReady(async()=>{const r=await fetch(`http://127.0.0.1:${port}/api/health`,{signal:AbortSignal.timeout(2000)});const j=await r.json();return r.ok&&j.ok&&j.storage==='mysql';},child,30000,'网页');
-  console.log(`\n部署已就绪：MySQL、FunASR 模型、网页全部通过检查。\n打开 http://127.0.0.1:${port}\n${managed?'初始管理员：admin；密码在 '+path.join(dataDir,'initial-admin.json')+'，首次登录修改。':'使用原有成员账号登录。'}\n保持此终端运行；按 Ctrl+C 停止本次启动的服务。`);
+  console.log(`\n部署已就绪：MySQL、FunASR 模型、网页全部通过检查。\n打开 http://127.0.0.1:${port}\n${managed?'初始管理员：admin；密码在 '+path.join(dataDir,'initial-admin.json')+'，可直接登录。':'使用原有成员账号登录。'}\n保持此终端运行；按 Ctrl+C 停止本次启动的服务。`);
   for(const service of [...children,...(sqlChild?[sqlChild]:[])])service.once('exit',()=>{if(!stopping){console.error('服务意外退出，请检查 logs 并重新运行启动命令。');void stop(1);}});
   if(process.env.MEETING_DEPLOY_VERIFY==='1'){console.log('自动验证模式：健康检查通过，停止本次服务。');await stop();}
 }catch(e){console.error('部署未完成：'+e.message);await stop(1);}

@@ -92,6 +92,6 @@ export async function initializeWorkspace(url,dataDir,asrPort){
   const file=path.join(dataDir,'initial-admin.json');
   if(!fs.existsSync(file))fs.writeFileSync(file,JSON.stringify({username:'admin',password:randomBytes(24).toString('base64url'),memberId:'member_'+randomBytes(16).toString('hex'),accountId:'account_'+randomBytes(16).toString('hex')},null,2),{flag:'wx',mode:0o600});
   const initial=readJSON(file);
-  const seed={version:1,settings:{aiEnabled:false,transcriptionUrl:`http://127.0.0.1:${asrPort}/v1`},members:[{id:initial.memberId,name:'管理员',department:''}],accounts:[{id:initial.accountId,memberId:initial.memberId,username:initial.username,passwordHash:hashPassword(initial.password),role:'manager',disabled:false,mustChangePassword:true,version:1}],meetings:[],todos:[],notifications:[],dingtalk:{},feishu:{}};
+  const seed={version:1,settings:{aiEnabled:false,transcriptionUrl:`http://127.0.0.1:${asrPort}/v1`},members:[{id:initial.memberId,name:'管理员',department:''}],accounts:[{id:initial.accountId,memberId:initial.memberId,username:initial.username,passwordHash:hashPassword(initial.password),role:'manager',disabled:false,version:1}],meetings:[],todos:[],notifications:[],dingtalk:{},feishu:{}};
   const store=await openMysqlStore(url,{initialize:true,seed});await store.close();
 }

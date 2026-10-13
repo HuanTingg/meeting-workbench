@@ -8,7 +8,7 @@ import {managedState,startManagedMysql,stopMysql,initializeWorkspace,readJSON} f
 import {openMysqlStore} from '../app/mysql-store.mjs';
 import {createApplication} from '../app/server.mjs';
 
-test('Native MySQL: bootstrap, forced password change, API task persistence, full restart',{skip:!process.env.MYSQLD_TEST_PATH,timeout:180000},async()=>{
+test('Native MySQL: bootstrap, direct first login, API task persistence, full restart',{skip:!process.env.MYSQLD_TEST_PATH,timeout:180000},async()=>{
   const home=fs.mkdtempSync(path.join(os.tmpdir(),'meeting-native-中文路径 '));
   fs.mkdirSync(path.join(home,'logs'));
   const state=managedState(home,Number(process.env.MYSQL_TEST_PORT||13316));
@@ -25,17 +25,27 @@ test('Native MySQL: bootstrap, forced password change, API task persistence, ful
     const call=async(route,body)=>{const response=await fetch(base+route,{method:body?'POST':'GET',headers:{'X-Requested-With':'MeetingLocal',Cookie:cookie},body:body?JSON.stringify(body):undefined});const c=response.headers.get('set-cookie');if(c)cookie=c.split(';')[0];assert.ok(response.ok,`${route}: ${response.status}`);return response.json();};
     assert.equal((await call('/api/health')).storage,'mysql');
     assert.equal((await fetch(base+'/api/todos')).status,401);
-    const first=await call('/api/auth/login',initial);assert.equal(first.user.mustChangePassword,true);
+    const first=await call('/api/auth/login',initial);assert.equal(first.user.mustChangePassword,undefined);assert.ok(Array.isArray((await call('/api/todos')).todos));
     const password='Native-test-password-321!';
     await call('/api/auth/password',{currentPassword:initial.password,password});
     await call('/api/auth/login',{username:'admin',password});
+    const {store:shop}=await call('/api/stores',{name:'持久化门店',region:'华东',ownerId:first.user.memberId});
+    const {member:employee}=await call('/api/members',{name:'测试店长',region:'华东',storeId:shop.id,position:'店长'});
     const {todo}=await call('/api/todos',{title:'原生部署持久化验证',ownerId:first.user.memberId});
+    const {issue}=await call('/api/workspace/issues',{title:'数据库问题持久化',storeId:shop.id,category:'设备'});
+    await call('/api/admin/organization',{kind:'organization',name:'华东总部',type:'headquarters'});
     await shutdown();
     sql=await startManagedMysql(home,process.env.MYSQLD_TEST_PATH,state);
     await initializeWorkspace(state.url,dataDir,10097);
     store=await openMysqlStore(state.url);
-    assert.ok(store.state.todos.some(t=>t.id===todo.id));
-    assert.equal(store.state.accounts[0].mustChangePassword,false);
+    assert.ok(store.state.todos.some(t=>t.id===todo.id&&t.reviewerId===first.user.memberId));
+    assert.equal(store.state.stores[0].id,shop.id);
+    assert.ok(store.state.issues.some(i=>i.id===issue.id));
+    assert.ok(store.state.organizations.some(o=>o.name==='华东总部'));
+    assert.ok(store.state.auditLogs.length>0);
+    assert.equal(store.state.members.find(m=>m.id===employee.id).position,'店长');
+    assert.equal(store.state.members.find(m=>m.id===employee.id).storeId,shop.id);
+    assert.equal(store.state.accounts[0].mustChangePassword,undefined);
     assert.deepEqual(readJSON(path.join(dataDir,'initial-admin.json')),initial);
     assert.equal(store.state.settings.transcriptionUrl,'http://127.0.0.1:10097/v1');
   }catch(error){console.error(fs.readFileSync(path.join(home,'logs','native-mysql.log'),'utf8').slice(-4000));throw error;}
