@@ -1,0 +1,86 @@
+/* Studio workspace: restrained surfaces, clear sections, compact navigation. */
+:root[data-theme="dingtalk"]{--bg:#f5f6f8;--surface:#fff;--surface-2:#f7f8fa;--surface-3:#eef0f3;--ink:#202630;--text:#404957;--muted:#737e8e;--line:#e2e5eb;--line-soft:#edf0f3;--brand:#b84c2c;--brand-strong:#983e24;--brand-tint:#fff2eb;--brand-ring:#b84c2c20}
+.local-app{background:var(--bg);font-family:Inter,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--text)}
+.local-app .local-sidebar{background:#181d25;border-right:1px solid #242b36;padding:28px 16px 18px;color:#c5cbd5}
+.local-sidebar .local-brand{color:#f6f7fa;margin:0 10px 28px;align-items:center}
+.local-sidebar .local-brand>span{background:#e66b43;box-shadow:none;border-radius:10px;width:38px;height:38px}
+.local-sidebar .local-brand b{font-size:18px;letter-spacing:.5px}
+.local-sidebar .local-brand small{color:#99a5b7;font-size:10px;letter-spacing:1px;margin-top:7px}
+.local-sidebar .nav-label{color:#98a3b5;font-size:10px;letter-spacing:1.4px;margin:0 12px 12px}
+.local-sidebar .local-nav{gap:5px;align-content:start;grid-auto-rows:max-content;scrollbar-width:thin;scrollbar-color:#414958 transparent}
+.local-sidebar .local-nav button,.local-sidebar .local-nav-group summary{min-height:44px;font-size:13px;color:#c0c8d5;border-radius:7px;background:transparent;border:1px solid transparent;padding:10px 12px}
+.local-sidebar .local-nav button:hover,.local-sidebar .local-nav-group summary:hover{background:#252c36;color:#fff}
+.local-sidebar .local-nav button.active{background:#332b27;color:#ffb493;border-color:#504034;box-shadow:inset 2px 0 #e98259;font-weight:600}
+.local-sidebar .local-nav-group.is-current>summary{background:#252c36;color:#f5f7fb}
+.local-sidebar .local-nav button small{background:#2e3744;color:#cbd5e2;font-size:10px}
+.local-sidebar .local-nav button.active small{background:#584032;color:#ffcaac}
+.local-sidebar .local-subnav{border-color:#343c49;margin-left:18px;padding-left:8px}
+.local-sidebar .local-subnav button,.local-sidebar .local-subnav summary{font-size:12px;min-height:36px;padding:8px 10px}
+.local-sidebar .session-panel{border-top:1px solid #333b48;background:transparent;padding:18px 8px 0;color:#d9dee7;gap:8px;border-radius:0}
+.local-sidebar .session-panel b{color:#e4e8ef;line-height:1.7}
+.local-sidebar .session-panel .btn{color:#cbd3df;background:#242c37;border-color:#3b4656;min-height:30px;font-size:11px;box-shadow:none}
+.local-sidebar .session-panel .btn:hover{background:#333e4c;border-color:#627086;color:#fff}
+.local-app .local-workspace{padding:26px 28px 20px!important}
+.local-app h1,.local-app h2,.local-app h3{color:var(--ink)}
+.local-app .panel{background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 1px 2px #20263003}
+.local-app .page-head,.local-app .morning-meeting-head{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px}
+.local-app .local-settings h2{padding-left:0}
+.local-app .local-settings h2:before{display:none}
+.local-app .btn{border:1px solid #dce1e8;background:#fff;border-radius:6px;box-shadow:none;min-height:36px;font-size:12px;color:#3d4858;white-space:nowrap}
+.local-app .btn:hover:not(:disabled){background:#f6f7f9;border-color:#b9c2d0}
+.local-app .btn.primary{background:#272e3a;border-color:#272e3a;color:#fff;box-shadow:none}
+.local-app .btn.primary:hover:not(:disabled){background:#3b4655;border-color:#3b4655}
+.local-app input:not([type=checkbox]),.local-app select,.local-app textarea{background:#fff;border-color:#dce1e8;border-radius:6px;min-height:38px;color:#344052}
+.local-app input::placeholder,.local-app textarea::placeholder{color:#929baa}
+.local-app :is(button,a,input,select,textarea,summary):focus-visible{outline:2px solid #d66b40;outline-offset:3px}
+.local-app .ui-note{font-size:11px;color:#7a8494;line-height:1.65}
+.local-app .modal{background:#fff;border-color:#e2e5eb;border-radius:12px;box-shadow:0 24px 80px #151b2833}
+.local-app .modal-head,.local-app .modal-foot{background:#f9fafb;border-color:#e3e7ed}
+.local-app .modal-backdrop{background:#151b2859;backdrop-filter:blur(3px)}
+.local-app :is(.form-section-title,.task-detail-card>h3,.task-detail-card>header,.chain-member-heading,.position-list-heading,.account-scope h3,#meetingInsights>h3){background:#f5f6f8;border-color:#e2e6eb;border-left-color:#c5ccd6;color:#384456;border-radius:6px}
+.local-app :is(.task-detail-card,.completion-record,.work-card,.runtime-status-card,.account-scope){border-color:#e2e6eb;border-radius:8px;background:#fff;box-shadow:none}
+.local-app :is(.preparation-table th,.chain-table th,.chain-table th:last-child){background:#f6f7f9;color:#687486;font-weight:500}
+.local-app :is(.preparation-table td,.chain-table td){border-color:#edf0f3}
+.local-app :is(.preparation-table,.chain-table) tbody tr:hover td{background:#fafbfc}
+.local-app .chain-tree{background:#fff}
+.local-app .chain-tree button.active{background:#fff2eb;color:#a6482d;border-color:#f0d2c4}
+.local-app .chain-store-card{background:#fafbfc;border-color:#e2e6eb;border-radius:8px}
+.local-app .chain-summary{background:#f6f7f9}
+.local-app #workAdmin h2,.local-app .runtime-status-card h3{background:#f5f6f8;color:#384456;border-bottom:1px solid #e2e6eb;border-radius:6px}
+.local-app .runtime-status-card strong{color:#273748}
+.local-app .todo-history-empty{background:#fafbfc;border-color:#e4e8ed;color:#7a8595}
+.local-app #dashboard{--dash-line:#e2e6eb;--dash-muted:#788393}
+#dashboard .dash-eyebrow{color:#8a7467;font-size:10px;letter-spacing:1.2px}
+#dashboard .dash-stat{border-color:#e2e6eb;border-radius:8px;background:#fff;box-shadow:none;padding:18px 20px}
+#dashboard .dash-stat.blue{background:#fff}
+#dashboard .dash-stat.active{background:#fff8f3;border-color:#e5bda8;box-shadow:none}
+#dashboard .dash-stat:hover{border-color:#c8a28d;transform:none}
+#dashboard .dash-stat strong{font-size:30px;font-weight:600;letter-spacing:-.5px}
+#dashboard .dash-stat.blue strong{color:#41566e}
+#dashboard .dash-tabs{border-bottom:1px solid #e2e6eb;background:transparent;border-radius:0}
+#dashboard .dash-tabs button.active{background:#fff2eb;color:#a8492d;box-shadow:none}
+#dashboard .dash-section-head{padding-bottom:14px;border-bottom:1px solid #e9edf1;margin-bottom:14px}
+#dashboard .dash-section-head h2{font-size:14px}
+#dashboard .dash-list-head{background:#f6f7f9;border-color:#e8ebef}
+.local-app .morning-meeting-flow{background:#fff;border-color:#e2e6eb;border-radius:8px;padding:16px}
+.local-app .morning-meeting-list{border-color:#e2e6eb;border-radius:8px}
+.local-app .morning-progress-track i{background:#d97950}
+.local-app .local-footer{color:#8a94a3;font-size:10px;border-color:#e3e7ed}
+.login-card{border-radius:12px;box-shadow:0 12px 40px #2731430a;border-color:#e2e6eb}
+.login-mark{background:#e66b43;border-radius:10px}
+@media(min-width:641px){.local-app .local-sidebar{width:224px}.local-app .local-main{margin-left:224px;width:calc(100% - 224px)}}
+@media(max-width:1000px) and (min-width:641px){.local-app .local-workspace{padding:22px 20px!important}}
+@media(max-width:640px){.local-app .local-sidebar{padding:16px;width:100%;position:relative}.local-sidebar .local-brand{margin:0 0 18px}.local-sidebar .nav-label{margin-left:0}.local-app .local-workspace{padding:18px 14px!important}.local-sidebar .local-nav button{min-height:40px;font-size:12px}.local-sidebar .session-panel{padding-top:12px}.local-app .local-main{margin-left:0;width:100%}}
+/* Section bands remain visible without competing with the page heading. */
+.local-app .local-settings>h2,.local-app .local-settings>h3,.local-app .panel>h2,.local-app .modal-body>h3,.local-app .morning-review-section>h3,.local-app #workQueryResult>h3{background:#f5f6f8;border-color:#e3e7ec;border-left-color:#c2cad5;color:#3c4859;border-radius:6px;padding:10px 13px;font-size:13px}
+.local-app #dashboard .dash-section-head,.local-app .analytics-card-head,.local-app .chain-member-heading,.local-app .chain-tree h2{background:#f5f6f8;border-color:#e3e7ec;color:#3c4859;border-radius:6px}
+.local-app .flow-hub{padding:18px 20px}
+.local-app .flow-hub>h2{margin-bottom:10px;background:transparent;border:0;padding:0;color:#343f50}
+.local-app .flow-steps{font-size:11px;padding-bottom:12px;color:#7b8697}
+.local-app .flow-queue{background:#fafbfc;border-color:#e3e7ec;border-radius:6px;padding:12px 16px;grid-template-columns:auto 1fr;align-items:center;gap:12px;color:#526074}
+.local-app .flow-queue b{font-size:22px;font-weight:600}
+.local-app .flow-queue:hover,.local-app .flow-queue.active{background:#fff5ee;border-color:#e8c5b3;color:#a64d2f}
+.local-app .task-detail-card>h3{background:#f4f6f8;color:#48576c;border-bottom-color:#e3e7ed;border-radius:0}
+.local-app .task-detail-card.tone-green>h3{background:#f0f7f4;color:#3d7561}
+.local-app .task-detail-card.tone-purple>h3{background:#f4f2f8;color:#74648a}
+.local-app #dashboard .dash-tabs{border:0;border-bottom:1px solid #e2e6eb;padding:0 0 8px}
