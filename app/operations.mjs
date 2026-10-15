@@ -67,7 +67,7 @@ export function createOperations(db,save,{notify=()=>{},chat}={}) {
     if(!['pending_assignment','in_progress','blocked'].includes(i.status))fail('请先确认问题，再派单',409);
     const rows=Array.isArray(b.tasks)?b.tasks:[];if(!rows.length||rows.length>30)fail('请添加1至30项岗位任务');
     const key=str(b.requestId,100);if(!key)fail('缺少防重复请求编号');
-    if(i.dispatchKeys?.includes(key))return {issue:i,tasks:db.todos.filter(t=>t.issueId===i.id&&t.dispatchKey===key)};
+    if(i.dispatchKeys?.includes(key))return {issue:i,categories:db.businessRules.categories,tasks:db.todos.filter(t=>t.issueId===i.id&&t.dispatchKey===key)};
     if(i.needsSourceReview)fail('会议原文已修改，请重新确认问题证据后派单',409);
     const routed=resolveRoute(i);
     const tasks=rows.map(row=>{
@@ -185,18 +185,18 @@ export function createOperations(db,save,{notify=()=>{},chat}={}) {
     if(route==='/api/workspace/query'&&method==='POST'){if(!canOperate(a,'view'))fail('没有查询权限',403);return await query(a,b);}
     if(route==='/api/workspace/repetition'&&method==='POST'){const ids=new Set(Array.isArray(b.meetingIds)?b.meetingIds:[]);return repetitionSummary(db.issues.filter(i=>seeIssue(a,i)),db.todos.filter(t=>canSeeTask(db,a,t)),db.meetings.filter(m=>ids.has(m.id)&&canSeeMeeting(db,a,m)));}
     if(route==='/api/workspace/issues'){
-      if(method==='GET')return {issues:db.issues.filter(i=>seeIssue(a,i))};
+      if(method==='GET')return {issues:db.issues.filter(i=>seeIssue(a,i)),categories:db.businessRules.categories};
       if(method==='POST'){if(!canOperate(a,'edit'))fail('无权创建问题',403);const issue=addIssue(a,b);await save();return {issue};}
     }
     const match=route.match(/^\/api\/workspace\/issues\/(issue_[a-f0-9]+)$/);
-    if(match){const i=issueFor(a,match[1]);if(method==='GET')return {issue:i,tasks:db.todos.filter(t=>t.issueId===i.id&&canSeeTask(db,a,t)),route:resolveRoute(i)};if(!editIssue(a,i)&&!(b.action==='close'&&db.todos.filter(t=>t.issueId===i.id&&(t.issueCycle||1)===(i.cycle||1)&&t.required!==false).every(t=>t.reviewerId===a.memberId)))fail('无权修改问题',403);
+    if(match){const i=issueFor(a,match[1]);if(method==='GET')return {issue:i,categories:db.businessRules.categories,tasks:db.todos.filter(t=>t.issueId===i.id&&canSeeTask(db,a,t)),route:resolveRoute(i)};if(!editIssue(a,i)&&!(b.action==='close'&&db.todos.filter(t=>t.issueId===i.id&&(t.issueCycle||1)===(i.cycle||1)&&t.required!==false).every(t=>t.reviewerId===a.memberId)))fail('无权修改问题',403);
       if(b.action==='dispatch'){const result=dispatch(i,a,b);audit(a,'dispatch',i.id);await save();return result;}
       if(b.action==='confirm'){if(i.status!=='pending_confirmation')fail('问题已确认',409);i.status='pending_assignment';event(i,'confirmed',a,str(b.note));}
       else if(b.action==='dismiss'){if(i.status!=='pending_confirmation')fail('仅待确认问题可排除');if(!str(b.note))fail('请说明排除原因');i.status='dismissed';event(i,'dismissed',a,b.note);}
       else if(b.action==='close'){if(!canOperate(a,'review'))fail('无验收权限',403);const tasks=db.todos.filter(t=>t.issueId===i.id&&(t.issueCycle||1)===(i.cycle||1)&&t.required!==false);if(!tasks.length||tasks.some(t=>!t.done||t.status!=='completed'))fail('必要任务尚未全部完成并验收',409);if(!tasks.every(t=>t.reviewerId===a.memberId)&&!managesStore(db,a,i.storeId))fail('请由验收人或门店负责人关闭',403);i.status='closed';i.closedAt=now();event(i,'closed',a,str(b.note));}
       else if(b.action==='reopen'){if(i.status!=='closed'||!str(b.note))fail('仅已关闭问题可重开，且须说明原因');i.status='pending_assignment';i.cycle=(i.cycle||1)+1;i.closedAt=null;event(i,'reopened',a,b.note);}
       else if(b.action==='link'){const m=db.meetings.find(m=>m.id===b.meetingId);if(!m||!canSeeMeeting(db,a,m))fail('会议无权访问',403);const e=evidence(m,str(b.excerpt,4000),str(b.speakerLabel));if(m.sensitivity==='restricted'&&i.sensitivity!=='restricted')fail('请先把问题设为保密，才可关联保密会议');i.evidence=i.evidence.filter(old=>old.meetingId!==m.id||m.transcript.includes(old.excerpt));i.evidence.push(e);i.needsSourceReview=i.evidence.some(old=>{const source=db.meetings.find(m=>m.id===old.meetingId);return !source?.transcript.includes(old.excerpt);});if(!i.meetingIds.includes(m.id))i.meetingIds.push(m.id);event(i,'meeting_link',a,str(b.note)||'关联后续会议');}
-      else if(b.action==='edit'){const category=str(b.category)||i.category;if(!db.businessRules.categories.includes(category))fail('分类不存在');const ids=Array.isArray(b.allowedMemberIds)?b.allowedMemberIds.filter(validMember):i.allowedMemberIds;Object.assign(i,{kind:b.kind==='routine'?'routine':b.kind==='issue'?'issue':i.kind||'issue',title:str(b.title,255)||i.title,description:str(b.description,6000),category,impact:str(b.impact,2000),department:str(b.department),tags:Array.isArray(b.tags)?b.tags.slice(0,20).map(x=>str(x,50)):i.tags,priority:['normal','medium','high'].includes(b.priority)?b.priority:i.priority,sensitivity:b.sensitivity==='restricted'?'restricted':'normal',allowedMemberIds:ids});event(i,'edited',a,'修正问题描述、分类或范围');}
+      else if(b.action==='edit'){const category=str(b.category)||i.category;if(category!==i.category&&!db.businessRules.categories.includes(category))fail('该分类已停用或不存在，请重新选择当前可用分类');const ids=Array.isArray(b.allowedMemberIds)?b.allowedMemberIds.filter(validMember):i.allowedMemberIds;Object.assign(i,{kind:b.kind==='routine'?'routine':b.kind==='issue'?'issue':i.kind||'issue',title:str(b.title,255)||i.title,description:str(b.description,6000),category,impact:str(b.impact,2000),department:str(b.department),tags:Array.isArray(b.tags)?b.tags.slice(0,20).map(x=>str(x,50)):i.tags,priority:['normal','medium','high'].includes(b.priority)?b.priority:i.priority,sensitivity:b.sensitivity==='restricted'?'restricted':'normal',allowedMemberIds:ids});event(i,'edited',a,'修正问题描述、分类或范围');}
       else fail('未知问题操作');audit(a,b.action,i.id);await save();return {issue:i};
     }
     const taskMatch=route.match(/^\/api\/workspace\/tasks\/(todo_[a-f0-9]+)$/);

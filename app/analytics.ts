@@ -1,6 +1,6 @@
 type AnalyticsSelection={title:string;tasks:Todo[]};
 let analyticsSelection:AnalyticsSelection|null=null;
-const analyticsColors=['#6798dd','#d9878d','#57a68e'];
+const analyticsColors=['#315efb','#ed8790','#91a9e6'];
 function analyticsDay(value?:string){
   if(!value)return '';
   const date=new Date(/^\d{4}-\d{2}-\d{2}$/.test(value)?value+'T00:00:00+08:00':/^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}(?::\d{2})?$/.test(value)?value.replace(' ','T')+'+08:00':value);
@@ -21,11 +21,7 @@ function analyticsData(tasks:Todo[],start:string,end:string,now=Date.now()){
 }
 function analyticsSelect(title:string,tasks:Todo[],scroll=true){
   analyticsSelection={title,tasks};
-  qs('#analyticsDetailTitle')!.textContent=title;
-  qs('#analyticsDetailCount')!.textContent=`共 ${tasks.length} 项 · 点击任务查看说明及完成证明`;
-  qs('#analyticsDetails')!.innerHTML=tasks.length?tasks.map((t,i)=>`<button class="analytics-task" data-analytics-task="${i}"><span><b>${escapeHtml(t.title)}</b><small>${escapeHtml(memberName(t.ownerId))} · 截止 ${escapeHtml(t.dueAt||'未设置')}</small></span><span class="analytics-task-state">${t.done?'已完成':analyticsData([t],'0001-01-01','0001-01-01').late(t)?'逾期待办':'未逾期待办'}</span></button>`).join(''):'<div class="analytics-empty">当前条件下暂无任务</div>';
-  qsa<HTMLElement>('[data-analytics-task]').forEach(b=>b.onclick=()=>{const t=tasks[Number(b.dataset.analyticsTask)];showWorkTask(t);});
-  if(scroll)qs('#analyticsDetailTitle')!.scrollIntoView({behavior:'smooth',block:'center'});
+  if(scroll)showBoardItems(title,tasks,'task',tasks);
 }
 function renderAnalytics(){
   const start=qs<HTMLInputElement>('#analyticsStart')!.value,end=qs<HTMLInputElement>('#analyticsEnd')!.value;

@@ -32,13 +32,14 @@ function memberOptions(selected=''){return '<option value="">选择负责人</op
 function overdue(t:Todo){return !t.done&&!!t.dueAt&&Date.parse(t.dueAt.length===10?t.dueAt+'T23:59:59':t.dueAt.replace(' ','T'))<Date.now();}
 function renderTopbarStats(){qs('#taskCount')!.textContent=String(state.todos.filter(t=>!t.done).length);}
 function renderTodos(todos:Todo[]) {
+  setupTaskCalendar();
   state.todos=todos;const pending=todos.filter(t=>!t.done),late=pending.filter(overdue),complete=todos.filter(t=>t.done),high=pending.filter(t=>t.priority==='high');
   const today=pending.filter(t=>t.dueAt?.slice(0,10)===localDay()),rate=todos.length?Math.round(complete.length/todos.length*100):0;
   qs('#dashboardDate')!.textContent=new Intl.DateTimeFormat('zh-CN',{month:'long',day:'numeric',weekday:'long',timeZone:'Asia/Shanghai'}).format(new Date());
   qs('#metrics')!.innerHTML=[['待完成',pending.length,'pending','逐项推进，及时交付','blue'],['今日到期',today.length,'today','今天需要完成的任务','amber'],['已逾期',late.length,'overdue','跟进进展，确认交付时间','rose'],['完成率',todos.length?rate+'%':'—','done',complete.length+' 项已完成 / '+todos.length+' 项任务','green']].map(([label,value,filter,hint,tone])=>`<button class="dash-stat ${tone}" data-filter="${filter}"><span>${label}<i>↗</i></span><strong>${value}</strong><small>${hint}</small></button>`).join('');
   qsa<HTMLElement>('[data-filter]').forEach(button=>{const selected=button.dataset.filter===taskFilter;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));button.onclick=()=>{taskFilter=button.dataset.filter!;renderTodos(state.todos);};});
   const search=qs<HTMLInputElement>('#taskSearch')!.value.toLowerCase(),owner=qs<HTMLSelectElement>('#ownerFilter')!.value;
-  const visible=todos.filter(t=>(taskFilter==='all'||(taskFilter==='mine'?(!t.done&&t.ownerId===currentUser?.memberId):taskFilter==='today'?(!t.done&&t.dueAt?.slice(0,10)===localDay()):taskFilter==='review'?t.status==='pending_review':taskFilter==='done'?t.done:taskFilter==='overdue'?overdue(t):!t.done))&&(!owner||owner===t.ownerId)&&(`${t.title} ${t.description||''}`.toLowerCase().includes(search)));
+  const visible=todos.filter(t=>calendarScopeMatches(t)&&(taskFilter==='all'||(taskFilter==='mine'?(!t.done&&t.ownerId===currentUser?.memberId):taskFilter==='today'?(!t.done&&t.dueAt?.slice(0,10)===localDay()):taskFilter==='review'?t.status==='pending_review':taskFilter==='done'?t.done:taskFilter==='overdue'?overdue(t):!t.done))&&(!owner||owner===t.ownerId)&&(`${t.title} ${t.description||''}`.toLowerCase().includes(search)));
   qs('#visibleTaskCount')!.textContent=String(visible.length);
   qs('#taskScope')!.textContent=({'all':'全部任务','mine':'我的待办','today':'今日到期','done':'已完成','overdue':'已逾期','pending':'待完成','review':'待验收'} as Record<string,string>)[taskFilter]+' · '+(businessLead()?'负责范围':'个人任务与验收任务');
   const upcoming=pending.filter(t=>t.dueAt&&t.dueAt.slice(0,10)<=new Date(Date.now()+7*86400000).toLocaleDateString('en-CA',{timeZone:'Asia/Shanghai'})).sort((a,b)=>a.dueAt.localeCompare(b.dueAt));
@@ -53,6 +54,7 @@ function renderTodos(todos:Todo[]) {
   qsa<HTMLElement>('[data-detail]').forEach(button=>button.onclick=()=>showWorkTask(todos.find(t=>t.id===button.dataset.detail)!));
   qs('#memberLoad')!.innerHTML=members.length?members.map(m=>{const all=todos.filter(t=>t.ownerId===m.id),done=all.filter(t=>t.done).length;return `<div class="load-row"><span>${escapeHtml(m.name)}<small>${escapeHtml(m.department)}</small></span><b>${all.length-done}<small>待处理</small></b><b>${done}<small>已完成</small></b></div>`;}).join(''):'<div class="todo-history-empty">先添加任务负责人</div>';
   renderTopbarStats();
+  renderTaskCalendar(visible);
 }
 async function refreshLocal() {
   const manager=currentUser?.role==='manager';

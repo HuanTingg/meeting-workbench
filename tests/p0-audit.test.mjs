@@ -60,3 +60,13 @@ test('P0 audit: historical task configuration validates reviewer permissions and
  db.accounts[2].permissions={review:true};await assert.rejects(op.handle('/api/workspace/tasks/todo_ac','POST',admin,{action:'configure',storeId:'store_a',reviewerId:'r'}),/无权查看/);assert.equal(t.reviewerId,undefined);
  t.allowedMemberIds.push('r');await op.handle('/api/workspace/tasks/todo_ac','POST',admin,{action:'configure',storeId:'store_a',reviewerId:'r'});assert.equal(t.reviewerId,'r');
 });
+
+test('P0 audit: editing legacy AI categories preserves original but validates changed classifications',async()=>{
+ const {db,op}=setup();db.issues.push({id:'issue_abcd',createdBy:'a',meetingIds:[],title:'培训内容',category:'培训设计',status:'pending_confirmation',description:'旧描述'});
+ const detail=await op.handle('/api/workspace/issues/issue_abcd','GET',admin);assert.deepEqual(detail.categories,db.businessRules.categories);
+ await op.handle('/api/workspace/issues/issue_abcd','PATCH',admin,{action:'edit',category:'培训设计',description:'修正描述'});assert.equal(db.issues[0].description,'修正描述');assert.equal(db.issues[0].category,'培训设计');
+ await op.handle('/api/workspace/issues/issue_abcd','PATCH',admin,{action:'edit',description:'仅修改说明'});assert.equal(db.issues[0].category,'培训设计');
+ await assert.rejects(op.handle('/api/workspace/issues/issue_abcd','PATCH',admin,{action:'edit',category:'随意分类',description:'不应保存'}),/重新选择/);assert.equal(db.issues[0].description,'仅修改说明');
+ await op.handle('/api/workspace/issues/issue_abcd','PATCH',admin,{action:'edit',category:'人员'});assert.equal(db.issues[0].category,'人员');
+ db.businessRules.categories=['其他'];await op.handle('/api/workspace/issues/issue_abcd','PATCH',admin,{action:'edit',category:'人员',description:'配置移除后仍可编辑'});assert.equal(db.issues[0].category,'人员');
+});
